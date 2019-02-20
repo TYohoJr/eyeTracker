@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Options from "./Options/Options.js";
+import EyeTest from "./EyeTest/EyeTest.js";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from "./reducers";
@@ -14,6 +15,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Options />
+          <EyeTest />
         </header>
       </div>
       </Provider>

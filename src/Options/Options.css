@@ -1,3 +1,11 @@
 #options-form {
     color:rgb(0, 0, 0);
 }
+
+.centerDot {
+    height:25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: blue;
+}

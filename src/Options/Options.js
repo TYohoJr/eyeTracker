@@ -60,7 +60,7 @@ class Options extends Component {
           </FormGroup>
           <Button>Run</Button>
         </Form>
-      </div>
+      </div >
     );
   }
 }
