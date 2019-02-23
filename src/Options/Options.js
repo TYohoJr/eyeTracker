@@ -11,6 +11,7 @@ class Options extends Component {
     this.onExtraDotColorChange = this.onExtraDotColorChange.bind(this);
     this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
     this.onRunButton = this.onRunButton.bind(this);
+    this.onDotNumberChange = this.onDotNumberChange.bind(this);
   }
 
   onCenterDotColorChange(e) {
@@ -31,6 +32,13 @@ class Options extends Component {
     this.props.dispatch({
       type: "changeDotSpeed",
       dotSpeed: e.target.value
+    })
+  }
+
+  onDotNumberChange(e) {
+    this.props.dispatch({
+      type: "changeDotNumber",
+      dotNumber: e.target.value
     })
   }
 
@@ -64,8 +72,12 @@ class Options extends Component {
             </Input>
           </FormGroup>
           <FormGroup>
-            <Label for="dotSpeed">Dot Speed </Label>
-            <Input type="number" min="0" max="5" step=".1" placeholder="0" onChange={this.onDotSpeedChange} />
+            <Label for="dotSpeed">Dot Speed(seconds) </Label>
+            <Input type="number" min="1" max="5" step=".1" placeholder={this.props.formInputsReducer.dotSpeed} onChange={this.onDotSpeedChange} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="dotNumber">Number of Cycles </Label>
+            <Input type="number" min="5" max="30" step="1" placeholder={this.props.formInputsReducer.dotNumber} onChange={this.onDotNumberChange} />
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
         </Form>

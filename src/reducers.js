@@ -2,6 +2,27 @@ import React from 'react';
 import { combineReducers } from 'redux';
 import Options from './Options/Options.js';
 
+const dotPlacementReducer = (state, action) =>{
+    if(!state) {
+        state = {
+            topPercent: `${null}%`,
+            leftPercent: `${null}%`,
+        }
+    }
+    switch (action.type) {
+        case "changeDotLocation":
+            return state = {
+                ...state,
+                topPercent: `${action.topPercent}%`,
+                leftPercent: `${action.leftPercent}%`,
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 const currentPageReducer = (state, action) => {
     if(!state) {
         state = {
@@ -26,7 +47,8 @@ const formInputsReducer = (state, action) => {
         state = {
             centerDotColor: "Black",
             extraDotColor: "Red",
-            dotSpeed: 0
+            dotSpeed: 1,
+            dotNumber: 5
         }
     }
     switch (action.type) {
@@ -43,7 +65,12 @@ const formInputsReducer = (state, action) => {
         case "changeDotSpeed":
             return state = {
                 ...state,
-                dotSpeed: action.dotSpeed
+                dotSpeed: Number(action.dotSpeed)
+            }
+        case "changeDotNumber":
+            return state = {
+                ...state,
+                dotNumber: Number(action.dotNumber)
             }
         default:
             return state = {
@@ -55,4 +82,5 @@ const formInputsReducer = (state, action) => {
 export default combineReducers({
     formInputsReducer: formInputsReducer,
     currentPageReducer: currentPageReducer,
+    dotPlacementReducer: dotPlacementReducer,
 });
