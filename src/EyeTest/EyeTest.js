@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
 import './EyeTest.css';
 import { connect } from 'react-redux';
+import RandomDot from '../RandomDot/RandomDot.js';
 
 class EyeTest extends Component {
   render() {
     return (
       <div>
+        <RandomDot />
           <span id="centerDot" style={{
               "height":"30px",
               "width":"30px",
-              "border-radius":"50%",
-              "background-color":this.props.formInputsReducer.centerDotColor,
+              "borderRadius":"50%",
+              "backgroundColor":this.props.formInputsReducer.centerDotColor,
               "display":"inline-block",
               "position":"fixed",
               "top":"50%",
               "left":"50%",
             }} />
-          <span id="extraDot" style={{
-              "height":"30px"
-              ,"width":"30px",
-              "border-radius":"50%",
-              "background-color":this.props.formInputsReducer.extraDotColor,
-              "display":"inline-block",
-              "position":"fixed",
-              "top":"25%",
-              "left":"25%",
-            }} />  
       </div >
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './Options.css';
 import { connect } from 'react-redux';
+import EyeTest from '../EyeTest/EyeTest';
 
 class Options extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class Options extends Component {
     this.onCenterDotColorChange = this.onCenterDotColorChange.bind(this);
     this.onExtraDotColorChange = this.onExtraDotColorChange.bind(this);
     this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
+    this.onRunButton = this.onRunButton.bind(this);
   }
 
   onCenterDotColorChange(e) {
@@ -29,6 +31,13 @@ class Options extends Component {
     this.props.dispatch({
       type: "changeDotSpeed",
       dotSpeed: e.target.value
+    })
+  }
+
+  onRunButton(e) {
+    this.props.dispatch({
+      type: "changeCurrentPage",
+      currentPage: <EyeTest />
     })
   }
 
@@ -58,7 +67,7 @@ class Options extends Component {
             <Label for="dotSpeed">Dot Speed </Label>
             <Input type="number" min="0" max="5" step=".1" placeholder="0" onChange={this.onDotSpeedChange} />
           </FormGroup>
-          <Button>Run</Button>
+          <Button onClick={this.onRunButton}>Run</Button>
         </Form>
       </div >
     );

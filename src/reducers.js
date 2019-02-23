@@ -1,4 +1,25 @@
+import React from 'react';
 import { combineReducers } from 'redux';
+import Options from './Options/Options.js';
+
+const currentPageReducer = (state, action) => {
+    if(!state) {
+        state = {
+            currentPage:<Options />
+        }
+    }
+    switch (action.type) {
+        case "changeCurrentPage":
+            return state = {
+                ...state,
+                currentPage: action.currentPage
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
 
 const formInputsReducer = (state, action) => {
     if (!state) {
@@ -33,4 +54,5 @@ const formInputsReducer = (state, action) => {
 
 export default combineReducers({
     formInputsReducer: formInputsReducer,
+    currentPageReducer: currentPageReducer,
 });
