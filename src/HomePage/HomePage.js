@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import { connect } from 'react-redux';
 import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RamdomSaccadesOptions.js";
+import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions';
 
 class HomePage extends Component {
     constructor(){
@@ -21,7 +22,7 @@ class HomePage extends Component {
     staticDots(){
         this.props.dispatch({
             type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            currentPage:<StaticDotsOptions />
         })
     }
 
