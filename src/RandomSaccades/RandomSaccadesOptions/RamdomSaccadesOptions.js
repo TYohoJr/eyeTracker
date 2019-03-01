@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './RandomSaccadesOptions.css';
 import { connect } from 'react-redux';
-import EyeTest from '../../EyeTest/EyeTest.js';
+import EyeTest from '../EyeTest/EyeTest.js';
 
 class RandomSaccadesOptions extends Component {
   constructor() {

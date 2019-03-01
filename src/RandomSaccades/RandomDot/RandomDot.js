@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RandomDot.css';
 import { connect } from 'react-redux';
-import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RamdomSaccadesOptions";
+import RandomSaccadesOptions from "../RandomSaccadesOptions/RamdomSaccadesOptions";
 
 var counter = 0;
 
