@@ -11,13 +11,11 @@ class App extends Component {
   render() {
     return (
       <Provider store={store} >
-      <div className="App">
-        <header className="App-header">
-          {/* <Options />
-          <EyeTest /> */}
-          <CurrentPage />
-        </header>
-      </div>
+        <div className="App">
+          <header className="App-header">
+            <CurrentPage />
+          </header>
+        </div>
       </Provider>
     );
   }

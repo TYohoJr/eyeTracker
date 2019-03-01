@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RandomDot.css';
 import { connect } from 'react-redux';
-import Options from "../Options/Options.js";
+import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RamdomSaccadesOptions";
 
 var counter = 0;
 
@@ -13,7 +13,7 @@ class RandomDot extends Component {
                 counter = 1;
                 this.props.dispatch({
                     type: "changeCurrentPage",
-                    currentPage: <Options />
+                    currentPage: <RandomSaccadesOptions />
                 })
                 clearInterval(this.timerID);
             } else {

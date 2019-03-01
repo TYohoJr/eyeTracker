@@ -1,6 +1,6 @@
 import React from 'react';
 import { combineReducers } from 'redux';
-import Options from './Options/Options.js';
+import HomePage from './HomePage/HomePage.js';
 
 const dotPlacementReducer = (state, action) =>{
     if(!state) {
@@ -26,7 +26,7 @@ const dotPlacementReducer = (state, action) =>{
 const currentPageReducer = (state, action) => {
     if(!state) {
         state = {
-            currentPage:<Options />
+            currentPage:<HomePage />
         }
     }
     switch (action.type) {

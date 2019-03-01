@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import './Options.css';
+import './RandomSaccadesOptions.css';
 import { connect } from 'react-redux';
-import EyeTest from '../EyeTest/EyeTest';
+import EyeTest from '../../EyeTest/EyeTest.js';
 
-class Options extends Component {
+class RandomSaccadesOptions extends Component {
   constructor() {
     super();
     this.onCenterDotColorChange = this.onCenterDotColorChange.bind(this);
@@ -86,4 +86,4 @@ class Options extends Component {
   }
 }
 
-export default connect((state) => (state))(Options);
+export default connect((state) => (state))(RandomSaccadesOptions);
