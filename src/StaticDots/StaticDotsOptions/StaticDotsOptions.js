@@ -3,6 +3,7 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './StaticDotsOptions.css';
 import { connect } from 'react-redux';
 import StaticDotsExercise from '../StaticDotsExercise/StaticDotsExercise';
+import HomePage from '../../HomePage/HomePage';
 
 class StaticDotsOptions extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class StaticDotsOptions extends Component {
     this.onCenterDotColorChange = this.onCenterDotColorChange.bind(this);
     this.onExtraDotColorChange = this.onExtraDotColorChange.bind(this);
     this.onRunButton = this.onRunButton.bind(this);
+    this.returnHome = this.returnHome.bind(this);
   }
 
   onCenterDotColorChange(e) {
@@ -33,13 +35,20 @@ class StaticDotsOptions extends Component {
     })
   }
 
+  returnHome(){
+      this.props.dispatch({
+          type:"changeCurrentPage",
+          currentPage: <HomePage />
+      })
+  }
+
   render() {
     return (
       <div>
         <Form id="options-form">
           <FormGroup>
             <Label for="centerDotColor">Center Dot Color: </Label>
-            <Input type="select" name="centerDotColor" onChange={this.onCenterDotColorChange}>
+            <Input type="select" name="centerDotColor" value={this.props.formInputsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
               <option>Black</option>
               <option>Red</option>
               <option>Blue</option>
@@ -48,7 +57,7 @@ class StaticDotsOptions extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="extraDotColor">Extra Dot Color: </Label>
-            <Input type="select" name="extraDotColor" onChange={this.onExtraDotColorChange}>
+            <Input type="select" name="extraDotColor" value={this.props.formInputsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
               <option>Red</option>
               <option>Black</option>
               <option>Blue</option>
@@ -56,7 +65,9 @@ class StaticDotsOptions extends Component {
             </Input>
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
+          <Input type="reset">Reset</Input>
         </Form>
+        <Button onClick={this.returnHome}>Home</Button>
       </div >
     );
   }

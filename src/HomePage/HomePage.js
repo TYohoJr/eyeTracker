@@ -5,7 +5,7 @@ import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/Ramdo
 import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions';
 
 class HomePage extends Component {
-    constructor(){
+    constructor() {
         super();
         this.staticDots = this.staticDots.bind(this);
         this.pursuits = this.pursuits.bind(this);
@@ -19,94 +19,100 @@ class HomePage extends Component {
         this.gazeStability = this.gazeStability.bind(this);
     }
 
-    staticDots(){
+    // componentDidMount() {
+    //     this.props.dispatch({
+    //         type: "resetAll"
+    //     })
+    // }
+
+    staticDots() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<StaticDotsOptions />
+            type: "changeCurrentPage",
+            currentPage: <StaticDotsOptions />
         })
     }
 
-    pursuits(){
+    pursuits() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    saccades(){
+    saccades() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    combination(){
+    combination() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    randomSaccades(){
+    randomSaccades() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    antisaccades(){
+    antisaccades() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    opk(){
+    opk() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    hemistim(){
+    hemistim() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    memorySaccades(){
+    memorySaccades() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-    gazeStability(){
+    gazeStability() {
         this.props.dispatch({
-            type:"changeCurrentPage",
-            currentPage:<RandomSaccadesOptions />
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
         })
     }
 
-  render() {
-    return (
-      <div>
-        <div>
-            <button onClick={this.staticDots}>Static Dots</button>
-            <button onClick={this.pursuits}>Pursuits</button>
-            <button onClick={this.saccades}>Saccades</button>
-            <button onClick={this.combination}>Combination Saccades & Pursuits</button>
-            <button onClick={this.randomSaccades}>Random Saccades</button>
-            <button onClick={this.antisaccades}>Antisaccades</button>
-            <button onClick={this.opk}>OPK</button>
-            <button onClick={this.hemistim}>Hemistim</button>
-            <button onClick={this.memorySaccades}>Memory Saccades</button>
-            <button onClick={this.gazeStability}>Gaze Stability</button>
-        </div>
-      </div >
-    );
-  }
+    render() {
+        return (
+            <div>
+                <div>
+                    <button onClick={this.staticDots}>Static Dots</button>
+                    <button onClick={this.pursuits}>Pursuits</button>
+                    <button onClick={this.saccades}>Saccades</button>
+                    <button onClick={this.combination}>Combination Saccades & Pursuits</button>
+                    <button onClick={this.randomSaccades}>Random Saccades</button>
+                    <button onClick={this.antisaccades}>Antisaccades</button>
+                    <button onClick={this.opk}>OPK</button>
+                    <button onClick={this.hemistim}>Hemistim</button>
+                    <button onClick={this.memorySaccades}>Memory Saccades</button>
+                    <button onClick={this.gazeStability}>Gaze Stability</button>
+                </div>
+            </div >
+        );
+    }
 }
 
 export default connect((state) => (state))(HomePage);

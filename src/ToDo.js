@@ -1,5 +1,7 @@
 // Add home page with multiple exercise options
 
+// Split reducers into individual exercises
+
 // Exercises to add:
 // ☐ Static dots
 // ☐ Pursuits (Scrolling dots)

@@ -2,8 +2,8 @@ import React from 'react';
 import { combineReducers } from 'redux';
 import HomePage from './HomePage/HomePage.js';
 
-const dotPlacementReducer = (state, action) =>{
-    if(!state) {
+const dotPlacementReducer = (state, action) => {
+    if (!state) {
         state = {
             topPercent: `${null}%`,
             leftPercent: `${null}%`,
@@ -16,6 +16,11 @@ const dotPlacementReducer = (state, action) =>{
                 topPercent: `${action.topPercent}%`,
                 leftPercent: `${action.leftPercent}%`,
             }
+        case "resetAll":
+            return state = {
+                topPercent: `${null}%`,
+                leftPercent: `${null}%`,
+            }
         default:
             return state = {
                 ...state
@@ -24,9 +29,9 @@ const dotPlacementReducer = (state, action) =>{
 }
 
 const currentPageReducer = (state, action) => {
-    if(!state) {
+    if (!state) {
         state = {
-            currentPage:<HomePage />
+            currentPage: <HomePage />
         }
     }
     switch (action.type) {
@@ -47,7 +52,7 @@ const formInputsReducer = (state, action) => {
         state = {
             centerDotColor: "Black",
             extraDotColor: "Red",
-            dotSpeed: 1,
+            dotSpeed: .2,
             dotNumber: 5
         }
     }
@@ -71,6 +76,13 @@ const formInputsReducer = (state, action) => {
             return state = {
                 ...state,
                 dotNumber: Number(action.dotNumber)
+            }
+        case "resetAll":
+            return state = {
+                centerDotColor: "Black",
+                extraDotColor: "Red",
+                dotSpeed: .2,
+                dotNumber: 5
             }
         default:
             return state = {
