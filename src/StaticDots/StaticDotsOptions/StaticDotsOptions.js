@@ -17,14 +17,14 @@ class StaticDotsOptions extends Component {
 
   onCenterDotColorChange(e) {
     this.props.dispatch({
-      type: "changeCenterDotColor",
+      type: "changeSDCenterDotColor",
       centerDotColor: e.target.value
     })
   }
 
   onExtraDotColorChange(e) {
     this.props.dispatch({
-      type: "changeExtraDotColor",
+      type: "changeSDExtraDotColor",
       extraDotColor: e.target.value
     })
   }
@@ -45,7 +45,7 @@ class StaticDotsOptions extends Component {
 
   resetOptions() {
     this.props.dispatch({
-      type: "resetAll"
+      type: "resetSD"
     })
   }
 
@@ -55,7 +55,7 @@ class StaticDotsOptions extends Component {
         <Form id="options-form">
           <FormGroup>
             <Label for="centerDotColor">Center Dot Color: </Label>
-            <Input type="select" name="centerDotColor" value={this.props.formInputsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
+            <Input type="select" name="centerDotColor" value={this.props.staticDotsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
               <option>Black</option>
               <option>Red</option>
               <option>Blue</option>
@@ -64,7 +64,7 @@ class StaticDotsOptions extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="extraDotColor">Extra Dot Color: </Label>
-            <Input type="select" name="extraDotColor" value={this.props.formInputsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
+            <Input type="select" name="extraDotColor" value={this.props.staticDotsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
               <option>Red</option>
               <option>Black</option>
               <option>Blue</option>

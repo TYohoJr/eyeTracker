@@ -47,7 +47,7 @@ const currentPageReducer = (state, action) => {
     }
 }
 
-const randomSaccadesOptionsReducer = (state, action) => {
+const randomSaccadesReducer = (state, action) => {
     if (!state) {
         state = {
             centerDotColor: "Black",
@@ -91,42 +91,28 @@ const randomSaccadesOptionsReducer = (state, action) => {
     }
 }
 
-const formInputsReducer = (state, action) => {
+const staticDotsReducer = (state, action) => {
     if (!state) {
         state = {
             centerDotColor: "Black",
             extraDotColor: "Red",
-            dotSpeed: .2,
-            dotNumber: 5
         }
     }
     switch (action.type) {
-        case "changeCenterDotColor":
+        case "changeSDCenterDotColor":
             return state = {
                 ...state,
                 centerDotColor: action.centerDotColor
             }
-        case "changeExtraDotColor":
+        case "changeSDExtraDotColor":
             return state = {
                 ...state,
                 extraDotColor: action.extraDotColor
             }
-        case "changeDotSpeed":
-            return state = {
-                ...state,
-                dotSpeed: Number(action.dotSpeed)
-            }
-        case "changeDotNumber":
-            return state = {
-                ...state,
-                dotNumber: Number(action.dotNumber)
-            }
-        case "resetAll":
+        case "resetSD":
             return state = {
                 centerDotColor: "Black",
                 extraDotColor: "Red",
-                dotSpeed: .2,
-                dotNumber: 5
             }
         default:
             return state = {
@@ -136,8 +122,8 @@ const formInputsReducer = (state, action) => {
 }
 
 export default combineReducers({
-    formInputsReducer: formInputsReducer,
+    staticDotsReducer: staticDotsReducer,
     currentPageReducer: currentPageReducer,
     dotPlacementReducer: dotPlacementReducer,
-    randomSaccadesOptionsReducer: randomSaccadesOptionsReducer,
+    randomSaccadesReducer: randomSaccadesReducer,
 });

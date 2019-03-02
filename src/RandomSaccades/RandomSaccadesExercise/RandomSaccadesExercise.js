@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import './RandomDot.css';
+import './RandomSaccadesExercise.css';
 import { connect } from 'react-redux';
 import RandomSaccadesOptions from "../RandomSaccadesOptions/RamdomSaccadesOptions";
 
 var counter = 0;
 
-class RandomDot extends Component {
+class RandomSaccadesExercise extends Component {
     componentDidMount() {
-        console.log(this.props.randomSaccadesOptionsReducer.dotSpeed)
+        console.log(this.props.randomSaccadesReducer.dotSpeed)
         this.timerID = setInterval(() => {
-            if (counter === this.props.randomSaccadesOptionsReducer.dotNumber) {
+            if (counter === this.props.randomSaccadesReducer.dotNumber) {
                 counter = 1;
                 this.props.dispatch({
                     type: "changeCurrentPage",
@@ -25,17 +25,27 @@ class RandomDot extends Component {
                 counter++;
             }
             console.log(this.props.dotPlacementReducer.topPercent)
-        }, this.props.randomSaccadesOptionsReducer.dotSpeed * 1000)
+        }, this.props.randomSaccadesReducer.dotSpeed * 1000)
     }
 
     render() {
         return (
             <div>
+                <span id="centerDot" style={{
+                    "height": "30px",
+                    "width": "30px",
+                    "borderRadius": "50%",
+                    "backgroundColor": this.props.randomSaccadesReducer.centerDotColor,
+                    "display": "inline-block",
+                    "position": "fixed",
+                    "top": "50%",
+                    "left": "50%",
+                }} />
                 <span id="RandomDot" style={{
                     "height": "30px",
                     "width": "30px",
                     "borderRadius": "50%",
-                    "backgroundColor": this.props.randomSaccadesOptionsReducer.extraDotColor,
+                    "backgroundColor": this.props.randomSaccadesReducer.extraDotColor,
                     "display": "inline-block",
                     "position": "fixed",
                     "top": this.props.dotPlacementReducer.topPercent,
@@ -46,4 +56,4 @@ class RandomDot extends Component {
     }
 }
 
-export default connect((state) => (state))(RandomDot);
+export default connect((state) => (state))(RandomSaccadesExercise);
