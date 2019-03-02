@@ -5,6 +5,7 @@ import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/Ramdo
 import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions';
 import OPKOptions from '../OPK/OPKOptions/OPKOptions';
 import PursuitsOptions from '../Pursuits/PursuitsOptions/PursuitsOptions';
+import SaccadesOptions from '../Saccades/SaccadesOptions/SaccadesOptions.js';
 
 class HomePage extends Component {
     constructor() {
@@ -44,7 +45,7 @@ class HomePage extends Component {
     saccades() {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <RandomSaccadesOptions />
+            currentPage: <SaccadesOptions />
         })
     }
 

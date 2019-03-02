@@ -195,6 +195,57 @@ const pursuitsReducer = (state, action) => {
     }
 }
 
+const saccadesReducer = (state, action) => {
+    if (!state) {
+        state = {
+            direction: "TLtoBR",
+            dotColor: "Red",
+            dotSpeed: 1,
+            cycles: 1,
+            steps:3,
+        }
+    }
+    switch (action.type) {
+        case "changeSaccadesDirection":
+            return state = {
+                ...state,
+                direction: action.direction
+            }
+        case "changeSaccadesDotColor":
+            return state = {
+                ...state,
+                dotColor: action.dotColor
+            }
+        case "changeSaccadesDotSpeed":
+            return state = {
+                ...state,
+                dotSpeed: action.dotSpeed
+            }
+        case "changeSaccadesCycles":
+            return state = {
+                ...state,
+                cycles: action.cycles
+            }
+        case "changeSaccadesSteps":
+            return state = {
+                ...state,
+                steps: action.steps
+            }
+        case "resetSaccades":
+            return state = {
+                direction: "TLtoBR",
+                dotColor: "Red",
+                dotSpeed: 1,
+                cycles: 1,
+                steps: 3,
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 export default combineReducers({
     staticDotsReducer: staticDotsReducer,
     currentPageReducer: currentPageReducer,
@@ -202,4 +253,5 @@ export default combineReducers({
     randomSaccadesReducer: randomSaccadesReducer,
     opkReducer: opkReducer,
     pursuitsReducer: pursuitsReducer,
+    saccadesReducer: saccadesReducer,
 });

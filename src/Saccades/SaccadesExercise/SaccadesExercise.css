@@ -1,0 +1,90 @@
+@keyframes TLtoBR{
+    100% {
+        top:95%;
+        left:95%;
+    }
+}
+
+@keyframes TMtoBM{
+    from {
+        top:5%;
+        left:50%;
+    }
+
+    to {
+        top:95%;
+        left:50%;
+    }
+}
+
+@keyframes TRtoBL{
+    from {
+        top:5%;
+        left:95%;
+    }
+
+    to {
+        top:95%;
+        left:5%;
+    }
+}
+
+@keyframes MLtoMR{
+    from {
+        top:50%;
+        left:5%;
+    }
+
+    to {
+        top:50%;
+        left:95%;
+    }
+}
+
+@keyframes MRtoML{
+    from {
+        top:50%;
+        left:95%;
+    }
+
+    to {
+        top:50%;
+        left:5%;
+    }
+}
+
+@keyframes BLtoTR{
+    from {
+        top:95%;
+        left:5%;
+    }
+
+    to {
+        top:5%;
+        left:95%;
+    }
+}
+
+@keyframes BMtoTM{
+    from {
+        top:95%;
+        left:50%;
+    }
+
+    to {
+        top:5%;
+        left:50%;
+    }
+}
+
+@keyframes BRtoTL{
+    from {
+        top:95%;
+        left:95%;
+    }
+
+    to {
+        top:5%;
+        left:5%;
+    }
+}
