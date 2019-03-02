@@ -19,40 +19,38 @@ class PursuitsExercise extends Component {
     render() {
         var topValue;
         var leftValue;
-        switch (this.props.pursuitsReducer.startingLocation) {
-            case "Top Left":
+        var animationName = this.props.pursuitsReducer.direction;
+        var animationDuration = 10.5 - this.props.pursuitsReducer.dotSpeed;
+        switch (this.props.pursuitsReducer.direction) {
+            case "TLtoBR":
                 topValue = 5;
                 leftValue = 5;
                 break;
-            case "Top Middle":
+            case "TMtoBM":
                 topValue = 5;
                 leftValue = 50;
                 break;
-            case "Top Right":
+            case "TRtoBL":
                 topValue = 5;
                 leftValue = 95;
                 break;
-            case "Middle Left":
+            case "MLtoMR":
                 topValue = 50;
                 leftValue = 5;
                 break;
-            case "Middle":
-                topValue = 50;
-                leftValue = 50;
-                break;
-            case "Middle Right":
+            case "MRtoML":
                 topValue = 50;
                 leftValue = 95;
                 break;
-            case "Bottom Left":
+            case "BLtoTR":
                 topValue = 95;
                 leftValue = 5;
                 break;
-            case "Bottom Middle":
+            case "BMtoTM":
                 topValue = 95;
                 leftValue = 50;
                 break;
-            case "Bottom Right":
+            case "BRtoTL":
                 topValue = 95;
                 leftValue = 95;
                 break;
@@ -62,10 +60,12 @@ class PursuitsExercise extends Component {
         }
         return (
             <div>
-                <span id="static-center-dot" style={{
+                <span id="pursuits-dot" style={{
                     "backgroundColor": this.props.pursuitsReducer.dotColor,
                     "top": `${topValue}%`,
                     "left": `${leftValue}%`,
+                    "animationName":`${animationName}`,
+                    "animationDuration":`${animationDuration}s`,
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div>

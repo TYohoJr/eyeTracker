@@ -105,31 +105,31 @@ class HomePage extends Component {
                         <button className="homepage-btn" onClick={this.staticDots}><img className="preview-thumbnail" src={require("../project-images/static-dots.png")} alt="rs" /><br />Static Dots</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.pursuits}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Pursuits</button>
+                        <button className="homepage-btn" onClick={this.pursuits}><img className="preview-thumbnail" src={require("../project-images/pursuits.png")} alt="rs" /><br />Pursuits</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.saccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Saccades</button>
+                        <button className="homepage-btn" onClick={this.saccades}><img className="preview-thumbnail" src={require("../project-images/saccades.png")} alt="rs" /><br />Saccades</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.combination}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Combination Saccades & Pursuits</button>
+                        <button className="homepage-btn" onClick={this.combination}><img className="preview-thumbnail" src={require("../project-images/combination.png")} alt="rs" /><br />Combination Saccades & Pursuits</button>
                     </div>
                     <div className="btn-div">
                         <button className="homepage-btn" onClick={this.randomSaccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Random Saccades</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.antisaccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Antisaccades</button>
+                        <button className="homepage-btn" onClick={this.antisaccades}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Antisaccades</button>
                     </div>
                     <div className="btn-div">
                         <button className="homepage-btn" onClick={this.opk}><img className="preview-thumbnail" src={require("../project-images/opk.png")} alt="rs" /><br />OPK</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.hemistim}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Hemistim</button>
+                        <button className="homepage-btn" onClick={this.hemistim}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Hemistim</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.memorySaccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Memory Saccades</button>
+                        <button className="homepage-btn" onClick={this.memorySaccades}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Memory Saccades</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.gazeStability}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Gaze Stability</button>
+                        <button className="homepage-btn" onClick={this.gazeStability}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Gaze Stability</button>
                     </div>
                 </div>
             </div >

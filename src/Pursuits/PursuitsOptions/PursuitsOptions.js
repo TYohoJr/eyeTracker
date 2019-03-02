@@ -10,7 +10,7 @@ class PursuitsOptions extends Component {
         super();
         this.onDotColorChange = this.onDotColorChange.bind(this);
         this.onStartingLocationChange = this.onStartingLocationChange.bind(this);
-        this.onEndingLocationChange = this.onEndingLocationChange.bind(this);
+        this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
         this.returnHome = this.returnHome.bind(this);
         this.resetOptions = this.resetOptions.bind(this);
@@ -30,10 +30,10 @@ class PursuitsOptions extends Component {
         })
     }
 
-    onEndingLocationChange(e) {
+    onDotSpeedChange(e) {
         this.props.dispatch({
-            type: "changePursuitsEndingLocation",
-            endingLocation: e.target.value
+            type: "changePursuitsDotSpeed",
+            dotSpeed: e.target.value
         })
     }
 
@@ -72,36 +72,21 @@ class PursuitsOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="extraDotColor">Starting Location: </Label>
+                        <Label for="extraDotColor">Dot Movement: </Label>
                         <Input type="select" name="extraDotColor" value={this.props.pursuitsReducer.startingLocation} onChange={this.onStartingLocationChange}>
-                            <option>Top Left</option>
-                            <option>Top Middle</option>
-                            <option>Top Right</option>
-                            <option>Middle Left</option>
-                            <option>Middle</option>
-                            <option>Middle Right</option>
-                            <option>Bottom Left</option>
-                            <option>Bottom Middle</option>
-                            <option>Bottom Right</option>
+                            <option value="TLtoBR">Top Left to Bottom Right</option>
+                            <option value="TMtoBM">Top Middle to Bottom Middle</option>
+                            <option value="TRtoBL">Top Right to Bottom Left</option>
+                            <option value="MLtoMR">Middle Left to Middle Right</option>
+                            <option value="MRtoML">Middle Right to Middle Left</option>
+                            <option value="BLtoTR">Bottom Left to Top Right</option>
+                            <option value="BMtoTM">Bottom Middle to Top Middle</option>
+                            <option value="BRtoTL">Bottom Right to Top Left</option>
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="extraDotColor">Ending Location: </Label>
-                        <Input type="select" name="extraDotColor" value={this.props.pursuitsReducer.endingLocation} onChange={this.onEndingLocationChange}>
-                            <option>Top Left</option>
-                            <option>Top Middle</option>
-                            <option>Top Right</option>
-                            <option>Middle Left</option>
-                            <option>Middle</option>
-                            <option>Middle Right</option>
-                            <option>Bottom Left</option>
-                            <option>Bottom Middle</option>
-                            <option>Bottom Right</option>
-                        </Input>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="dotSpeed">Scroll Speed </Label>
-                        <Input type="number" min="1" max="10" step=".5" value={this.props.opkReducer.scrollSpeed} onChange={this.onScrollSpeedhange} />
+                        <Label for="dotSpeed">Scroll Speed: </Label>
+                        <Input type="number" min="1" max="10" step=".5" value={this.props.pursuitsReducer.dotSpeed} onChange={this.onDotSpeedChange} />
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
                     <Button onClick={this.resetOptions}>Reset</Button>

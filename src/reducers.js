@@ -161,32 +161,32 @@ const opkReducer = (state, action) => {
 const pursuitsReducer = (state, action) => {
     if (!state) {
         state = {
-            startingLocation: "Top Left",
-            endingLocation: "Bottom Right",
-            dotColor: "Red"
+            direction: "TLtoBR",
+            dotColor: "Red",
+            dotSpeed: 1,
         }
     }
     switch (action.type) {
-        case "changePursuitsStartingLocation":
+        case "changePursuitsDirection":
             return state = {
                 ...state,
-                startingLocation: action.startingLocation
-            }
-        case "changePursuitsEndingLocation":
-            return state = {
-                ...state,
-                endingLocation: action.endingLocation
+                direction: action.direction
             }
         case "changePursuitsDotColor":
             return state = {
                 ...state,
                 dotColor: action.dotColor
             }
+        case "changePursuitsDotSpeed":
+            return state = {
+                ...state,
+                dotSpeed: action.dotSpeed
+            }
         case "resetOPK":
             return state = {
-                startingLocation: "Top Left",
-                endingLocation: "Bottom Right",
-                dotColor: "Red"
+                direction: "TLtoBR",
+                dotColor: "Red",
+                dotSpeed: 1
             }
         default:
             return state = {
