@@ -47,6 +47,50 @@ const currentPageReducer = (state, action) => {
     }
 }
 
+const randomSaccadesOptionsReducer = (state, action) => {
+    if (!state) {
+        state = {
+            centerDotColor: "Black",
+            extraDotColor: "Red",
+            dotSpeed: .2,
+            dotNumber: 5
+        }
+    }
+    switch (action.type) {
+        case "changeRSCenterDotColor":
+            return state = {
+                ...state,
+                centerDotColor: action.centerDotColor
+            }
+        case "changeRSExtraDotColor":
+            return state = {
+                ...state,
+                extraDotColor: action.extraDotColor
+            }
+        case "changeRSDotSpeed":
+            return state = {
+                ...state,
+                dotSpeed: Number(action.dotSpeed)
+            }
+        case "changeRSDotNumber":
+            return state = {
+                ...state,
+                dotNumber: Number(action.dotNumber)
+            }
+        case "resetRS":
+            return state = {
+                centerDotColor: "Black",
+                extraDotColor: "Red",
+                dotSpeed: .2,
+                dotNumber: 5
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 const formInputsReducer = (state, action) => {
     if (!state) {
         state = {
@@ -95,4 +139,5 @@ export default combineReducers({
     formInputsReducer: formInputsReducer,
     currentPageReducer: currentPageReducer,
     dotPlacementReducer: dotPlacementReducer,
+    randomSaccadesOptionsReducer: randomSaccadesOptionsReducer,
 });

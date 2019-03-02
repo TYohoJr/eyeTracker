@@ -19,28 +19,28 @@ class RandomSaccadesOptions extends Component {
 
   onCenterDotColorChange(e) {
     this.props.dispatch({
-      type: "changeCenterDotColor",
+      type: "changeRSCenterDotColor",
       centerDotColor: e.target.value
     })
   }
 
   onExtraDotColorChange(e) {
     this.props.dispatch({
-      type: "changeExtraDotColor",
+      type: "changeRSExtraDotColor",
       extraDotColor: e.target.value
     })
   }
 
   onDotSpeedChange(e) {
     this.props.dispatch({
-      type: "changeDotSpeed",
+      type: "changeRSDotSpeed",
       dotSpeed: e.target.value
     })
   }
 
   onDotNumberChange(e) {
     this.props.dispatch({
-      type: "changeDotNumber",
+      type: "changeRSDotNumber",
       dotNumber: e.target.value
     })
   }
@@ -61,18 +61,18 @@ class RandomSaccadesOptions extends Component {
 
   resetOptions() {
     this.props.dispatch({
-      type: "resetAll"
+      type: "resetRS"
     })
   }
 
   render() {
-    console.log(this.props.formInputsReducer.dotSpeed)
+    console.log(this.props.randomSaccadesOptionsReducer.dotSpeed)
     return (
       <div>
         <Form id="options-form">
           <FormGroup>
             <Label for="centerDotColor">Center Dot Color: </Label>
-            <Input type="select" name="centerDotColor" value={this.props.formInputsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
+            <Input type="select" name="centerDotColor" value={this.props.randomSaccadesOptionsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
               <option>Black</option>
               <option>Red</option>
               <option>Blue</option>
@@ -81,7 +81,7 @@ class RandomSaccadesOptions extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="extraDotColor">Extra Dot Color: </Label>
-            <Input type="select" name="extraDotColor" value={this.props.formInputsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
+            <Input type="select" name="extraDotColor" value={this.props.randomSaccadesOptionsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
               <option>Red</option>
               <option>Black</option>
               <option>Blue</option>
@@ -90,11 +90,11 @@ class RandomSaccadesOptions extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="dotSpeed">Dot Speed(seconds) </Label>
-            <Input type="number" min=".2" max="5" step=".2" value={this.props.formInputsReducer.dotSpeed} onChange={this.onDotSpeedChange} />
+            <Input type="number" min=".2" max="5" step=".2" value={this.props.randomSaccadesOptionsReducer.dotSpeed} onChange={this.onDotSpeedChange} />
           </FormGroup>
           <FormGroup>
             <Label for="dotNumber">Number of Cycles </Label>
-            <Input type="number" min="5" max="30" step="1" value={this.props.formInputsReducer.dotNumber} onChange={this.onDotNumberChange} />
+            <Input type="number" min="5" max="30" step="1" value={this.props.randomSaccadesOptionsReducer.dotNumber} onChange={this.onDotNumberChange} />
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
           <Button onClick={this.resetOptions}>Reset</Button>

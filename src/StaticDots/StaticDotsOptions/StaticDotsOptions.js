@@ -12,6 +12,7 @@ class StaticDotsOptions extends Component {
     this.onExtraDotColorChange = this.onExtraDotColorChange.bind(this);
     this.onRunButton = this.onRunButton.bind(this);
     this.returnHome = this.returnHome.bind(this);
+    this.resetOptions = this.resetOptions.bind(this);
   }
 
   onCenterDotColorChange(e) {
@@ -35,11 +36,17 @@ class StaticDotsOptions extends Component {
     })
   }
 
-  returnHome(){
-      this.props.dispatch({
-          type:"changeCurrentPage",
-          currentPage: <HomePage />
-      })
+  returnHome() {
+    this.props.dispatch({
+      type: "changeCurrentPage",
+      currentPage: <HomePage />
+    })
+  }
+
+  resetOptions() {
+    this.props.dispatch({
+      type: "resetAll"
+    })
   }
 
   render() {
@@ -65,7 +72,7 @@ class StaticDotsOptions extends Component {
             </Input>
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
-          <Input type="reset">Reset</Input>
+          <Button onClick={this.resetOptions}>Reset</Button>
         </Form>
         <Button onClick={this.returnHome}>Home</Button>
       </div >

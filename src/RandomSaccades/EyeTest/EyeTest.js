@@ -12,7 +12,7 @@ class EyeTest extends Component {
           "height": "30px",
           "width": "30px",
           "borderRadius": "50%",
-          "backgroundColor": this.props.formInputsReducer.centerDotColor,
+          "backgroundColor": this.props.randomSaccadesOptionsReducer.centerDotColor,
           "display": "inline-block",
           "position": "fixed",
           "top": "50%",

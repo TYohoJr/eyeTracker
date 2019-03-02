@@ -7,9 +7,9 @@ var counter = 0;
 
 class RandomDot extends Component {
     componentDidMount() {
-        console.log(this.props.formInputsReducer.dotSpeed)
+        console.log(this.props.randomSaccadesOptionsReducer.dotSpeed)
         this.timerID = setInterval(() => {
-            if (counter === this.props.formInputsReducer.dotNumber) {
+            if (counter === this.props.randomSaccadesOptionsReducer.dotNumber) {
                 counter = 1;
                 this.props.dispatch({
                     type: "changeCurrentPage",
@@ -25,7 +25,7 @@ class RandomDot extends Component {
                 counter++;
             }
             console.log(this.props.dotPlacementReducer.topPercent)
-        }, this.props.formInputsReducer.dotSpeed * 1000)
+        }, this.props.randomSaccadesOptionsReducer.dotSpeed * 1000)
     }
 
     render() {
@@ -35,7 +35,7 @@ class RandomDot extends Component {
                     "height": "30px",
                     "width": "30px",
                     "borderRadius": "50%",
-                    "backgroundColor": this.props.formInputsReducer.extraDotColor,
+                    "backgroundColor": this.props.randomSaccadesOptionsReducer.extraDotColor,
                     "display": "inline-block",
                     "position": "fixed",
                     "top": this.props.dotPlacementReducer.topPercent,
