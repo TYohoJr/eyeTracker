@@ -158,10 +158,48 @@ const opkReducer = (state, action) => {
     }
 }
 
+const pursuitsReducer = (state, action) => {
+    if (!state) {
+        state = {
+            startingLocation: "Top Left",
+            endingLocation: "Bottom Right",
+            dotColor: "Red"
+        }
+    }
+    switch (action.type) {
+        case "changePursuitsStartingLocation":
+            return state = {
+                ...state,
+                startingLocation: action.startingLocation
+            }
+        case "changePursuitsEndingLocation":
+            return state = {
+                ...state,
+                endingLocation: action.endingLocation
+            }
+        case "changePursuitsDotColor":
+            return state = {
+                ...state,
+                dotColor: action.dotColor
+            }
+        case "resetOPK":
+            return state = {
+                startingLocation: "Top Left",
+                endingLocation: "Bottom Right",
+                dotColor: "Red"
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 export default combineReducers({
     staticDotsReducer: staticDotsReducer,
     currentPageReducer: currentPageReducer,
     dotPlacementReducer: dotPlacementReducer,
     randomSaccadesReducer: randomSaccadesReducer,
     opkReducer: opkReducer,
+    pursuitsReducer: pursuitsReducer,
 });

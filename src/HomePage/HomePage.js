@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RamdomSaccadesOptions.js";
 import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions';
 import OPKOptions from '../OPK/OPKOptions/OPKOptions';
+import PursuitsOptions from '../Pursuits/PursuitsOptions/PursuitsOptions';
 
 class HomePage extends Component {
     constructor() {
@@ -36,7 +37,7 @@ class HomePage extends Component {
     pursuits() {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <RandomSaccadesOptions />
+            currentPage: <PursuitsOptions />
         })
     }
 
