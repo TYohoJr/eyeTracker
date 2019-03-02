@@ -121,9 +121,47 @@ const staticDotsReducer = (state, action) => {
     }
 }
 
+const opkReducer = (state, action) => {
+    if (!state) {
+        state = {
+            stripeColor: "Red",
+            backgroundColor: "White",
+            scrollSpeed: 1
+        }
+    }
+    switch (action.type) {
+        case "changeOPKStripeColor":
+            return state = {
+                ...state,
+                stripeColor: action.stripeColor
+            }
+        case "changeOPKBackgroundColor":
+            return state = {
+                ...state,
+                backgroundColor: action.backgroundColor
+            }
+        case "changeOPKScrollSpeed":
+            return state = {
+                ...state,
+                scrollSpeed: action.scrollSpeed
+            }
+        case "resetOPK":
+            return state = {
+                stripeColor: "Red",
+                backgroundColor: "White",
+                scrollSpeed: 1
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 export default combineReducers({
     staticDotsReducer: staticDotsReducer,
     currentPageReducer: currentPageReducer,
     dotPlacementReducer: dotPlacementReducer,
     randomSaccadesReducer: randomSaccadesReducer,
+    opkReducer: opkReducer,
 });

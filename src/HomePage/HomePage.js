@@ -3,6 +3,7 @@ import './HomePage.css';
 import { connect } from 'react-redux';
 import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RamdomSaccadesOptions.js";
 import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions';
+import OPKOptions from '../OPK/OPKOptions/OPKOptions';
 
 class HomePage extends Component {
     constructor() {
@@ -70,7 +71,7 @@ class HomePage extends Component {
     opk() {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <RandomSaccadesOptions />
+            currentPage: <OPKOptions />
         })
     }
 
@@ -118,7 +119,7 @@ class HomePage extends Component {
                         <button className="homepage-btn" onClick={this.antisaccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Antisaccades</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.opk}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />OPK</button>
+                        <button className="homepage-btn" onClick={this.opk}><img className="preview-thumbnail" src={require("../project-images/opk.png")} alt="rs" /><br />OPK</button>
                     </div>
                     <div className="btn-div">
                         <button className="homepage-btn" onClick={this.hemistim}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Hemistim</button>

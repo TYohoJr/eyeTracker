@@ -66,7 +66,6 @@ class RandomSaccadesOptions extends Component {
   }
 
   render() {
-    console.log(this.props.randomSaccadesReducer.dotSpeed)
     return (
       <div>
         <Form id="options-form">
@@ -89,11 +88,11 @@ class RandomSaccadesOptions extends Component {
             </Input>
           </FormGroup>
           <FormGroup>
-            <Label for="dotSpeed">Dot Speed(seconds) </Label>
+            <Label for="dotSpeed">Dot Speed(seconds): </Label>
             <Input type="number" min=".2" max="5" step=".2" value={this.props.randomSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
           </FormGroup>
           <FormGroup>
-            <Label for="dotNumber">Number of Cycles </Label>
+            <Label for="dotNumber">Number of Cycles: </Label>
             <Input type="number" min="5" max="30" step="1" value={this.props.randomSaccadesReducer.dotNumber} onChange={this.onDotNumberChange} />
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
