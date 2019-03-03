@@ -249,38 +249,37 @@ const saccadesReducer = (state, action) => {
 const combinationReducer = (state, action) => {
     if (!state) {
         state = {
-            exerciseType: [],
-            direction: [],
-            dotSpeed: [],
-            dotSteps: [],
             dotColor: "red",
+            masterArray: [],
         }
     }
     switch (action.type) {
         case "addListItem":
             return state = {
                 ...state,
-                exerciseType: [...state.exerciseType, action.exerciseType],
-                direction: [...state.direction, action.direction],
-                dotSpeed: [...state.dotSpeed, action.dotSpeed],
-                dotSteps: [...state.dotSteps, action.dotSteps],
+                masterArray: [
+                    ...state.masterArray,
+                    {
+                        "exerciseType": action.exerciseType,
+                        "direction": action.direction,
+                        "dotSpeed": action.dotSpeed,
+                        "dotSteps": action.dotSteps
+                    }
+                ]
             }
         case "changeCombinationDotColor":
             return state = {
                 ...state,
                 dotColor: action.dotColor
             }
-        case "resetOPK":
+        case "resetCombination":
             return state = {
-                exerciseType: [],
-                direction: [],
-                dotSpeed: [],
-                dotSteps: [],
                 dotColor: "red",
+                masterArray: [],
             }
         default:
             return state = {
-                ...state
+                ...state,
             }
     }
 }
