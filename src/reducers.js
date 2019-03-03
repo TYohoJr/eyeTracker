@@ -202,7 +202,7 @@ const saccadesReducer = (state, action) => {
             dotColor: "Red",
             dotSpeed: 1,
             cycles: 1,
-            steps:3,
+            steps: 3,
         }
     }
     switch (action.type) {
@@ -246,6 +246,45 @@ const saccadesReducer = (state, action) => {
     }
 }
 
+const combinationReducer = (state, action) => {
+    if (!state) {
+        state = {
+            exerciseType: [],
+            direction: [],
+            dotSpeed: [],
+            dotSteps: [],
+            dotColor: "red",
+        }
+    }
+    switch (action.type) {
+        case "addListItem":
+            return state = {
+                ...state,
+                exerciseType: [...state.exerciseType, action.exerciseType],
+                direction: [...state.direction, action.direction],
+                dotSpeed: [...state.dotSpeed, action.dotSpeed],
+                dotSteps: [...state.dotSteps, action.dotSteps],
+            }
+        case "changeCombinationDotColor":
+            return state = {
+                ...state,
+                dotColor: action.dotColor
+            }
+        case "resetOPK":
+            return state = {
+                exerciseType: [],
+                direction: [],
+                dotSpeed: [],
+                dotSteps: [],
+                dotColor: "red",
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 export default combineReducers({
     staticDotsReducer: staticDotsReducer,
     currentPageReducer: currentPageReducer,
@@ -254,4 +293,5 @@ export default combineReducers({
     opkReducer: opkReducer,
     pursuitsReducer: pursuitsReducer,
     saccadesReducer: saccadesReducer,
+    combinationReducer: combinationReducer,
 });
