@@ -6,7 +6,7 @@
     position: fixed;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    animation-delay: 1s;
+    animation-delay: .5s;
     animation-fill-mode: forwards;
 }
 

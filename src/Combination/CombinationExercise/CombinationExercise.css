@@ -1,0 +1,67 @@
+#pursuits-dot{
+    height:30px;
+    width:30px;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    /* animation-delay: 1s; */
+    animation-fill-mode: forwards;
+}
+
+@keyframes TLtoBR{
+    to {
+        top:95%;
+        left:95%;
+    }
+}
+
+@keyframes TMtoBM{
+    to {
+        top:95%;
+        left:50%;
+    }
+}
+
+@keyframes TRtoBL{
+    to {
+        top:95%;
+        left:5%;
+    }
+}
+
+@keyframes MLtoMR{
+    to {
+        top:50%;
+        left:95%;
+    }
+}
+
+@keyframes MRtoML{
+    to {
+        top:50%;
+        left:5%;
+    }
+}
+
+@keyframes BLtoTR{
+    to {
+        top:5%;
+        left:95%;
+    }
+}
+
+@keyframes BMtoTM{
+    to {
+        top:5%;
+        left:50%;
+    }
+}
+
+@keyframes BRtoTL{
+    to {
+        top:5%;
+        left:5%;
+    }
+}
