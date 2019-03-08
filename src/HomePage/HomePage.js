@@ -23,12 +23,6 @@ class HomePage extends Component {
         this.gazeStability = this.gazeStability.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.props.dispatch({
-    //         type: "resetAll"
-    //     })
-    // }
-
     staticDots() {
         this.props.dispatch({
             type: "changeCurrentPage",

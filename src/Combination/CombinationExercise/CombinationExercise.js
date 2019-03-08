@@ -18,198 +18,59 @@ class CombinationExercise extends Component {
 
     render() {
         var currentArray = this.props.combinationReducer.masterArray
-        var topValue;
-        var leftValue;
-        var saccadesDisplay = "inline-block";
-        var pursuitsDisplay = "inline-block";
         var steps;
         var dotSpeed;
         var animationName;
         var animationDuration;
-
+        var animationDelayP;
+        var animationDelayS;
 
         if (currentArray[0]) {
             if (currentArray[0].exerciseType === "Saccades") {
-                pursuitsDisplay = "none";
-                saccadesDisplay = "inline-block";
+                animationDelayP = 10;
             } else if (currentArray[0].exerciseType === "Pursuit") {
-                saccadesDisplay = "none";
-                pursuitsDisplay = "inline-block";
+                animationDelayS = 10;
             }
             steps = currentArray[0].dotSteps;
             dotSpeed = 10 - currentArray[0].dotSpeed;
             animationName = currentArray[0].direction;
             animationDuration = 10.5 - currentArray[0].dotSpeed;
-            switch (currentArray[0].direction) {
-                case "TLtoBR":
-                    topValue = 5;
-                    leftValue = 5;
-                    break;
-                case "TMtoBM":
-                    topValue = 5;
-                    leftValue = 50;
-                    break;
-                case "TRtoBL":
-                    topValue = 5;
-                    leftValue = 95;
-                    break;
-                case "MLtoMR":
-                    topValue = 50;
-                    leftValue = 5;
-                    break;
-                case "MRtoML":
-                    topValue = 50;
-                    leftValue = 95;
-                    break;
-                case "BLtoTR":
-                    topValue = 95;
-                    leftValue = 5;
-                    break;
-                case "BMtoTM":
-                    topValue = 95;
-                    leftValue = 50;
-                    break;
-                case "BRtoTL":
-                    topValue = 95;
-                    leftValue = 95;
-                    break;
-                default:
-                    topValue = 50;
-                    leftValue = 50;
-            }
-            
-            setTimeout(function(){
-                debugger
-                if (currentArray[1]) {
-                    if (currentArray[1].exerciseType === "Saccades") {
-                        pursuitsDisplay = "none";
-                        saccadesDisplay = "inline-block";
-                    } else if (currentArray[1].exerciseType === "Pursuit") {
-                        saccadesDisplay = "none";
-                        pursuitsDisplay = "inline-block";
-                    }
-                    steps = currentArray[1].dotSteps;
-                    dotSpeed = 10 - currentArray[1].dotSpeed;
-                    animationName = currentArray[1].direction;
-                    animationDuration = 10.5 - currentArray[1].dotSpeed;
-                    switch (currentArray[1].direction) {
-                        case "TLtoBR":
-                            topValue = 5;
-                            leftValue = 5;
-                            break;
-                        case "TMtoBM":
-                            topValue = 5;
-                            leftValue = 50;
-                            break;
-                        case "TRtoBL":
-                            topValue = 5;
-                            leftValue = 95;
-                            break;
-                        case "MLtoMR":
-                            topValue = 50;
-                            leftValue = 5;
-                            break;
-                        case "MRtoML":
-                            topValue = 50;
-                            leftValue = 95;
-                            break;
-                        case "BLtoTR":
-                            topValue = 95;
-                            leftValue = 5;
-                            break;
-                        case "BMtoTM":
-                            topValue = 95;
-                            leftValue = 50;
-                            break;
-                        case "BRtoTL":
-                            topValue = 95;
-                            leftValue = 95;
-                            break;
-                        default:
-                            topValue = 50;
-                            leftValue = 50;
-                    }
-                    setTimeout(function(){
-        
-                    }, 2000)
-                }
-            }, 2000)
         }
-
-
-        // for (var i = 0; i < currentArray.length; i++) {
-        //     console.log(currentArray[i])
-        //     if (currentArray[i].exerciseType === "Saccades") {
-        //         pursuitsDisplay = "none";
-        //         saccadesDisplay = "inline-block";
-        //     } else if (currentArray[i].exerciseType === "Pursuit") {
-        //         saccadesDisplay = "none";
-        //         pursuitsDisplay = "inline-block";
-        //     }
-        //     steps = currentArray[i].dotSteps;
-        //     dotSpeed = 10 - currentArray[i].dotSpeed;
-        //     animationName = currentArray[i].direction;
-        //     animationDuration = 10.5 - currentArray[i].dotSpeed;
-        //     switch (currentArray[i].direction) {
-        //         case "TLtoBR":
-        //             topValue = 5;
-        //             leftValue = 5;
-        //             break;
-        //         case "TMtoBM":
-        //             topValue = 5;
-        //             leftValue = 50;
-        //             break;
-        //         case "TRtoBL":
-        //             topValue = 5;
-        //             leftValue = 95;
-        //             break;
-        //         case "MLtoMR":
-        //             topValue = 50;
-        //             leftValue = 5;
-        //             break;
-        //         case "MRtoML":
-        //             topValue = 50;
-        //             leftValue = 95;
-        //             break;
-        //         case "BLtoTR":
-        //             topValue = 95;
-        //             leftValue = 5;
-        //             break;
-        //         case "BMtoTM":
-        //             topValue = 95;
-        //             leftValue = 50;
-        //             break;
-        //         case "BRtoTL":
-        //             topValue = 95;
-        //             leftValue = 95;
-        //             break;
-        //         default:
-        //             topValue = 50;
-        //             leftValue = 50;
-        //     }
-        // }
+        setTimeout(() => {
+            if (currentArray[1].exerciseType === "Saccades") {
+                animationDelayP = 10;
+            } else if (currentArray[1].exerciseType === "Pursuit") {
+                animationDelayS = 10;
+            }
+            steps = currentArray[1].dotSteps;
+            dotSpeed = 10 - currentArray[1].dotSpeed;
+            animationName = currentArray[1].direction;
+            animationDuration = 10 - currentArray[1].dotSpeed;
+            console.log("test")
+        }, 1000);
         return (
             <div>
                 <span id="pursuits-dot" style={{
                     "backgroundColor": this.props.combinationReducer.dotColor,
-                    "display": `${pursuitsDisplay}`,
-                    "top": `${topValue}%`,
-                    "left": `${leftValue}%`,
+                    "display": `inline-block`,
+                    "top": `150%`,
+                    "left": `150%`,
                     "animationName": `${animationName}`,
-                    
                     "animationDuration": `${animationDuration}s`,
+                    "animationDelay": `${animationDelayP}s`
                 }} />
                 <span id="saccades-dot" style={{
                     "height": "30px",
                     "width": "30px",
                     "borderRadius": "50%",
                     "backgroundColor": this.props.combinationReducer.dotColor,
-                    "display": `${saccadesDisplay}`,
+                    "display": `inline-block`,
                     "position": "fixed",
-                    "top": `${topValue}%`,
-                    "left": `${leftValue}%`,
-                    "animation": `${animationName} ${dotSpeed}s steps(${steps}) ${.5}s`,
-                    "animationFillMode": "both",
+                    "top": `150%`,
+                    "left": `150%`,
+                    "animation": `${animationName} ${dotSpeed}s steps(${steps})`,
+                    "animationFillMode": "forwards",
+                    "animationDelay": `${animationDelayS}s`
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div>
