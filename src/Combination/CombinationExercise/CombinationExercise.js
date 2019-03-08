@@ -20,56 +20,38 @@ class CombinationExercise extends Component {
         var currentArray = this.props.combinationReducer.masterArray
         var steps;
         var dotSpeed;
-        var animationName;
+        var animationNameP;
+        var animationNameS;
         var animationDuration;
-        var animationDelayP;
-        var animationDelayS;
+        var animationDelayP = 0;
+        var animationDelayS = 0;
 
         if (currentArray[0]) {
             if (currentArray[0].exerciseType === "Saccades") {
-                animationDelayP = 10;
+                animationDelayP = 9.9 - currentArray[0].dotSpeed;
+                animationNameS = currentArray[0].direction;
+                animationNameP = currentArray[1].direction;
             } else if (currentArray[0].exerciseType === "Pursuit") {
-                animationDelayS = 10;
+                animationDelayS = 9.9 - currentArray[0].dotSpeed;
+                animationNameP = currentArray[0].direction;
+                animationNameS = currentArray[1].direction;
             }
             steps = currentArray[0].dotSteps;
             dotSpeed = 10 - currentArray[0].dotSpeed;
-            animationName = currentArray[0].direction;
-            animationDuration = 10.5 - currentArray[0].dotSpeed;
+            animationDuration = 10 - currentArray[0].dotSpeed;
         }
-        setTimeout(() => {
-            if (currentArray[1].exerciseType === "Saccades") {
-                animationDelayP = 10;
-            } else if (currentArray[1].exerciseType === "Pursuit") {
-                animationDelayS = 10;
-            }
-            steps = currentArray[1].dotSteps;
-            dotSpeed = 10 - currentArray[1].dotSpeed;
-            animationName = currentArray[1].direction;
-            animationDuration = 10 - currentArray[1].dotSpeed;
-            console.log("test")
-        }, 1000);
+
         return (
             <div>
-                <span id="pursuits-dot" style={{
+                <span id="combination-pursuits-dot" style={{
                     "backgroundColor": this.props.combinationReducer.dotColor,
-                    "display": `inline-block`,
-                    "top": `150%`,
-                    "left": `150%`,
-                    "animationName": `${animationName}`,
+                    "animationName": `${animationNameP}`,
                     "animationDuration": `${animationDuration}s`,
                     "animationDelay": `${animationDelayP}s`
                 }} />
-                <span id="saccades-dot" style={{
-                    "height": "30px",
-                    "width": "30px",
-                    "borderRadius": "50%",
+                <span id="combination-saccades-dot" style={{
                     "backgroundColor": this.props.combinationReducer.dotColor,
-                    "display": `inline-block`,
-                    "position": "fixed",
-                    "top": `150%`,
-                    "left": `150%`,
-                    "animation": `${animationName} ${dotSpeed}s steps(${steps})`,
-                    "animationFillMode": "forwards",
+                    "animation": `${animationNameS} ${dotSpeed}s steps(${steps})`,
                     "animationDelay": `${animationDelayS}s`
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>

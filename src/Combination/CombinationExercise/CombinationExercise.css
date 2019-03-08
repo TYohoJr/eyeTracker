@@ -1,6 +1,21 @@
-#pursuits-dot{
+#combination-pursuits-dot{
     height:30px;
     width:30px;
+    top: 150%;
+    left: 150%;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#combination-saccades-dot{
+    height:30px;
+    width:30px;
+    top: 150%;
+    left: 150%;
     border-radius: 50%;
     display: inline-block;
     position: fixed;
@@ -10,89 +25,121 @@
 }
 
 @keyframes TLtoBR{
-    from {
+    0% {
         top: 5%;
         left: 5%;
     }
-    to {
+    99% {
         top: 95%;
         left: 95%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
 
 @keyframes TMtoBM{
-    from {
+    0% {
         top: 5%;
         left: 50%;
     }
-    to {
+    99% {
         top: 95%;
         left: 50%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
 
 @keyframes TRtoBL{
-    from {
+    0% {
         top: 5%;
         left: 95%;
     }
-    to {
+    99% {
         top: 95%;
         left: 5%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
 
 @keyframes MLtoMR{
-    from {
+    0% {
         top: 50%;
         left: 5%;
     }
-    to {
+    99% {
         top: 50%;
         left: 95%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
 
 @keyframes MRtoML{
-    from {
+    0% {
         top: 50%;
         left: 95%;
     }
-    to {
+    99% {
         top: 50%;
         left: 5%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
 
 @keyframes BLtoTR{
-    from {
+    0% {
         top: 95%;
         left: 5%;
     }
-    to {
+    99% {
         top: 5%;
         left: 95%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
 
 @keyframes BMtoTM{
-    from {
+    0% {
         top: 5%;
         left: 50%;
     }
-    to {
+    99% {
         top: 5%;
         left: 50%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
 
 @keyframes BRtoTL{
-    from {
+    0% {
         top: 95%;
         left: 95%;
     }
-    to {
+    99% {
         top: 5%;
         left: 5%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
     }
 }
