@@ -10,7 +10,7 @@ class AntiSaccadesOptions extends Component {
         super();
         this.onCenterDotColorChange = this.onCenterDotColorChange.bind(this);
         this.onExtraDotColorChange = this.onExtraDotColorChange.bind(this);
-        this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
+        // this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
         this.onCyclesChange = this.onCyclesChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
         this.returnHome = this.returnHome.bind(this);
@@ -31,12 +31,12 @@ class AntiSaccadesOptions extends Component {
         })
     }
 
-    onDotSpeedChange(e) {
-        this.props.dispatch({
-            type: "changeAntiSaccadesDotSpeed",
-            dotSpeed: e.target.value
-        })
-    }
+    // onDotSpeedChange(e) {
+    //     this.props.dispatch({
+    //         type: "changeAntiSaccadesDotSpeed",
+    //         dotSpeed: e.target.value
+    //     })
+    // }
 
     onCyclesChange(e) {
         this.props.dispatch({
@@ -87,18 +87,16 @@ class AntiSaccadesOptions extends Component {
                             <option>Green</option>
                         </Input>
                     </FormGroup>
-                    <FormGroup>
+                    {/* <FormGroup>
                         <Label for="dotSpeed">Dot Speed: </Label>
                         <Input type="number" min="1" max="10" step="1" value={this.props.antiSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
-                    </FormGroup>
+                    </FormGroup> */}
                     <FormGroup>
                         <Label for="dotNumber">Number of Cycles: </Label>
                         <Input type="select" value={this.props.antiSaccadesReducer.cycles} onChange={this.onCyclesChange}>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>30</option>
                             <option>Infinite</option>
                         </Input>
                     </FormGroup>

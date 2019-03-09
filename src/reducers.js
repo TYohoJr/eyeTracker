@@ -288,11 +288,11 @@ const antiSaccadesReducer = (state, action) => {
     if (!state) {
         state = {
             rightHidden: true,
-            leftHidden: false,
+            leftHidden: true,
             centerDotColor: "Black",
             extraDotColor: "Red",
             dotSpeed: 1,
-            cycles: 1,
+            cycles: 10,
         }
     }
     switch (action.type) {

@@ -19,23 +19,35 @@ class AntiSaccadesExercise extends Component {
     }
 
     componentDidMount() {
+        var counter = 0;
         timer = setInterval(() => {
-            let random = Math.floor(Math.random() * 10);
-            console.log(random)
-            if (random < 5) {
-                this.props.dispatch({
-                    type: "changeHiddenDot",
-                    rightHidden: true,
-                    leftHidden: false,
-                })
+            counter = counter + .5
+            if (counter % 2 === 0) {
+                let random = Math.floor(Math.random() * 100);
+                if (random < 50) {
+                    this.props.dispatch({
+                        type: "changeHiddenDot",
+                        rightHidden: true,
+                        leftHidden: false,
+                    })
+                } else {
+                    this.props.dispatch({
+                        type: "changeHiddenDot",
+                        rightHidden: false,
+                        leftHidden: true,
+                    })
+                }
             } else {
                 this.props.dispatch({
                     type: "changeHiddenDot",
-                    rightHidden: false,
+                    rightHidden: true,
                     leftHidden: true,
                 })
             }
-        }, 2000);
+            if (counter % (this.props.antiSaccadesReducer.cycles * 2) === 0) {
+                clearInterval(timer)
+            }
+        }, 500);
     }
 
     componentWillUnmount() {
@@ -54,7 +66,6 @@ class AntiSaccadesExercise extends Component {
                     "top": `50%`,
                     "left": `50%`,
                 }} />
-                {/* {this.props.antiSaccadesReducer.rightDot} */}
                 <span hidden={this.props.antiSaccadesReducer.rightHidden} id="antisaccades-right-dot" style={{
                     "height": "30px",
                     "width": "30px",
