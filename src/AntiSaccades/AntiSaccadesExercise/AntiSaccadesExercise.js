@@ -3,6 +3,8 @@ import './AntiSaccadesExercise.css';
 import { connect } from 'react-redux';
 import AntiSaccadesOptions from "../AntiSaccadesOptions/AntiSaccadesOptions";
 
+var timer;
+
 class AntiSaccadesExercise extends Component {
     constructor() {
         super();
@@ -16,9 +18,31 @@ class AntiSaccadesExercise extends Component {
         })
     }
 
+    componentDidMount() {
+        timer = setInterval(() => {
+            let random = Math.floor(Math.random() * 10);
+            console.log(random)
+            if (random < 5) {
+                this.props.dispatch({
+                    type: "changeHiddenDot",
+                    rightHidden: true,
+                    leftHidden: false,
+                })
+            } else {
+                this.props.dispatch({
+                    type: "changeHiddenDot",
+                    rightHidden: false,
+                    leftHidden: true,
+                })
+            }
+        }, 2000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(timer)
+    }
+
     render() {
-        var leftHidden = "hidden";
-        var rightHidden;
         return (
             <div>
                 <span id="antisaccades-center-dot" style={{
@@ -26,32 +50,28 @@ class AntiSaccadesExercise extends Component {
                     "width": "30px",
                     "borderRadius": "50%",
                     "backgroundColor": this.props.antiSaccadesReducer.centerDotColor,
-                    "display": "inline-block",
                     "position": "fixed",
                     "top": `50%`,
                     "left": `50%`,
                 }} />
-                <span id="antisaccades-center-dot" style={{
+                {/* {this.props.antiSaccadesReducer.rightDot} */}
+                <span hidden={this.props.antiSaccadesReducer.rightHidden} id="antisaccades-right-dot" style={{
                     "height": "30px",
                     "width": "30px",
                     "borderRadius": "50%",
                     "backgroundColor": this.props.antiSaccadesReducer.extraDotColor,
-                    "display": "inline-block",
-                    "position": "fixed",
+                    "position": "absolute",
                     "top": `50%`,
                     "left": `60%`,
-                    "visibility": `${rightHidden}`,
                 }} />
-                <span id="antisaccades-center-dot" style={{
+                <span hidden={this.props.antiSaccadesReducer.leftHidden} id="antisaccades-left-dot" style={{
                     "height": "30px",
                     "width": "30px",
                     "borderRadius": "50%",
                     "backgroundColor": this.props.antiSaccadesReducer.extraDotColor,
-                    "display": "inline-block",
-                    "position": "fixed",
+                    "position": "absolute",
                     "top": `50%`,
                     "left": `40%`,
-                    "visibility": `${leftHidden}`,
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div >

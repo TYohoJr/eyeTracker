@@ -287,6 +287,8 @@ const combinationReducer = (state, action) => {
 const antiSaccadesReducer = (state, action) => {
     if (!state) {
         state = {
+            rightHidden: true,
+            leftHidden: false,
             centerDotColor: "Black",
             extraDotColor: "Red",
             dotSpeed: 1,
@@ -294,6 +296,12 @@ const antiSaccadesReducer = (state, action) => {
         }
     }
     switch (action.type) {
+        case "changeHiddenDot":
+            return state = {
+                ...state,
+                rightHidden: action.rightHidden,
+                leftHidden: action.leftHidden,
+            }
         case "changeAntiSaccadesCenterDotColor":
             return state = {
                 ...state,
