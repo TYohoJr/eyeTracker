@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import { connect } from 'react-redux';
 import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RamdomSaccadesOptions.js";
-import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions';
-import OPKOptions from '../OPK/OPKOptions/OPKOptions';
-import PursuitsOptions from '../Pursuits/PursuitsOptions/PursuitsOptions';
+import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions.js';
+import OPKOptions from '../OPK/OPKOptions/OPKOptions.js';
+import PursuitsOptions from '../Pursuits/PursuitsOptions/PursuitsOptions.js';
 import SaccadesOptions from '../Saccades/SaccadesOptions/SaccadesOptions.js';
-import CombinationOptions from '../Combination/CombinationOptions/CombinationOptions';
+import CombinationOptions from '../Combination/CombinationOptions/CombinationOptions.js';
+import AntiSaccadesOptions from '../AntiSaccades/AntiSaccadesOptions/AntiSaccadesOptions.js';
 
 class HomePage extends Component {
     constructor() {
@@ -18,9 +19,9 @@ class HomePage extends Component {
         this.randomSaccades = this.randomSaccades.bind(this);
         this.antisaccades = this.antisaccades.bind(this);
         this.opk = this.opk.bind(this);
-        this.hemistim = this.hemistim.bind(this);
-        this.memorySaccades = this.memorySaccades.bind(this);
-        this.gazeStability = this.gazeStability.bind(this);
+        // this.hemistim = this.hemistim.bind(this);
+        // this.memorySaccades = this.memorySaccades.bind(this);
+        // this.gazeStability = this.gazeStability.bind(this);
     }
 
     staticDots() {
@@ -61,7 +62,7 @@ class HomePage extends Component {
     antisaccades() {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <RandomSaccadesOptions />
+            currentPage: <AntiSaccadesOptions />
         })
     }
 
@@ -72,26 +73,26 @@ class HomePage extends Component {
         })
     }
 
-    hemistim() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <RandomSaccadesOptions />
-        })
-    }
+    // hemistim() {
+    //     this.props.dispatch({
+    //         type: "changeCurrentPage",
+    //         currentPage: <RandomSaccadesOptions />
+    //     })
+    // }
 
-    memorySaccades() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <RandomSaccadesOptions />
-        })
-    }
+    // memorySaccades() {
+    //     this.props.dispatch({
+    //         type: "changeCurrentPage",
+    //         currentPage: <RandomSaccadesOptions />
+    //     })
+    // }
 
-    gazeStability() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <RandomSaccadesOptions />
-        })
-    }
+    // gazeStability() {
+    //     this.props.dispatch({
+    //         type: "changeCurrentPage",
+    //         currentPage: <RandomSaccadesOptions />
+    //     })
+    // }
 
     render() {
         return (
@@ -113,12 +114,12 @@ class HomePage extends Component {
                         <button className="homepage-btn" onClick={this.randomSaccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Random Saccades</button>
                     </div>
                     <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.antisaccades}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Antisaccades</button>
+                        <button className="homepage-btn" onClick={this.antisaccades}><img className="preview-thumbnail" src={require("../project-images/anti-saccades.png")} alt="rs" /><br />Antisaccades</button>
                     </div>
                     <div className="btn-div">
                         <button className="homepage-btn" onClick={this.opk}><img className="preview-thumbnail" src={require("../project-images/opk.png")} alt="rs" /><br />OPK</button>
                     </div>
-                    <div className="btn-div">
+                    {/* <div className="btn-div">
                         <button className="homepage-btn" onClick={this.hemistim}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Hemistim</button>
                     </div>
                     <div className="btn-div">
@@ -126,7 +127,7 @@ class HomePage extends Component {
                     </div>
                     <div className="btn-div">
                         <button className="homepage-btn" onClick={this.gazeStability}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Gaze Stability</button>
-                    </div>
+                    </div> */}
                 </div>
             </div >
         );

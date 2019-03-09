@@ -284,6 +284,50 @@ const combinationReducer = (state, action) => {
     }
 }
 
+const antiSaccadesReducer = (state, action) => {
+    if (!state) {
+        state = {
+            centerDotColor: "Black",
+            extraDotColor: "Red",
+            dotSpeed: 1,
+            cycles: 1,
+        }
+    }
+    switch (action.type) {
+        case "changeAntiSaccadesCenterDotColor":
+            return state = {
+                ...state,
+                centerDotColor: action.centerDotColor
+            }
+        case "changeAntiSaccadesExtraDotColor":
+            return state = {
+                ...state,
+                extraDotColor: action.extraDotColor
+            }
+        case "changeAntiSaccadesDotSpeed":
+            return state = {
+                ...state,
+                dotSpeed: action.dotSpeed
+            }
+        case "changeAntiSaccadesCycles":
+            return state = {
+                ...state,
+                cycles: action.cycles
+            }
+        case "resetAntiSaccades":
+            return state = {
+                centerDotColor: "Black",
+                extraDotColor: "Red",
+                dotSpeed: 1,
+                cycles: 1,
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 export default combineReducers({
     staticDotsReducer: staticDotsReducer,
     currentPageReducer: currentPageReducer,
@@ -293,4 +337,5 @@ export default combineReducers({
     pursuitsReducer: pursuitsReducer,
     saccadesReducer: saccadesReducer,
     combinationReducer: combinationReducer,
+    antiSaccadesReducer: antiSaccadesReducer,
 });
