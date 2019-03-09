@@ -62,12 +62,12 @@ class CombinationOptions extends Component {
 
     render() {
         var masterList = this.props.combinationReducer.masterArray.map((item, i) => {
-            return <tr>
-                <td key={i}>{i + 1}</td>
-                <td key={i}>{item["exerciseType"]}</td>
-                <td key={i}>{item["direction"]}</td>
-                <td key={i}>{item["dotSpeed"]}</td>
-                <td key={i}>{item["dotSteps"]}</td>
+            return <tr key={i}>
+                <td key={`${i}list-number`}>{i + 1}</td>
+                <td key={`${i}exercise-type`}>{item["exerciseType"]}</td>
+                <td key={`${i}direction`}>{item["direction"]}</td>
+                <td key={`${i}dot-speed`}>{item["dotSpeed"]}</td>
+                <td key={`${i}dot-steps`}>{item["dotSteps"]}</td>
             </tr>
         })
         return (
