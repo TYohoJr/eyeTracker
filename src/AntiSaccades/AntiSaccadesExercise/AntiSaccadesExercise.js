@@ -27,7 +27,7 @@ class AntiSaccadesExercise extends Component {
                 if (random < 11 && this.props.antiSaccadesReducer.goNoGo === "On") {
                     this.props.dispatch({
                         type: "changeAntiSaccadesExtraDotColor",
-                        extraDotColor: "Green",
+                        extraDotColor: this.props.antiSaccadesReducer.goNoGoDotColor,
                     })
                     this.props.dispatch({
                         type: "changeHiddenDot",
@@ -37,7 +37,7 @@ class AntiSaccadesExercise extends Component {
                 } else if (random > 89 && this.props.antiSaccadesReducer.goNoGo === "On") {
                     this.props.dispatch({
                         type: "changeAntiSaccadesExtraDotColor",
-                        extraDotColor: "Green",
+                        extraDotColor: this.props.antiSaccadesReducer.goNoGoDotColor,
                     })
                     this.props.dispatch({
                         type: "changeHiddenDot",
@@ -83,6 +83,7 @@ class AntiSaccadesExercise extends Component {
     }
 
     render() {
+        console.log(this.props.antiSaccadesReducer)
         return (
             <div>
                 <span id="antisaccades-center-dot" style={{

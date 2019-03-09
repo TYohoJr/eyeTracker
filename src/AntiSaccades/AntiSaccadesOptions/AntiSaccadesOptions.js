@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import HomePage from "../../HomePage/HomePage.js";
 import AntiSaccadesExercise from '../AntiSaccadesExercise/AntiSaccadesExercise.js';
 
-var goNoGoTrue;
+var goNoGoTest;
 
 class AntiSaccadesOptions extends Component {
     constructor() {
@@ -54,23 +54,6 @@ class AntiSaccadesOptions extends Component {
             type: "changeAntiSaccadesGoNoGo",
             goNoGo: e.target.value
         })
-        if (e.target.value === "On") {
-            goNoGoTrue = <FormGroup>
-                <Label for="dotNumber">Go/No-Go Dot Color: </Label>
-                <Input type="select" value={this.props.antiSaccadesReducer.goNoGoDotColor} onChange={this.onGoNoGoDotColorChange}>
-                    <option>Green</option>
-                    <option>Blue</option>
-                    <option>Yellow</option>
-                    <option>Purple</option>
-                </Input>
-            </FormGroup>
-        } else {
-            goNoGoTrue = "";
-            this.props.dispatch({
-                type: "changeAntiSaccadesGoNoGoDotColor",
-                goNoGoDotColor: this.props.antiSaccadesReducer.extraDotColor
-            })
-        }
     }
 
     onGoNoGoDotColorChange(e) {
@@ -101,10 +84,15 @@ class AntiSaccadesOptions extends Component {
     }
 
     componentDidUpdate() {
-       
+
     }
 
     render() {
+        if (this.props.antiSaccadesReducer.goNoGo === "On") {
+            goNoGoTest = false
+        } else {
+            goNoGoTest = true
+        }
         return (
             <div>
                 <Form id="options-form">
@@ -146,7 +134,15 @@ class AntiSaccadesOptions extends Component {
                             <option>On</option>
                         </Input>
                     </FormGroup>
-                    {goNoGoTrue}
+                    <FormGroup hidden={goNoGoTest}>
+                        <Label for="dotNumber">Go/No-Go Dot Color: </Label>
+                        <Input type="select" value={this.props.antiSaccadesReducer.goNoGoDotColor} onChange={this.onGoNoGoDotColorChange}>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>Yellow</option>
+                            <option>Purple</option>
+                        </Input>
+                    </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
                     <Button onClick={this.resetOptions}>Reset</Button>
                 </Form>
