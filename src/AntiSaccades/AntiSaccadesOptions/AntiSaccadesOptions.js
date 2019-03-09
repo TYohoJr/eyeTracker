@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import HomePage from "../../HomePage/HomePage.js";
 import AntiSaccadesExercise from '../AntiSaccadesExercise/AntiSaccadesExercise.js';
 
+var goNoGoTrue;
+
 class AntiSaccadesOptions extends Component {
     constructor() {
         super();
@@ -15,6 +17,8 @@ class AntiSaccadesOptions extends Component {
         this.onRunButton = this.onRunButton.bind(this);
         this.returnHome = this.returnHome.bind(this);
         this.resetOptions = this.resetOptions.bind(this);
+        this.onGoNoGoChange = this.onGoNoGoChange.bind(this);
+        this.onGoNoGoDotColorChange = this.onGoNoGoDotColorChange.bind(this);
     }
 
     onCenterDotColorChange(e) {
@@ -45,6 +49,37 @@ class AntiSaccadesOptions extends Component {
         })
     }
 
+    onGoNoGoChange(e) {
+        this.props.dispatch({
+            type: "changeAntiSaccadesGoNoGo",
+            goNoGo: e.target.value
+        })
+        if (e.target.value === "On") {
+            goNoGoTrue = <FormGroup>
+                <Label for="dotNumber">Go/No-Go Dot Color: </Label>
+                <Input type="select" value={this.props.antiSaccadesReducer.goNoGoDotColor} onChange={this.onGoNoGoDotColorChange}>
+                    <option>Green</option>
+                    <option>Blue</option>
+                    <option>Yellow</option>
+                    <option>Purple</option>
+                </Input>
+            </FormGroup>
+        } else {
+            goNoGoTrue = "";
+            this.props.dispatch({
+                type: "changeAntiSaccadesGoNoGoDotColor",
+                goNoGoDotColor: this.props.antiSaccadesReducer.extraDotColor
+            })
+        }
+    }
+
+    onGoNoGoDotColorChange(e) {
+        this.props.dispatch({
+            type: "changeAntiSaccadesGoNoGoDotColor",
+            goNoGoDotColor: e.target.value
+        })
+    }
+
     onRunButton(e) {
         this.props.dispatch({
             type: "changeCurrentPage",
@@ -63,6 +98,10 @@ class AntiSaccadesOptions extends Component {
         this.props.dispatch({
             type: "resetAntiSaccades"
         })
+    }
+
+    componentDidUpdate() {
+       
     }
 
     render() {
@@ -100,6 +139,14 @@ class AntiSaccadesOptions extends Component {
                             <option>Infinite</option>
                         </Input>
                     </FormGroup>
+                    <FormGroup>
+                        <Label for="dotNumber">Go/No-Go: </Label>
+                        <Input type="select" value={this.props.antiSaccadesReducer.goNoGo} onChange={this.onGoNoGoChange}>
+                            <option>Off</option>
+                            <option>On</option>
+                        </Input>
+                    </FormGroup>
+                    {goNoGoTrue}
                     <Button onClick={this.onRunButton}>Run</Button>
                     <Button onClick={this.resetOptions}>Reset</Button>
                 </Form>

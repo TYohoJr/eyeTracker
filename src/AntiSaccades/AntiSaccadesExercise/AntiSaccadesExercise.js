@@ -19,18 +19,38 @@ class AntiSaccadesExercise extends Component {
     }
 
     componentDidMount() {
-        var counter = 0;
+        let counter = 0;
         timer = setInterval(() => {
             counter = counter + .5
             if (counter % 2 === 0) {
                 let random = Math.floor(Math.random() * 100);
-                if (random < 50) {
+                if (random < 11 && this.props.antiSaccadesReducer.goNoGo === "On") {
+                    this.props.dispatch({
+                        type: "changeAntiSaccadesExtraDotColor",
+                        extraDotColor: "Green",
+                    })
                     this.props.dispatch({
                         type: "changeHiddenDot",
                         rightHidden: true,
                         leftHidden: false,
                     })
-                } else {
+                } else if (random > 89 && this.props.antiSaccadesReducer.goNoGo === "On") {
+                    this.props.dispatch({
+                        type: "changeAntiSaccadesExtraDotColor",
+                        extraDotColor: "Green",
+                    })
+                    this.props.dispatch({
+                        type: "changeHiddenDot",
+                        rightHidden: false,
+                        leftHidden: true,
+                    })
+                } else if (random < 50) {
+                    this.props.dispatch({
+                        type: "changeHiddenDot",
+                        rightHidden: true,
+                        leftHidden: false,
+                    })
+                } else if (random > 50) {
                     this.props.dispatch({
                         type: "changeHiddenDot",
                         rightHidden: false,
@@ -43,9 +63,17 @@ class AntiSaccadesExercise extends Component {
                     rightHidden: true,
                     leftHidden: true,
                 })
+                this.props.dispatch({
+                    type: "changeAntiSaccadesExtraDotColor",
+                    extraDotColor: this.props.antiSaccadesReducer.trueExtraDotColor,
+                })
             }
             if (counter % (this.props.antiSaccadesReducer.cycles * 2) === 0) {
                 clearInterval(timer)
+                this.props.dispatch({
+                    type: "changeCurrentPage",
+                    currentPage: <AntiSaccadesOptions />
+                })
             }
         }, 500);
     }

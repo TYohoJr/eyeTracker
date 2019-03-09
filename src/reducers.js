@@ -290,9 +290,12 @@ const antiSaccadesReducer = (state, action) => {
             rightHidden: true,
             leftHidden: true,
             centerDotColor: "Black",
+            trueExtraDotColor: "Red",
             extraDotColor: "Red",
             dotSpeed: 1,
             cycles: 10,
+            goNoGo: "Off",
+            goNoGoDotColor: antiSaccadesReducer.extraDotColor
         }
     }
     switch (action.type) {
@@ -312,6 +315,12 @@ const antiSaccadesReducer = (state, action) => {
                 ...state,
                 extraDotColor: action.extraDotColor
             }
+        case "changeAntiSaccadesTrueExtraDotColor":
+            return state = {
+                ...state,
+                extraDotColor: action.extraDotColor,
+                trueExtraDotColor: action.extraDotColor
+            }
         case "changeAntiSaccadesDotSpeed":
             return state = {
                 ...state,
@@ -322,12 +331,27 @@ const antiSaccadesReducer = (state, action) => {
                 ...state,
                 cycles: action.cycles
             }
+        case "changeAntiSaccadesGoNoGo":
+            return state = {
+                ...state,
+                goNoGo: action.goNoGo
+            }
+        case "changeAntiSaccadesGoNoGoDotColor":
+            return state = {
+                ...state,
+                goNoGoDotColor: action.goNoGoDotColor
+            }
         case "resetAntiSaccades":
             return state = {
+                rightHidden: true,
+                leftHidden: true,
                 centerDotColor: "Black",
                 extraDotColor: "Red",
+                trueExtraDotColor: "Red",
                 dotSpeed: 1,
-                cycles: 1,
+                cycles: 10,
+                goNoGo: "Off",
+                goNoGoDotColor: "Red"
             }
         default:
             return state = {
