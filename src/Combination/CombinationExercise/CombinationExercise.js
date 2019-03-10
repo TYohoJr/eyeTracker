@@ -41,7 +41,6 @@ class CombinationExercise extends Component {
             dotSpeed = 10 - currentArray[0].dotSpeed;
             animationDuration = 10 - currentArray[0].dotSpeed;
         }
-        debugger
         return (
             <div>
                 <div className="exercise-div">
@@ -49,12 +48,14 @@ class CombinationExercise extends Component {
                         "backgroundColor": this.props.combinationReducer.dotColor,
                         "animationName": `${animationNameP}`,
                         "animationDuration": `${animationDuration}s`,
-                        "animationDelay": `${animationDelayP}s`
+                        "animationDelay": `${animationDelayP}s`,
+                        "animationFillMode":"forwards",
                     }} />
                     <span id="combination-saccades-dot" style={{
                         "backgroundColor": this.props.combinationReducer.dotColor,
                         "animation": `${animationNameS} ${dotSpeed}s steps(${combinationSteps})`,
-                        "animationDelay": `${animationDelayS}s`
+                        "animationDelay": `${animationDelayS}s`,
+                        "animationFillMode":"forwards",
                     }} />
                 </div>
                 <button onClick={this.endExercise} className="done-button">Done</button>

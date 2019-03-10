@@ -7,8 +7,6 @@
     display: inline-block;
     position: fixed;
     animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 }
 
 #combination-saccades-dot{
@@ -19,9 +17,6 @@
     border-radius: 50%;
     display: inline-block;
     position: fixed;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 }
 
 @keyframes TLtoBR{
@@ -44,7 +39,7 @@
         top: 5%;
         left: 50%;
     }
-    99% {
+    99.9999% {
         top: 95%;
         left: 50%;
     }
@@ -59,13 +54,13 @@
         top: 5%;
         left: 95%;
     }
-    99% {
+    99.9999% {
         top: 95%;
         left: 5%;
     }
     100% {
         top: 150%;
-        left: 150%;
+        left: -150%;
     }
 }
 
@@ -74,7 +69,7 @@
         top: 50%;
         left: 5%;
     }
-    99% {
+    99.9999% {
         top: 50%;
         left: 95%;
     }
@@ -89,13 +84,13 @@
         top: 50%;
         left: 95%;
     }
-    99% {
+    99.9999% {
         top: 50%;
         left: 5%;
     }
     100% {
         top: 150%;
-        left: 150%;
+        left: -150%;
     }
 }
 
@@ -104,12 +99,12 @@
         top: 95%;
         left: 5%;
     }
-    99% {
+    99.9999% {
         top: 5%;
         left: 95%;
     }
     100% {
-        top: 150%;
+        top: -150%;
         left: 150%;
     }
 }
@@ -119,12 +114,12 @@
         top: 5%;
         left: 50%;
     }
-    99% {
+    99.9999% {
         top: 5%;
         left: 50%;
     }
     100% {
-        top: 150%;
+        top: -150%;
         left: 150%;
     }
 }
@@ -139,7 +134,7 @@
         left: 5%;
     }
     100% {
-        top: 150%;
-        left: 150%;
+        top: -150%;
+        left: -150%;
     }
 }
