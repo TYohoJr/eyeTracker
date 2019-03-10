@@ -43,17 +43,19 @@ class CombinationExercise extends Component {
 
         return (
             <div>
-                <span id="combination-pursuits-dot" style={{
-                    "backgroundColor": this.props.combinationReducer.dotColor,
-                    "animationName": `${animationNameP}`,
-                    "animationDuration": `${animationDuration}s`,
-                    "animationDelay": `${animationDelayP}s`
-                }} />
-                <span id="combination-saccades-dot" style={{
-                    "backgroundColor": this.props.combinationReducer.dotColor,
-                    "animation": `${animationNameS} ${dotSpeed}s steps(${steps})`,
-                    "animationDelay": `${animationDelayS}s`
-                }} />
+                <div className="exercise-div">
+                    <span id="combination-pursuits-dot" style={{
+                        "backgroundColor": this.props.combinationReducer.dotColor,
+                        "animationName": `${animationNameP}`,
+                        "animationDuration": `${animationDuration}s`,
+                        "animationDelay": `${animationDelayP}s`
+                    }} />
+                    <span id="combination-saccades-dot" style={{
+                        "backgroundColor": this.props.combinationReducer.dotColor,
+                        "animation": `${animationNameS} ${dotSpeed}s steps(${steps})`,
+                        "animationDelay": `${animationDelayS}s`
+                    }} />
+                </div>
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div>
         );

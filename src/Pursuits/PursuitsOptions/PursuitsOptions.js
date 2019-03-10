@@ -60,10 +60,10 @@ class PursuitsOptions extends Component {
     render() {
         return (
             <div>
-                <Form id="options-form">
+                <Form id="pursuits-options-form" className="options-form">
                     <FormGroup>
-                        <Label for="extraDotColor">Dot Color: </Label>
-                        <Input type="select" name="extraDotColor" value={this.props.pursuitsReducer.dotColor} onChange={this.onDotColorChange}>
+                        <Label for="pursuits-dot-color">Dot Color: </Label>
+                        <Input type="select" name="pursuits-dot-color" value={this.props.pursuitsReducer.dotColor} onChange={this.onDotColorChange}>
                             <option>Red</option>
                             <option>White</option>
                             <option>Black</option>
@@ -72,8 +72,8 @@ class PursuitsOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="extraDotColor">Dot Movement: </Label>
-                        <Input type="select" name="extraDotColor" value={this.props.pursuitsReducer.startingLocation} onChange={this.onStartingLocationChange}>
+                        <Label for="pursuits-dot-movement">Dot Movement: </Label>
+                        <Input type="select" name="pursuits-dot-movement" value={this.props.pursuitsReducer.startingLocation} onChange={this.onStartingLocationChange}>
                             <option value="TLtoBR">Top Left to Bottom Right</option>
                             <option value="TMtoBM">Top Middle to Bottom Middle</option>
                             <option value="TRtoBL">Top Right to Bottom Left</option>
@@ -85,8 +85,8 @@ class PursuitsOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="dotSpeed">Scroll Speed: </Label>
-                        <Input type="number" min="1" max="10" step=".5" value={this.props.pursuitsReducer.dotSpeed} onChange={this.onDotSpeedChange} />
+                        <Label for="pursuits-scroll-speed">Scroll Speed: </Label>
+                        <Input type="number" name="pursuits-scroll-speed" min="1" max="10" step=".5" value={this.props.pursuitsReducer.dotSpeed} onChange={this.onDotSpeedChange} />
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
                     <Button onClick={this.resetOptions}>Reset</Button>

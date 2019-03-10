@@ -60,10 +60,10 @@ class OPKOptions extends Component {
     render() {
         return (
             <div>
-                <Form id="options-form">
+                <Form id="opk-options-form" className="options-form">
                     <FormGroup>
-                        <Label for="extraDotColor">Stripe 1 Color: </Label>
-                        <Input type="select" name="extraDotColor" value={this.props.opkReducer.stripeColor} onChange={this.onStripeColorChange}>
+                        <Label for="opk-stripe-1-color">Stripe 1 Color: </Label>
+                        <Input type="select" name="opk-stripe-1-color" value={this.props.opkReducer.stripeColor} onChange={this.onStripeColorChange}>
                             <option>Red</option>
                             <option>White</option>
                             <option>Black</option>
@@ -72,8 +72,8 @@ class OPKOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="extraDotColor">Stripe 2 Color: </Label>
-                        <Input type="select" name="extraDotColor" value={this.props.opkReducer.backgroundColor} onChange={this.onBackgroundColorChange}>
+                        <Label for="opk-stripe-2-color">Stripe 2 Color: </Label>
+                        <Input type="select" name="opk-stripe-2-color" value={this.props.opkReducer.backgroundColor} onChange={this.onBackgroundColorChange}>
                             <option>Red</option>
                             <option>White</option>
                             <option>Black</option>
@@ -82,8 +82,8 @@ class OPKOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="dotSpeed">Scroll Speed </Label>
-                        <Input type="number" min="1" max="10" step=".5" value={this.props.opkReducer.scrollSpeed} onChange={this.onScrollSpeedhange} />
+                        <Label for="opk-scroll-speed">Scroll Speed </Label>
+                        <Input type="number" name="opk-scroll-speed" min="1" max="10" step=".5" value={this.props.opkReducer.scrollSpeed} onChange={this.onScrollSpeedhange} />
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
                     <Button onClick={this.resetOptions}>Reset</Button>

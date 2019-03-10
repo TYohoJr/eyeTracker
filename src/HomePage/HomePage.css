@@ -3,12 +3,12 @@
     max-height:200px;
 }
 
-.btn-div{
+.homepage-btn-div{
     padding: 20px;
     display: inline-block;
 }
 
-#all-btns-container{
+#homepage-all-btns-div{
     max-width:60vw;
 }
 
@@ -17,4 +17,14 @@
     background-color: rgba(64, 64, 64, 0.25);
     font-style: oblique;
     font-weight: bold
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.650);
+    text-align: center;
+    font-size: 16px;
 }

@@ -76,10 +76,10 @@ class SaccadesOptions extends Component {
     render() {
         return (
             <div>
-                <Form id="options-form">
+                <Form id="saccades-options-form" className="options-form">
                     <FormGroup>
-                        <Label for="centerDotColor">Dot Color: </Label>
-                        <Input type="select" name="centerDotColor" value={this.props.saccadesReducer.dotColor} onChange={this.onDotColorChange}>
+                        <Label for="saccades-center-dot-color">Dot Color: </Label>
+                        <Input type="select" name="saccades-center-dot-color" value={this.props.saccadesReducer.dotColor} onChange={this.onDotColorChange}>
                             <option>Black</option>
                             <option>Red</option>
                             <option>Blue</option>
@@ -87,8 +87,8 @@ class SaccadesOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="extraDotColor">Dot Movement: </Label>
-                        <Input type="select" name="extraDotColor" value={this.props.saccadesReducer.direction} onChange={this.onDirectionChange}>
+                        <Label for="saccades-dot-movement">Dot Movement: </Label>
+                        <Input type="select" name="saccades-dot-movement" value={this.props.saccadesReducer.direction} onChange={this.onDirectionChange}>
                             <option value="TLtoBR">Top Left to Bottom Right</option>
                             <option value="TMtoBM">Top Middle to Bottom Middle</option>
                             <option value="TRtoBL">Top Right to Bottom Left</option>
@@ -100,16 +100,16 @@ class SaccadesOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="dotSpeed">Dot Speed: </Label>
-                        <Input type="number" min="1" max="10" step="1" value={this.props.saccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
+                        <Label for="saccades-dot-speed">Dot Speed: </Label>
+                        <Input type="number" name="saccades-dot-speed" min="1" max="10" step="1" value={this.props.saccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="dotSpeed">Number of Steps: </Label>
-                        <Input type="number" min="3" max="10" step="1" value={this.props.saccadesReducer.steps} onChange={this.onStepsChange} />
+                        <Label for="saccades-steps">Number of Steps: </Label>
+                        <Input type="number" name="saccades-steps" min="3" max="10" step="1" value={this.props.saccadesReducer.steps} onChange={this.onStepsChange} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="dotNumber">Number of Cycles: </Label>
-                        <Input type="select" value={this.props.saccadesReducer.cycles} onChange={this.onCyclesChange}>
+                        <Label for="saccades-cycles">Number of Cycles: </Label>
+                        <Input type="select" name="saccades-cycles" value={this.props.saccadesReducer.cycles} onChange={this.onCyclesChange}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>

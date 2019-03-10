@@ -20,7 +20,7 @@ class OPKExercise extends Component {
         var speed = 10 - this.props.opkReducer.scrollSpeed
         return (
             <div>
-                <div id="opk-exercise-div" style={{
+                <div id="opk-exercise-background" style={{
                     "backgroundColor": `${this.props.opkReducer.backgroundColor}`
                 }} />
                 <span id="opk-stripe1" className="opk-stripe" style={{

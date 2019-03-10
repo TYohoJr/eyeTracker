@@ -31,23 +31,11 @@ class RandomSaccadesExercise extends Component {
     render() {
         return (
             <div>
-                <span id="centerDot" style={{
-                    "height": "30px",
-                    "width": "30px",
-                    "borderRadius": "50%",
+                <span id="random-saccades-center-dot" style={{
                     "backgroundColor": this.props.randomSaccadesReducer.centerDotColor,
-                    "display": "inline-block",
-                    "position": "fixed",
-                    "top": "50%",
-                    "left": "50%",
                 }} />
-                <span id="RandomDot" style={{
-                    "height": "30px",
-                    "width": "30px",
-                    "borderRadius": "50%",
+                <span id="random-saccades-extra-dot" style={{
                     "backgroundColor": this.props.randomSaccadesReducer.extraDotColor,
-                    "display": "inline-block",
-                    "position": "fixed",
                     "top": this.props.dotPlacementReducer.topPercent,
                     "left": this.props.dotPlacementReducer.leftPercent,
                 }} />

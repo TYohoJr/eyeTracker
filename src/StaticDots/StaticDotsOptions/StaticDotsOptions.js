@@ -52,10 +52,10 @@ class StaticDotsOptions extends Component {
   render() {
     return (
       <div>
-        <Form id="options-form">
+        <Form id="static-dots-options-form" className="options-form">
           <FormGroup>
-            <Label for="centerDotColor">Center Dot Color: </Label>
-            <Input type="select" name="centerDotColor" value={this.props.staticDotsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
+            <Label for="static-dots-center-dot-color">Center Dot Color: </Label>
+            <Input type="select" name="static-dots-center-dot-color" value={this.props.staticDotsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
               <option>Black</option>
               <option>Red</option>
               <option>Blue</option>
@@ -63,8 +63,8 @@ class StaticDotsOptions extends Component {
             </Input>
           </FormGroup>
           <FormGroup>
-            <Label for="extraDotColor">Extra Dot Color: </Label>
-            <Input type="select" name="extraDotColor" value={this.props.staticDotsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
+            <Label for="static-dots-extra-dot-color">Extra Dot Color: </Label>
+            <Input type="select" name="static-dots-extra-dot-color" value={this.props.staticDotsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
               <option>Red</option>
               <option>Black</option>
               <option>Blue</option>

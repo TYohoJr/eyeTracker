@@ -86,33 +86,17 @@ class AntiSaccadesExercise extends Component {
         console.log(this.props.antiSaccadesReducer)
         return (
             <div>
-                <span id="antisaccades-center-dot" style={{
-                    "height": "30px",
-                    "width": "30px",
-                    "borderRadius": "50%",
-                    "backgroundColor": this.props.antiSaccadesReducer.centerDotColor,
-                    "position": "fixed",
-                    "top": `50%`,
-                    "left": `50%`,
-                }} />
-                <span hidden={this.props.antiSaccadesReducer.rightHidden} id="antisaccades-right-dot" style={{
-                    "height": "30px",
-                    "width": "30px",
-                    "borderRadius": "50%",
-                    "backgroundColor": this.props.antiSaccadesReducer.extraDotColor,
-                    "position": "absolute",
-                    "top": `50%`,
-                    "left": `60%`,
-                }} />
-                <span hidden={this.props.antiSaccadesReducer.leftHidden} id="antisaccades-left-dot" style={{
-                    "height": "30px",
-                    "width": "30px",
-                    "borderRadius": "50%",
-                    "backgroundColor": this.props.antiSaccadesReducer.extraDotColor,
-                    "position": "absolute",
-                    "top": `50%`,
-                    "left": `40%`,
-                }} />
+                <div className="exercise-div">
+                    <span id="antisaccades-center-dot" style={{
+                        "backgroundColor": this.props.antiSaccadesReducer.centerDotColor,
+                    }} />
+                    <span hidden={this.props.antiSaccadesReducer.rightHidden} id="antisaccades-right-dot" style={{
+                        "backgroundColor": this.props.antiSaccadesReducer.extraDotColor,
+                    }} />
+                    <span hidden={this.props.antiSaccadesReducer.leftHidden} id="antisaccades-left-dot" style={{
+                        "backgroundColor": this.props.antiSaccadesReducer.extraDotColor,
+                    }} />
+                </div>
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div >
         );

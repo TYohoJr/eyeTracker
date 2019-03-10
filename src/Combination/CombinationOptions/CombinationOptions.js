@@ -19,10 +19,10 @@ class CombinationOptions extends Component {
     onAddListItem(e) {
         this.props.dispatch({
             type: "addListItem",
-            exerciseType: document.getElementById("item-exercise-type").value,
-            direction: document.getElementById("item-direction").value,
-            dotSpeed: document.getElementById("item-dot-speed").value,
-            dotSteps: document.getElementById("item-dot-steps").value,
+            exerciseType: document.getElementById("combination-exercise-type").value,
+            direction: document.getElementById("combination-dot-movement").value,
+            dotSpeed: document.getElementById("combination-dot-speed").value,
+            dotSteps: document.getElementById("combination-dot-steps").value,
         })
     }
 
@@ -73,10 +73,10 @@ class CombinationOptions extends Component {
         return (
             <div>
                 <div id="combination-div">
-                    <Form id="options-form">
+                    <Form id="combination-options-form" className="options-form">
                         <FormGroup>
-                            <Label for="extraDotColor">Dot Color: </Label>
-                            <Input type="select" name="extraDotColor" value={this.props.combinationReducer.dotColor} onChange={this.onDotColorChange}>
+                            <Label for="combination-dot-color">Dot Color: </Label>
+                            <Input type="select" name="combination-dot-color" value={this.props.combinationReducer.dotColor} onChange={this.onDotColorChange}>
                                 <option>Red</option>
                                 <option>White</option>
                                 <option>Black</option>
@@ -86,15 +86,15 @@ class CombinationOptions extends Component {
                         </FormGroup>
                         <p id="add-step-p">Add Step to Exercise:</p>
                         <FormGroup>
-                            <Label for="extraDotColor">Exercise Type: </Label>
-                            <Input id="item-exercise-type" type="select">
+                            <Label for="combination-exercise-type">Exercise Type: </Label>
+                            <Input id="combination-exercise-type" type="select" name="combination-exercise-type">
                                 <option>Saccades</option>
                                 <option>Pursuit</option>
                             </Input>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="extraDotColor">Dot Movement: </Label>
-                            <Input id="item-direction" type="select" name="extraDotColor">
+                            <Label for="combintion-dot-movement">Dot Movement: </Label>
+                            <Input id="combination-dot-movement" type="select" name="combination-dot-movement">
                                 <option value="TLtoBR">Top Left to Bottom Right</option>
                                 <option value="TMtoBM">Top Middle to Bottom Middle</option>
                                 <option value="TRtoBL">Top Right to Bottom Left</option>
@@ -106,14 +106,14 @@ class CombinationOptions extends Component {
                             </Input>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="dotSpeed">Dot Speed: </Label>
-                            <Input id="item-dot-speed" type="number" min="1" max="10" step=".5" defaultValue="1" />
+                            <Label for="combination-dot-speed">Dot Speed: </Label>
+                            <Input id="combination-dot-speed" type="number" name="combination-dot-speed" min="1" max="10" step=".5" defaultValue="1" />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="dotSpeed">Number of Steps: </Label>
-                            <Input id="item-dot-steps" type="number" min="3" max="8" step="1" defaultValue="3" />
+                            <Label for="combination-dot-steps">Number of Steps: </Label>
+                            <Input id="combination-dot-steps" type="number" name="combination-dot-steps" min="3" max="8" step="1" defaultValue="3" />
                         </FormGroup>
-                        <Button id="add-step-btn" onClick={this.onAddListItem}>Add Step</Button>
+                        <Button id="combination-add-step-btn" onClick={this.onAddListItem}>Add Step</Button>
                         <br />
                         <Button onClick={this.onRunButton}>Run</Button>
                         <Button onClick={this.resetOptions}>Reset</Button>

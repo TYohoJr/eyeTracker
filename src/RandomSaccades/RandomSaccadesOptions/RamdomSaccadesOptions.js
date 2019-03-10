@@ -68,10 +68,10 @@ class RandomSaccadesOptions extends Component {
   render() {
     return (
       <div>
-        <Form id="options-form">
+        <Form id="random-saccades-options-form" className="options-form">
           <FormGroup>
-            <Label for="centerDotColor">Center Dot Color: </Label>
-            <Input type="select" name="centerDotColor" value={this.props.randomSaccadesReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
+            <Label for="random-saccades-center-dot-color">Center Dot Color: </Label>
+            <Input type="select" name="random-saccades-center-dot-color" value={this.props.randomSaccadesReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
               <option>Black</option>
               <option>Red</option>
               <option>Blue</option>
@@ -79,8 +79,8 @@ class RandomSaccadesOptions extends Component {
             </Input>
           </FormGroup>
           <FormGroup>
-            <Label for="extraDotColor">Extra Dot Color: </Label>
-            <Input type="select" name="extraDotColor" value={this.props.randomSaccadesReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
+            <Label for="random-saccades-extra-dot-color">Extra Dot Color: </Label>
+            <Input type="select" name="random-saccades-extra-dot-color" value={this.props.randomSaccadesReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
               <option>Red</option>
               <option>Black</option>
               <option>Blue</option>
@@ -88,12 +88,12 @@ class RandomSaccadesOptions extends Component {
             </Input>
           </FormGroup>
           <FormGroup>
-            <Label for="dotSpeed">Dot Speed(seconds): </Label>
-            <Input type="number" min=".2" max="5" step=".2" value={this.props.randomSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
+            <Label for="random-saccades-dot-speed">Dot Speed(seconds): </Label>
+            <Input type="number" name="random-saccades-dot-speed" min=".2" max="5" step=".2" value={this.props.randomSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
           </FormGroup>
           <FormGroup>
-            <Label for="dotNumber">Number of Cycles: </Label>
-            <Input type="number" min="5" max="30" step="1" value={this.props.randomSaccadesReducer.dotNumber} onChange={this.onDotNumberChange} />
+            <Label for="random-saccades-cycles">Number of Cycles: </Label>
+            <Input type="number" name="random-saccades-cycles" min="5" max="30" step="1" value={this.props.randomSaccadesReducer.dotNumber} onChange={this.onDotNumberChange} />
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
           <Button onClick={this.resetOptions}>Reset</Button>

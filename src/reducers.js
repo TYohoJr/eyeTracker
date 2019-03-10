@@ -249,7 +249,7 @@ const saccadesReducer = (state, action) => {
 const combinationReducer = (state, action) => {
     if (!state) {
         state = {
-            dotColor: "red",
+            dotColor: "Red",
             masterArray: [],
         }
     }
@@ -274,7 +274,7 @@ const combinationReducer = (state, action) => {
             }
         case "resetCombination":
             return state = {
-                dotColor: "red",
+                dotColor: "Red",
                 masterArray: [],
             }
         default:

@@ -95,10 +95,10 @@ class AntiSaccadesOptions extends Component {
         }
         return (
             <div>
-                <Form id="options-form">
+                <Form id="anti-saccades-options-form" className="options-form">
                     <FormGroup>
-                        <Label for="centerDotColor">Center Dot Color: </Label>
-                        <Input type="select" name="centerDotColor" value={this.props.antiSaccadesReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
+                        <Label for="anti-saccades-center-dot-color">Center Dot Color: </Label>
+                        <Input type="select" name="anti-saccades-center-dot-color" value={this.props.antiSaccadesReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
                             <option>Black</option>
                             <option>Red</option>
                             <option>Blue</option>
@@ -106,8 +106,8 @@ class AntiSaccadesOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="extraDotColor">Extra Dots Color: </Label>
-                        <Input type="select" name="extraDotColor" value={this.props.antiSaccadesReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
+                        <Label for="anti-saccades-extra-dot-color">Extra Dots Color: </Label>
+                        <Input type="select" name="anti-saccades-extra-dot-color" value={this.props.antiSaccadesReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
                             <option>Red</option>
                             <option>Black</option>
                             <option>Blue</option>
@@ -119,8 +119,8 @@ class AntiSaccadesOptions extends Component {
                         <Input type="number" min="1" max="10" step="1" value={this.props.antiSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
                     </FormGroup> */}
                     <FormGroup>
-                        <Label for="dotNumber">Number of Cycles: </Label>
-                        <Input type="select" value={this.props.antiSaccadesReducer.cycles} onChange={this.onCyclesChange}>
+                        <Label for="anti-saccades-cycles">Number of Cycles: </Label>
+                        <Input type="select" name="anti-saccades-cycles" value={this.props.antiSaccadesReducer.cycles} onChange={this.onCyclesChange}>
                             <option>10</option>
                             <option>20</option>
                             <option>30</option>
@@ -128,15 +128,15 @@ class AntiSaccadesOptions extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="dotNumber">Go/No-Go: </Label>
-                        <Input type="select" value={this.props.antiSaccadesReducer.goNoGo} onChange={this.onGoNoGoChange}>
+                        <Label for="anti-saccades-gonogo">Go/No-Go: </Label>
+                        <Input type="select" name="anti-saccades-gonogo" value={this.props.antiSaccadesReducer.goNoGo} onChange={this.onGoNoGoChange}>
                             <option>Off</option>
                             <option>On</option>
                         </Input>
                     </FormGroup>
                     <FormGroup hidden={goNoGoTest}>
-                        <Label for="dotNumber">Go/No-Go Dot Color: </Label>
-                        <Input type="select" value={this.props.antiSaccadesReducer.goNoGoDotColor} onChange={this.onGoNoGoDotColorChange}>
+                        <Label for="anti-saccades-gonogo-dot-color">Go/No-Go Dot Color: </Label>
+                        <Input type="select" name="anti-saccades-gonogo-dot-color" value={this.props.antiSaccadesReducer.goNoGoDotColor} onChange={this.onGoNoGoDotColorChange}>
                             <option>Green</option>
                             <option>Blue</option>
                             <option>Yellow</option>

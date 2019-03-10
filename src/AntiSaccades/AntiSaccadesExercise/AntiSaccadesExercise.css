@@ -1,0 +1,26 @@
+#antisaccades-center-dot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+#antisaccades-right-dot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+}
+
+#antisaccades-left-dot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}

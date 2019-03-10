@@ -1,0 +1,17 @@
+#random-saccades-center-dot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+#random-saccades-extra-dot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+}

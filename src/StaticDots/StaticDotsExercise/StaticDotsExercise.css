@@ -1,7 +1,9 @@
 .done-button{
     background-color: grey;
     position: fixed;
-    bottom:3px;
+    bottom:0;
+    opacity: .75;
+    margin-top: 100px
 }
 
 #static-center-dot{

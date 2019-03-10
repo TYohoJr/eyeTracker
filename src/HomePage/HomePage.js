@@ -97,38 +97,39 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                <div id="all-btns-container">
-                    <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.staticDots}><img className="preview-thumbnail" src={require("../project-images/static-dots.png")} alt="rs" /><br />Static Dots</button>
+                <div id="homepage-all-btns-div">
+                    <div className="homepage-btn-div">
+                        <button className="homepage-btn" onClick={this.staticDots}><img className="preview-thumbnail" src={require("../project-images/static-dots.png")} alt="exercise preview" /><br />Static Dots</button>
                     </div>
-                    <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.pursuits}><img className="preview-thumbnail" src={require("../project-images/pursuits.png")} alt="rs" /><br />Pursuits</button>
+                    <div className="homepage-btn-div">
+                        <button className="homepage-btn" onClick={this.pursuits}><img className="preview-thumbnail" src={require("../project-images/pursuits.png")} alt="exercise preview" /><br />Pursuits</button>
                     </div>
-                    <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.saccades}><img className="preview-thumbnail" src={require("../project-images/saccades.png")} alt="rs" /><br />Saccades</button>
+                    <div className="homepage-btn-div">
+                        <button className="homepage-btn" onClick={this.saccades}><img className="preview-thumbnail" src={require("../project-images/saccades.png")} alt="exercise preview" /><br />Saccades</button>
                     </div>
-                    <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.combination}><img className="preview-thumbnail" src={require("../project-images/combination.png")} alt="rs" /><br />Combination Saccades & Pursuits</button>
+                    <div className="homepage-btn-div">
+                        <button className="homepage-btn" onClick={this.combination}><img className="preview-thumbnail" src={require("../project-images/combination.png")} alt="exercise preview" /><br />Combination Saccades & Pursuits</button>
                     </div>
-                    <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.randomSaccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="rs" /><br />Random Saccades</button>
+                    <div className="homepage-btn-div">
+                        <button className="homepage-btn" onClick={this.randomSaccades}><img className="preview-thumbnail" src={require("../project-images/random-saccades.png")} alt="exercise preview" /><br />Random Saccades</button>
                     </div>
-                    <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.antisaccades}><img className="preview-thumbnail" src={require("../project-images/anti-saccades.png")} alt="rs" /><br />Antisaccades</button>
+                    <div className="homepage-btn-div">
+                        <button className="homepage-btn" onClick={this.antisaccades}><img className="preview-thumbnail" src={require("../project-images/anti-saccades.png")} alt="exercise preview" /><br />Antisaccades</button>
                     </div>
-                    <div className="btn-div">
-                        <button className="homepage-btn" onClick={this.opk}><img className="preview-thumbnail" src={require("../project-images/opk.png")} alt="rs" /><br />OPK</button>
+                    <div className="homepage-btn-div">
+                        <button className="homepage-btn" onClick={this.opk}><img className="preview-thumbnail" src={require("../project-images/opk.png")} alt="exercise preview" /><br />OPK</button>
                     </div>
-                    {/* <div className="btn-div">
+                    {/* <div className="homepage-btn-div">
                         <button className="homepage-btn" onClick={this.hemistim}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Hemistim</button>
                     </div>
-                    <div className="btn-div">
+                    <div className="homepage-btn-div">
                         <button className="homepage-btn" onClick={this.memorySaccades}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Memory Saccades</button>
                     </div>
-                    <div className="btn-div">
+                    <div className="homepage-btn-div">
                         <button className="homepage-btn" onClick={this.gazeStability}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Gaze Stability</button>
                     </div> */}
                 </div>
+                <footer>© 2019 Thomas Yoho</footer>
             </div >
         );
     }
