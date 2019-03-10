@@ -67,6 +67,7 @@ class SaccadesExercise extends Component {
                     "top": `${topValue}%`,
                     "left": `${leftValue}%`,
                     "animation":`${animationName} ${dotSpeed}s steps(${steps}) ${.25}s ${cycles}`,
+                    "animationFillMode":"forwards",
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div >
