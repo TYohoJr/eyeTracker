@@ -95,11 +95,16 @@ class RandomSaccadesOptions extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="random-saccades-dot-speed">Dot Speed(seconds): </Label>
-            <Input type="number" name="random-saccades-dot-speed" min=".2" max="5" step=".2" value={this.props.randomSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
+            <Input type="number" name="random-saccades-dot-speed" min="1" max="7" step="1" value={this.props.randomSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
           </FormGroup>
           <FormGroup>
             <Label for="random-saccades-cycles">Number of Cycles: </Label>
-            <Input type="number" name="random-saccades-cycles" min="5" max="30" step="1" value={this.props.randomSaccadesReducer.dotNumber} onChange={this.onDotNumberChange} />
+            <Input type="select" name="random-saccades-cycles" value={this.props.randomSaccadesReducer.dotNumber} onChange={this.onDotNumberChange}>
+              <option>10</option>
+              <option>20</option>
+              <option>30</option>
+              <option>Infinite</option>
+            </Input>
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
           <Button onClick={this.resetOptions}>Reset</Button>

@@ -4,11 +4,24 @@ import { connect } from 'react-redux';
 import RandomSaccadesOptions from "../RandomSaccadesOptions/RandomSaccadesOptions.js";
 
 var counter = 0;
+var timer;
 
 class RandomSaccadesExercise extends Component {
+    constructor() {
+        super();
+        this.endExercise = this.endExercise.bind(this);
+    }
+
+    endExercise() {
+        this.props.dispatch({
+            type: "changeCurrentPage",
+            currentPage: <RandomSaccadesOptions />
+        })
+    }
+
     componentDidMount() {
         console.log(this.props.randomSaccadesReducer.dotSpeed)
-        this.timerID = setInterval(() => {
+        timer = setInterval(() => {
             if (counter === this.props.randomSaccadesReducer.dotNumber) {
                 counter = 1;
                 this.props.dispatch({
@@ -28,6 +41,10 @@ class RandomSaccadesExercise extends Component {
         }, this.props.randomSaccadesReducer.dotSpeed * 1000)
     }
 
+    componentWillUnmount(){
+        clearInterval(timer);
+    }
+
     render() {
         return (
             <div>
@@ -39,6 +56,7 @@ class RandomSaccadesExercise extends Component {
                     "top": this.props.dotPlacementReducer.topPercent,
                     "left": this.props.dotPlacementReducer.leftPercent,
                 }} />
+                <button onClick={this.endExercise} className="done-button">Done</button>
             </div >
         );
     }

@@ -52,8 +52,8 @@ const randomSaccadesReducer = (state, action) => {
         state = {
             centerDotColor: "Black",
             extraDotColor: "Red",
-            dotSpeed: .2,
-            dotNumber: 5
+            dotSpeed: 1,
+            dotNumber: 10
         }
     }
     switch (action.type) {
@@ -81,8 +81,8 @@ const randomSaccadesReducer = (state, action) => {
             return state = {
                 centerDotColor: "Black",
                 extraDotColor: "Red",
-                dotSpeed: .2,
-                dotNumber: 5
+                dotSpeed: 1,
+                dotNumber: 10
             }
         default:
             return state = {
