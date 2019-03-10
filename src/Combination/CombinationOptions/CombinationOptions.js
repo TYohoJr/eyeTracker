@@ -5,24 +5,30 @@ import { connect } from 'react-redux';
 import HomePage from "../../HomePage/HomePage.js";
 import CombinationExercise from '../CombinationExercise/CombinationExercise';
 
+var combinationHiddenCheck;
+
 class CombinationOptions extends Component {
     constructor() {
         super();
         this.onAddListItem = this.onAddListItem.bind(this);
         this.onDotColorChange = this.onDotColorChange.bind(this);
-        this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
         this.returnHome = this.returnHome.bind(this);
         this.resetOptions = this.resetOptions.bind(this);
+        this.onExerciseTypeChange = this.onExerciseTypeChange.bind(this);
     }
 
     onAddListItem(e) {
+        let combinationSteps = document.getElementById("combination-dot-steps").value;
+        if(this.props.combinationReducer.exerciseTypeCheck === "Pursuits") {
+            combinationSteps = "N/A"
+        }
         this.props.dispatch({
             type: "addListItem",
             exerciseType: document.getElementById("combination-exercise-type").value,
             direction: document.getElementById("combination-dot-movement").value,
             dotSpeed: document.getElementById("combination-dot-speed").value,
-            dotSteps: document.getElementById("combination-dot-steps").value,
+            dotSteps: combinationSteps,
         })
     }
 
@@ -33,10 +39,10 @@ class CombinationOptions extends Component {
         })
     }
 
-    onDotSpeedChange(e) {
+    onExerciseTypeChange(e){
         this.props.dispatch({
-            type: "changePursuitsDotSpeed",
-            dotSpeed: e.target.value
+            type: "changeCombinationExerciseType",
+            exerciseType: e.target.value
         })
     }
 
@@ -61,6 +67,11 @@ class CombinationOptions extends Component {
     }
 
     render() {
+        if(this.props.combinationReducer.exerciseTypeCheck === "Saccades") {
+            combinationHiddenCheck = false
+        } else {
+            combinationHiddenCheck = true
+        }
         var masterList = this.props.combinationReducer.masterArray.map((item, i) => {
             return <tr key={i}>
                 <td key={`${i}list-number`}>{i + 1}</td>
@@ -89,9 +100,9 @@ class CombinationOptions extends Component {
                         <p id="add-step-p">Add Step to Exercise:</p>
                         <FormGroup>
                             <Label for="combination-exercise-type">Exercise Type: </Label>
-                            <Input id="combination-exercise-type" type="select" name="combination-exercise-type">
+                            <Input id="combination-exercise-type" type="select" name="combination-exercise-type" value={this.props.combinationReducer.exerciseTypeCheck} onChange={this.onExerciseTypeChange}>
+                                <option>Pursuits</option>
                                 <option>Saccades</option>
-                                <option>Pursuit</option>
                             </Input>
                         </FormGroup>
                         <FormGroup>
@@ -111,7 +122,7 @@ class CombinationOptions extends Component {
                             <Label for="combination-dot-speed">Dot Speed: </Label>
                             <Input id="combination-dot-speed" type="number" name="combination-dot-speed" min="1" max="10" step=".5" defaultValue="1" />
                         </FormGroup>
-                        <FormGroup>
+                        <FormGroup hidden={combinationHiddenCheck}>
                             <Label for="combination-dot-steps">Number of Steps: </Label>
                             <Input id="combination-dot-steps" type="number" name="combination-dot-steps" min="3" max="8" step="1" defaultValue="3" />
                         </FormGroup>

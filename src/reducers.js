@@ -251,6 +251,7 @@ const combinationReducer = (state, action) => {
         state = {
             dotColor: "Red",
             masterArray: [],
+            exerciseTypeCheck: "Pursuits"
         }
     }
     switch (action.type) {
@@ -272,10 +273,16 @@ const combinationReducer = (state, action) => {
                 ...state,
                 dotColor: action.dotColor
             }
+        case "changeCombinationExerciseType":
+            return state = {
+                ...state,
+                exerciseTypeCheck: action.exerciseType
+            }
         case "resetCombination":
             return state = {
                 dotColor: "Red",
                 masterArray: [],
+                exerciseTypeCheck: "Pursuits",
             }
         default:
             return state = {

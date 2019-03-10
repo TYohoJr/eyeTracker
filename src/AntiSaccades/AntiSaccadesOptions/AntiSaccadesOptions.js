@@ -83,10 +83,6 @@ class AntiSaccadesOptions extends Component {
         })
     }
 
-    componentDidUpdate() {
-
-    }
-
     render() {
         if (this.props.antiSaccadesReducer.goNoGo === "On") {
             goNoGoTest = false

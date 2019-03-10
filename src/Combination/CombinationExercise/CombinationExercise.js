@@ -17,30 +17,31 @@ class CombinationExercise extends Component {
     }
 
     render() {
+        console.log(this.props.combinationReducer.masterArray)
         var currentArray = this.props.combinationReducer.masterArray
-        var steps;
+        var combinationSteps;
         var dotSpeed;
         var animationNameP;
         var animationNameS;
         var animationDuration;
         var animationDelayP = 0;
         var animationDelayS = 0;
-
         if (currentArray[0]) {
             if (currentArray[0].exerciseType === "Saccades") {
                 animationDelayP = 9.9 - currentArray[0].dotSpeed;
                 animationNameS = currentArray[0].direction;
                 animationNameP = currentArray[1].direction;
-            } else if (currentArray[0].exerciseType === "Pursuit") {
+                combinationSteps = currentArray[0].dotSteps;
+            } else if (currentArray[0].exerciseType === "Pursuits") {
                 animationDelayS = 9.9 - currentArray[0].dotSpeed;
                 animationNameP = currentArray[0].direction;
                 animationNameS = currentArray[1].direction;
+                combinationSteps = currentArray[1].dotSteps;
             }
-            steps = currentArray[0].dotSteps;
             dotSpeed = 10 - currentArray[0].dotSpeed;
             animationDuration = 10 - currentArray[0].dotSpeed;
         }
-
+        debugger
         return (
             <div>
                 <div className="exercise-div">
@@ -52,7 +53,7 @@ class CombinationExercise extends Component {
                     }} />
                     <span id="combination-saccades-dot" style={{
                         "backgroundColor": this.props.combinationReducer.dotColor,
-                        "animation": `${animationNameS} ${dotSpeed}s steps(${steps})`,
+                        "animation": `${animationNameS} ${dotSpeed}s steps(${combinationSteps})`,
                         "animationDelay": `${animationDelayS}s`
                     }} />
                 </div>
