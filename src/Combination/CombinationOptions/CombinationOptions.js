@@ -19,8 +19,18 @@ class CombinationOptions extends Component {
     }
 
     onAddListItem(e) {
+        // Error handling stuff
+        if (this.props.combinationReducer.masterArray.length === 2) {
+            return alert("Maximum of 2 steps");
+        }
+        if (this.props.combinationReducer.masterArray.length) {
+            if (this.props.combinationReducer.masterArray[0].exerciseType === document.getElementById("combination-exercise-type").value) {
+                return alert("Please use 1 Pursuits and 1 Saccades exercise")
+            }
+        }
+        //
         let combinationSteps = document.getElementById("combination-dot-steps").value;
-        if(this.props.combinationReducer.exerciseTypeCheck === "Pursuits") {
+        if (this.props.combinationReducer.exerciseTypeCheck === "Pursuits") {
             combinationSteps = "N/A"
         }
         this.props.dispatch({
@@ -39,7 +49,7 @@ class CombinationOptions extends Component {
         })
     }
 
-    onExerciseTypeChange(e){
+    onExerciseTypeChange(e) {
         this.props.dispatch({
             type: "changeCombinationExerciseType",
             exerciseType: e.target.value
@@ -67,7 +77,7 @@ class CombinationOptions extends Component {
     }
 
     render() {
-        if(this.props.combinationReducer.exerciseTypeCheck === "Saccades") {
+        if (this.props.combinationReducer.exerciseTypeCheck === "Saccades") {
             combinationHiddenCheck = false
         } else {
             combinationHiddenCheck = true
