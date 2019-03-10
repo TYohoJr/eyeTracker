@@ -14,6 +14,7 @@ class PursuitsOptions extends Component {
         this.onRunButton = this.onRunButton.bind(this);
         this.returnHome = this.returnHome.bind(this);
         this.resetOptions = this.resetOptions.bind(this);
+        this.onCyclesChange = this.onCyclesChange.bind(this);
     }
 
     onDotColorChange(e) {
@@ -34,6 +35,13 @@ class PursuitsOptions extends Component {
         this.props.dispatch({
             type: "changePursuitsDotSpeed",
             dotSpeed: e.target.value
+        })
+    }
+
+    onCyclesChange(e) {
+        this.props.dispatch({
+            type: "changePursuitsCycles",
+            cycles: e.target.value
         })
     }
 
@@ -89,6 +97,17 @@ class PursuitsOptions extends Component {
                     <FormGroup>
                         <Label for="pursuits-scroll-speed">Scroll Speed: </Label>
                         <Input type="number" name="pursuits-scroll-speed" min="1" max="10" step=".5" value={this.props.pursuitsReducer.dotSpeed} onChange={this.onDotSpeedChange} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="pursuits-dot-color">Cycles: </Label>
+                        <Input type="select" name="pursuits-dot-color" value={this.props.pursuitsReducer.cycles} onChange={this.onCyclesChange}>
+                            <option>1</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>Infinite</option>
+                        </Input>
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
                     <Button onClick={this.resetOptions}>Reset</Button>

@@ -66,6 +66,7 @@ class PursuitsExercise extends Component {
                     "left": `${leftValue}%`,
                     "animationName":`${animationName}`,
                     "animationDuration":`${animationDuration}s`,
+                    "animationIterationCount":`${this.props.pursuitsReducer.cycles}`
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div>

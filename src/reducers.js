@@ -164,6 +164,7 @@ const pursuitsReducer = (state, action) => {
             direction: "TLtoBR",
             dotColor: "Red",
             dotSpeed: 1,
+            cycles: 1,
         }
     }
     switch (action.type) {
@@ -182,11 +183,17 @@ const pursuitsReducer = (state, action) => {
                 ...state,
                 dotSpeed: action.dotSpeed
             }
+        case "changePursuitsCycles":
+            return state = {
+                ...state,
+                cycles: action.cycles
+            }
         case "resetOPK":
             return state = {
                 direction: "TLtoBR",
                 dotColor: "Red",
-                dotSpeed: 1
+                dotSpeed: 1,
+                cycles: 1,
             }
         default:
             return state = {
