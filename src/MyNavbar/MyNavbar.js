@@ -30,33 +30,34 @@ class MyNavbar extends Component {
     });
   }
   render() {
+    var loggenInUsername = "Guest"
     return (
       <div hidden={this.props.currentPageReducer.hidden}>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand href="/">Eye Tracker</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink>User: {loggenInUsername}</NavLink>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
+              </NavItem> */}
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Options
+                  Account
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
+                  <DropdownItem href="/">
+                    Log In
                   </DropdownItem>
                   <DropdownItem>
-                    Option 2
+                    Log Out
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
-                    Reset
+                    Create Account
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
