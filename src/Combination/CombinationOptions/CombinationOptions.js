@@ -59,7 +59,8 @@ class CombinationOptions extends Component {
     onRunButton(e) {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <CombinationExercise />
+            currentPage: <CombinationExercise />,
+            hidden: true
         })
     }
 

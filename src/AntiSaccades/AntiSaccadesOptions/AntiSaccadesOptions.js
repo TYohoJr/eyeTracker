@@ -63,10 +63,11 @@ class AntiSaccadesOptions extends Component {
         })
     }
 
-    onRunButton(e) {
+    onRunButton() {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <AntiSaccadesExercise />
+            currentPage: <AntiSaccadesExercise />,
+            hidden: true
         })
     }
 

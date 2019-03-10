@@ -48,7 +48,8 @@ class PursuitsOptions extends Component {
     onRunButton(e) {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <PursuitsExercise />
+            currentPage: <PursuitsExercise />,
+            hidden: true
         })
     }
 

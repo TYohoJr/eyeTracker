@@ -20,7 +20,6 @@ class RandomSaccadesExercise extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.randomSaccadesReducer.dotSpeed)
         timer = setInterval(() => {
             if (counter === this.props.randomSaccadesReducer.dotNumber) {
                 counter = 1;
@@ -37,11 +36,10 @@ class RandomSaccadesExercise extends Component {
                 })
                 counter++;
             }
-            console.log(this.props.dotPlacementReducer.topPercent)
         }, this.props.randomSaccadesReducer.dotSpeed * 1000)
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(timer);
     }
 

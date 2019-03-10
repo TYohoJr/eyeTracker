@@ -48,7 +48,8 @@ class RandomSaccadesOptions extends Component {
   onRunButton(e) {
     this.props.dispatch({
       type: "changeCurrentPage",
-      currentPage: <RandomSaccadesExercise />
+      currentPage: <RandomSaccadesExercise />,
+      hidden: true
     })
   }
 

@@ -83,7 +83,6 @@ class AntiSaccadesExercise extends Component {
     }
 
     render() {
-        console.log(this.props.antiSaccadesReducer)
         return (
             <div>
                 <div className="exercise-div">

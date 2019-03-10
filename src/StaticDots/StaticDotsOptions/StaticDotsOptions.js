@@ -32,7 +32,8 @@ class StaticDotsOptions extends Component {
   onRunButton(e) {
     this.props.dispatch({
       type: "changeCurrentPage",
-      currentPage: <StaticDotsExercise />
+      currentPage: <StaticDotsExercise />,
+      hidden: true
     })
   }
 

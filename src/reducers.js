@@ -2,6 +2,25 @@ import React from 'react';
 import { combineReducers } from 'redux';
 import HomePage from './HomePage/HomePage.js';
 
+const navbarReducer = (state, action) => {
+    if (!state) {
+        state = {
+            hidden: false
+        }
+    }
+    switch (action.type) {
+        case "hideNavbar":
+            return state = {
+                ...state,
+                hidden: action.hidden
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 const dotPlacementReducer = (state, action) => {
     if (!state) {
         state = {
@@ -31,14 +50,16 @@ const dotPlacementReducer = (state, action) => {
 const currentPageReducer = (state, action) => {
     if (!state) {
         state = {
-            currentPage: <HomePage />
+            currentPage: <HomePage />,
+            hidden: false
         }
     }
     switch (action.type) {
         case "changeCurrentPage":
             return state = {
                 ...state,
-                currentPage: action.currentPage
+                currentPage: action.currentPage,
+                hidden: action.hidden
             }
         default:
             return state = {
@@ -375,6 +396,7 @@ const antiSaccadesReducer = (state, action) => {
 }
 
 export default combineReducers({
+    navbarReducer: navbarReducer,
     staticDotsReducer: staticDotsReducer,
     currentPageReducer: currentPageReducer,
     dotPlacementReducer: dotPlacementReducer,

@@ -56,7 +56,8 @@ class SaccadesOptions extends Component {
     onRunButton(e) {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <SaccadesExercise />
+            currentPage: <SaccadesExercise />,
+            hidden: true
         })
     }
 

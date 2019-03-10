@@ -40,7 +40,8 @@ class OPKOptions extends Component {
     onRunButton(e) {
         this.props.dispatch({
             type: "changeCurrentPage",
-            currentPage: <OPKExercise />
+            currentPage: <OPKExercise />,
+            hidden: true
         })
     }
 

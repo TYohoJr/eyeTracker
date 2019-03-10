@@ -17,7 +17,6 @@ class CombinationExercise extends Component {
     }
 
     render() {
-        console.log(this.props.combinationReducer.masterArray)
         var currentArray = this.props.combinationReducer.masterArray
         var combinationSteps;
         var dotSpeed;
