@@ -77,11 +77,13 @@ class CombinationOptions extends Component {
                         <FormGroup>
                             <Label for="combination-dot-color">Dot Color: </Label>
                             <Input type="select" name="combination-dot-color" value={this.props.combinationReducer.dotColor} onChange={this.onDotColorChange}>
-                                <option>Red</option>
-                                <option>White</option>
                                 <option>Black</option>
-                                <option>Blue</option>
+                                <option>Red</option>
                                 <option>Green</option>
+                                <option>Yellow</option>
+                                <option>Orange</option>
+                                <option>Purple</option>
+                                <option>Blue</option>
                             </Input>
                         </FormGroup>
                         <p id="add-step-p">Add Step to Exercise:</p>
@@ -119,8 +121,8 @@ class CombinationOptions extends Component {
                         <Button onClick={this.resetOptions}>Reset</Button>
                     </Form>
                     <Button onClick={this.returnHome}>Home</Button>
-                    </div>
-                    <div id="combination-div">
+                </div>
+                <div id="combination-div">
                     <table id="combination-table" border="1">
                         <thead>
                             <tr>

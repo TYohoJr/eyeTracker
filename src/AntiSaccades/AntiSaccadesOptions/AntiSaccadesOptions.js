@@ -101,17 +101,23 @@ class AntiSaccadesOptions extends Component {
                         <Input type="select" name="anti-saccades-center-dot-color" value={this.props.antiSaccadesReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
                             <option>Black</option>
                             <option>Red</option>
-                            <option>Blue</option>
                             <option>Green</option>
+                            <option>Yellow</option>
+                            <option>Orange</option>
+                            <option>Purple</option>
+                            <option>Blue</option>
                         </Input>
                     </FormGroup>
                     <FormGroup>
                         <Label for="anti-saccades-extra-dot-color">Extra Dots Color: </Label>
                         <Input type="select" name="anti-saccades-extra-dot-color" value={this.props.antiSaccadesReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
-                            <option>Red</option>
                             <option>Black</option>
-                            <option>Blue</option>
+                            <option>Red</option>
                             <option>Green</option>
+                            <option>Yellow</option>
+                            <option>Orange</option>
+                            <option>Purple</option>
+                            <option>Blue</option>
                         </Input>
                     </FormGroup>
                     {/* <FormGroup>

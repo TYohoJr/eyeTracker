@@ -82,8 +82,11 @@ class SaccadesOptions extends Component {
                         <Input type="select" name="saccades-center-dot-color" value={this.props.saccadesReducer.dotColor} onChange={this.onDotColorChange}>
                             <option>Black</option>
                             <option>Red</option>
-                            <option>Blue</option>
                             <option>Green</option>
+                            <option>Yellow</option>
+                            <option>Orange</option>
+                            <option>Purple</option>
+                            <option>Blue</option>
                         </Input>
                     </FormGroup>
                     <FormGroup>

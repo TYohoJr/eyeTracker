@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './HomePage.css';
 import { connect } from 'react-redux';
-import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RamdomSaccadesOptions.js";
+import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RandomSaccadesOptions.js";
 import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions.js';
 import OPKOptions from '../OPK/OPKOptions/OPKOptions.js';
 import PursuitsOptions from '../Pursuits/PursuitsOptions/PursuitsOptions.js';

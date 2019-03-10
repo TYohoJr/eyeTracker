@@ -67,8 +67,11 @@ class OPKOptions extends Component {
                             <option>Red</option>
                             <option>White</option>
                             <option>Black</option>
-                            <option>Blue</option>
                             <option>Green</option>
+                            <option>Yellow</option>
+                            <option>Orange</option>
+                            <option>Purple</option>
+                            <option>Blue</option>
                         </Input>
                     </FormGroup>
                     <FormGroup>
@@ -77,8 +80,11 @@ class OPKOptions extends Component {
                             <option>Red</option>
                             <option>White</option>
                             <option>Black</option>
-                            <option>Blue</option>
                             <option>Green</option>
+                            <option>Yellow</option>
+                            <option>Orange</option>
+                            <option>Purple</option>
+                            <option>Blue</option>
                         </Input>
                     </FormGroup>
                     <FormGroup>

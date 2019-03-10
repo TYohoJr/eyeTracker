@@ -64,11 +64,13 @@ class PursuitsOptions extends Component {
                     <FormGroup>
                         <Label for="pursuits-dot-color">Dot Color: </Label>
                         <Input type="select" name="pursuits-dot-color" value={this.props.pursuitsReducer.dotColor} onChange={this.onDotColorChange}>
-                            <option>Red</option>
-                            <option>White</option>
                             <option>Black</option>
-                            <option>Blue</option>
+                            <option>Red</option>
                             <option>Green</option>
+                            <option>Yellow</option>
+                            <option>Orange</option>
+                            <option>Purple</option>
+                            <option>Blue</option>
                         </Input>
                     </FormGroup>
                     <FormGroup>

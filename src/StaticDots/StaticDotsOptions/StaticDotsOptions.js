@@ -58,17 +58,23 @@ class StaticDotsOptions extends Component {
             <Input type="select" name="static-dots-center-dot-color" value={this.props.staticDotsReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
               <option>Black</option>
               <option>Red</option>
-              <option>Blue</option>
               <option>Green</option>
+              <option>Yellow</option>
+              <option>Orange</option>
+              <option>Purple</option>
+              <option>Blue</option>
             </Input>
           </FormGroup>
           <FormGroup>
             <Label for="static-dots-extra-dot-color">Extra Dot Color: </Label>
             <Input type="select" name="static-dots-extra-dot-color" value={this.props.staticDotsReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
-              <option>Red</option>
               <option>Black</option>
-              <option>Blue</option>
+              <option>Red</option>
               <option>Green</option>
+              <option>Yellow</option>
+              <option>Orange</option>
+              <option>Purple</option>
+              <option>Blue</option>
             </Input>
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>

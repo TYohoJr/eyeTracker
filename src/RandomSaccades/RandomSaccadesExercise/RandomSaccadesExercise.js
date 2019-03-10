@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RandomSaccadesExercise.css';
 import { connect } from 'react-redux';
-import RandomSaccadesOptions from "../RandomSaccadesOptions/RamdomSaccadesOptions";
+import RandomSaccadesOptions from "../RandomSaccadesOptions/RandomSaccadesOptions.js";
 
 var counter = 0;
 

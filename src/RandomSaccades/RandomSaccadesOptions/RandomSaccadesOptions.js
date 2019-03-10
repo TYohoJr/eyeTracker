@@ -74,17 +74,23 @@ class RandomSaccadesOptions extends Component {
             <Input type="select" name="random-saccades-center-dot-color" value={this.props.randomSaccadesReducer.centerDotColor} onChange={this.onCenterDotColorChange}>
               <option>Black</option>
               <option>Red</option>
-              <option>Blue</option>
               <option>Green</option>
+              <option>Yellow</option>
+              <option>Orange</option>
+              <option>Purple</option>
+              <option>Blue</option>
             </Input>
           </FormGroup>
           <FormGroup>
             <Label for="random-saccades-extra-dot-color">Extra Dot Color: </Label>
             <Input type="select" name="random-saccades-extra-dot-color" value={this.props.randomSaccadesReducer.extraDotColor} onChange={this.onExtraDotColorChange}>
-              <option>Red</option>
               <option>Black</option>
-              <option>Blue</option>
+              <option>Red</option>
               <option>Green</option>
+              <option>Yellow</option>
+              <option>Orange</option>
+              <option>Purple</option>
+              <option>Blue</option>
             </Input>
           </FormGroup>
           <FormGroup>
