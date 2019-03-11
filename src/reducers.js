@@ -395,6 +395,51 @@ const antiSaccadesReducer = (state, action) => {
     }
 }
 
+
+const createAccountReducer = (state, action) => {
+    if (!state) {
+        state = {
+            createUsername: "",
+            createPassword1: "",
+            createPassword2: "",
+            showPassword: "password"
+        }
+    }
+    switch (action.type) {
+        case "changeCreateUsername":
+            return state = {
+                ...state,
+                createUsername: action.createUsername
+            }
+        case "changeCreatePassword1":
+            return state = {
+                ...state,
+                createPassword1: action.createPassword1
+            }
+        case "changeCreatePassword2":
+            return state = {
+                ...state,
+                createPassword2: action.createPassword2
+            }
+        case "changeShowPassword":
+            return state = {
+                ...state,
+                showPassword: action.showPassword
+            }
+        case "resetCreateAccount":
+            return state = {
+                createUsername: "",
+                createPassword1: "",
+                createPassword2: "",
+                showPassword: "password",
+            }
+        default:
+            return state = {
+                ...state,
+            }
+    }
+}
+
 export default combineReducers({
     navbarReducer: navbarReducer,
     staticDotsReducer: staticDotsReducer,
@@ -406,4 +451,5 @@ export default combineReducers({
     saccadesReducer: saccadesReducer,
     combinationReducer: combinationReducer,
     antiSaccadesReducer: antiSaccadesReducer,
+    createAccountReducer: createAccountReducer,
 });
