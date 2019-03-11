@@ -13,22 +13,34 @@ import {
   DropdownItem
 } from 'reactstrap';
 import { connect } from 'react-redux';
-
+import axios from 'axios';
 
 class MyNavbar extends Component {
   constructor(props) {
     super(props);
-
+    this.signUpUser = this.signUpUser.bind(this);
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
+  signUpUser() {
+    axios.post("/signUpData", { username: "TestUser", password: "SecretPassword" }).then((result) => {
+        if (result.data === "Sign Up Successful") {
+            console.log(result.data)
+        } else {
+            alert(result.data)
+        }
+    })
+}
+
   render() {
     var loggenInUsername = "Guest"
     return (
@@ -56,7 +68,7 @@ class MyNavbar extends Component {
                     Log Out
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>
+                  <DropdownItem onClick={this.signUpUser}>
                     Create Account
                   </DropdownItem>
                 </DropdownMenu>
