@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './HomePage.css';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import RandomSaccadesOptions from "../RandomSaccades/RandomSaccadesOptions/RandomSaccadesOptions.js";
 import StaticDotsOptions from '../StaticDots/StaticDotsOptions/StaticDotsOptions.js';
 import OPKOptions from '../OPK/OPKOptions/OPKOptions.js';
@@ -19,6 +20,7 @@ class HomePage extends Component {
         this.randomSaccades = this.randomSaccades.bind(this);
         this.antisaccades = this.antisaccades.bind(this);
         this.opk = this.opk.bind(this);
+        this.signUpUser = this.signUpUser.bind(this);
         // this.hemistim = this.hemistim.bind(this);
         // this.memorySaccades = this.memorySaccades.bind(this);
         // this.gazeStability = this.gazeStability.bind(this);
@@ -70,6 +72,16 @@ class HomePage extends Component {
         this.props.dispatch({
             type: "changeCurrentPage",
             currentPage: <OPKOptions />
+        })
+    }
+
+    signUpUser() {
+        axios.post("/signUpData", { username: "TestUser", password: "SecretPassword" }).then((result) => {
+            if (result.data === "Sign Up Successful") {
+                console.log(result.data)
+            } else {
+                alert(result.data)
+            }
         })
     }
 
@@ -129,6 +141,7 @@ class HomePage extends Component {
                         <button className="homepage-btn" onClick={this.gazeStability}><img className="preview-thumbnail" src={require("../project-images/placeholder.png")} alt="rs" /><br />Gaze Stability</button>
                     </div> */}
                 </div>
+                <button onClick={this.signUpUser}>Test User</button>
                 <footer>© 2019 Thomas Yoho</footer>
             </div >
         );
