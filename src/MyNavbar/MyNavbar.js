@@ -40,7 +40,7 @@ class MyNavbar extends Component {
 
   logOutUser() {
     localStorage.clear();
-    cookie.remove('exercises');
+    cookie.remove('data');
     cookie.remove('username');
     window.location.reload();
   }

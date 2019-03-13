@@ -105,6 +105,14 @@ const randomSaccadesReducer = (state, action) => {
                 dotSpeed: 1,
                 dotNumber: 10
             }
+        case "savedExerciseRandomSaccades":
+            return state = {
+                ...state,
+                centerDotColor: action.centerDotColor,
+                extraDotColor: action.extraDotColor,
+                dotSpeed: action.dotSpeed,
+                dotNumber: action.dotNumber,
+            }
         default:
             return state = {
                 ...state
@@ -178,6 +186,13 @@ const opkReducer = (state, action) => {
                 backgroundColor: "White",
                 scrollSpeed: 1
             }
+        case "savedExerciseOPK":
+            return state = {
+                ...state,
+                stripeColor: action.stripeColor,
+                backgroundColor: action.backgroundColor,
+                scrollSpeed: action.scrollSpeed,
+            }
         default:
             return state = {
                 ...state
@@ -221,6 +236,14 @@ const pursuitsReducer = (state, action) => {
                 dotColor: "Red",
                 dotSpeed: 1,
                 cycles: 1,
+            }
+        case "savedExercisePursuits":
+            return state = {
+                ...state,
+                direction: action.direction,
+                dotColor: action.dotColor,
+                dotSpeed: action.dotSpeed,
+                cycles: action.cycles,
             }
         default:
             return state = {
@@ -273,6 +296,15 @@ const saccadesReducer = (state, action) => {
                 cycles: 1,
                 steps: 3,
             }
+        case "savedExerciseSaccades":
+            return state = {
+                ...state,
+                direction: action.direction,
+                dotColor: action.dotColor,
+                dotSpeed: action.dotSpeed,
+                cycles: action.cycles,
+                steps: action.steps,
+            }
         default:
             return state = {
                 ...state
@@ -317,6 +349,13 @@ const combinationReducer = (state, action) => {
                 dotColor: "Red",
                 masterArray: [],
                 exerciseTypeCheck: "Pursuits",
+            }
+        case "savedExerciseCombination":
+            return state = {
+                ...state,
+                dotColor: action.dotColor,
+                masterArray: action.masterArray,
+                exerciseTypeCheck: action.exerciseTypeCheck,
             }
         default:
             return state = {

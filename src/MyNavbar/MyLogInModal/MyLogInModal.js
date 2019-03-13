@@ -15,6 +15,7 @@ class MyLogInModal extends React.Component {
         this.onLogInPasswordChange = this.onLogInPasswordChange.bind(this);
         this.onLogInUsernameChange = this.onLogInUsernameChange.bind(this);
         this.onShowPasswordChange = this.onShowPasswordChange.bind(this);
+        this.loadSavedExercises = this.loadSavedExercises.bind(this);
         this.state = {
             modal: false
         };
@@ -32,23 +33,113 @@ class MyLogInModal extends React.Component {
     }
 
     logInUser() {
-        axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
-            if (result.data.message === "Login successful!") {
-                localStorage.setItem('token', result.data.myToken);
-                console.log(result);
-                cookie.set('exercises', result.data.user.exercises);
-                cookie.set('username', result.data.user.username);
-                this.props.dispatch({
-                    type: "changeLogInStatus",
-                    accountUsername: result.data.user.username,
-                    logInGreeting: result.data.user.username
-                });
-                this.toggle()
-                window.location.reload();
-            } else {
-                alert(result.data.message)
-            }
+        return new Promise((resolve, reject) => {
+            axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
+                if (result.data.message === "Login successful!") {
+                    localStorage.setItem('token', result.data.myToken);
+                    console.log(result);
+                    cookie.set('username', result.data.user.username);
+                    cookie.set('data', result.data.user);
+                    this.props.dispatch({
+                        type: "changeLogInStatus",
+                        accountUsername: result.data.user.username,
+                        logInGreeting: result.data.user.username
+                    });
+                    this.toggle()
+                    resolve();
+                    // window.location.reload();
+                } else {
+                    alert(result.data.message);
+                    reject();
+                }
+            }).then(() => {
+                this.loadSavedExercises();
+            })
         })
+        // axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
+        //     if (result.data.message === "Login successful!") {
+        //         localStorage.setItem('token', result.data.myToken);
+        //         console.log(result);
+        //         cookie.set('username', result.data.user.username);
+        //         cookie.set('data', result.data.user);
+        //         this.props.dispatch({
+        //             type: "changeLogInStatus",
+        //             accountUsername: result.data.user.username,
+        //             logInGreeting: result.data.user.username
+        //         });
+        //         this.toggle()
+        //         // window.location.reload();
+        //     } else {
+        //         alert(result.data.message)
+        //     }
+        // })
+        // this.loadSavedExercises();
+    }
+
+    loadSavedExercises() {
+        let data = cookie.get('data')
+        if (cookie.get('data').staticDots.length) {
+            this.props.dispatch({
+                type: "savedExerciseStaticDots",
+                centerDotColor: data.staticDots[0],
+                extraDotColor: data.staticDots[1],
+            });
+        }
+        if (cookie.get('data').pursuits.length) {
+            this.props.dispatch({
+                type: "savedExercisePursuits",
+                direction: data.pursuits[0],
+                dotColor: data.pursuits[1],
+                dotSpeed: data.dotSpeed[2],
+                cycles: data.cycles[3],
+            });
+        }
+        if (cookie.get('data').saccades.length) {
+            this.props.dispatch({
+                type: "savedExerciseSaccades",
+                direction: data.pursuits[0],
+                dotColor: data.pursuits[1],
+                dotSpeed: data.dotSpeed[2],
+                cycles: data.cycles[3],
+                steps: data.steps[4],
+            });
+        }
+        if (cookie.get('data').combination.length) {
+            this.props.dispatch({
+                type: "savedExerciseCombination",
+                dotColor: data.dotColor[0],
+                masterArray: data.masterArray[1],
+                exerciseTypeCheck: data.exerciseTypeCheck[2],
+            });
+        }
+        if (cookie.get('data').randomSaccades.length) {
+            this.props.dispatch({
+                type: "savedExerciseRandomSaccades",
+                centerDotColor: data.centerDotColor[0],
+                extraDotColor: data.extraDotColor[1],
+                dotSpeed: data.dotSpeed[2],
+                dotNumber: data.dotNumber[3],
+            });
+        }
+        if (cookie.get('data').antiSaccades.length) {
+            this.props.dispatch({
+                type: "savedExerciseAntiSaccades",
+                centerDotColor: data.centerDotColor[0],
+                trueExtraDotColor: data.trueExtraDotColor[1],
+                dotSpeed: data.dotSpeed[2],
+                cycles: data.cycles[3],
+                goNoGo: data.goNoGo[4],
+                goNoGoDotColor: data.goNoGoDotColor[5],
+            });
+        }
+        if (cookie.get('data').opk.length) {
+            this.props.dispatch({
+                type: "savedExerciseOPK",
+                stripeColor: data.stripeColor[0],
+                backgroundColor: data.backgroundColor[1],
+                scrollSpeed: data.scrollSpeed[2],
+            });
+        }
     }
 
     onLogInPasswordChange(e) {

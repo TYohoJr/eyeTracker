@@ -58,19 +58,18 @@ class StaticDotsOptions extends Component {
     }
   }
 
-  componentWillMount() {
-    if (cookie.get('staticDots')) {
-      this.props.dispatch({
-        type: "savedExerciseStaticDots",
-        centerDotColor: cookie.get('staticDots')[0],
-        extraDotColor: cookie.get('staticDots')[1],
-      })
-    }
-  }
+  // componentWillMount() {
+  //   if (cookie.get('data').staticDots.length) {
+  //     let data = cookie.get('data').staticDots
+  //     this.props.dispatch({
+  //       type: "savedExerciseStaticDots",
+  //       centerDotColor: data[0],
+  //       extraDotColor: data[1],
+  //     })
+  //   }
+  // }
 
   render() {
-    // console.log(cookie.get('staticDots')[0])
-    console.log(this.props.staticDotsReducer)
     return (
       <div>
         <Form id="static-dots-options-form" className="options-form">
