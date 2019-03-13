@@ -46,7 +46,7 @@ class MyNavbar extends Component {
   }
 
   componentWillMount() {
-    if(cookie.get('username')) {
+    if (cookie.get('username')) {
       this.props.dispatch({
         type: "changeLogInGreeting",
         logInGreeting: cookie.get('username')

@@ -48,13 +48,13 @@ class CombinationExercise extends Component {
                         "animationName": `${animationNameP}`,
                         "animationDuration": `${animationDuration}s`,
                         "animationDelay": `${animationDelayP}s`,
-                        "animationFillMode":"forwards",
+                        "animationFillMode": "forwards",
                     }} />
                     <span id="combination-saccades-dot" style={{
                         "backgroundColor": this.props.combinationReducer.dotColor,
                         "animation": `${animationNameS} ${dotSpeed}s steps(${combinationSteps})`,
                         "animationDelay": `${animationDelayS}s`,
-                        "animationFillMode":"forwards",
+                        "animationFillMode": "forwards",
                     }} />
                 </div>
                 <button onClick={this.endExercise} className="done-button">Done</button>

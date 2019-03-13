@@ -15,7 +15,6 @@ class AntiSaccadesOptions extends Component {
         super();
         this.onCenterDotColorChange = this.onCenterDotColorChange.bind(this);
         this.onExtraDotColorChange = this.onExtraDotColorChange.bind(this);
-        // this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
         this.onCyclesChange = this.onCyclesChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
         this.onGoNoGoChange = this.onGoNoGoChange.bind(this);
@@ -36,13 +35,6 @@ class AntiSaccadesOptions extends Component {
             extraDotColor: e.target.value
         })
     }
-
-    // onDotSpeedChange(e) {
-    //     this.props.dispatch({
-    //         type: "changeAntiSaccadesDotSpeed",
-    //         dotSpeed: e.target.value
-    //     })
-    // }
 
     onCyclesChange(e) {
         this.props.dispatch({
@@ -89,7 +81,6 @@ class AntiSaccadesOptions extends Component {
             }).then((result) => {
                 if (result.data.message === "Exercise saved successfully") {
                     cookie.set('antiSaccades', result.data.user.antiSaccades)
-                    console.log(result.data)
                 } else {
                     alert(result.data.message)
                 }
@@ -136,10 +127,6 @@ class AntiSaccadesOptions extends Component {
                             <option>Blue</option>
                         </Input>
                     </FormGroup>
-                    {/* <FormGroup>
-                        <Label for="dotSpeed">Dot Speed: </Label>
-                        <Input type="number" min="1" max="10" step="1" value={this.props.antiSaccadesReducer.dotSpeed} onChange={this.onDotSpeedChange} />
-                    </FormGroup> */}
                     <FormGroup>
                         <Label for="anti-saccades-cycles">Number of Cycles: </Label>
                         <Input type="select" name="anti-saccades-cycles" value={this.props.antiSaccadesReducer.cycles} onChange={this.onCyclesChange}>

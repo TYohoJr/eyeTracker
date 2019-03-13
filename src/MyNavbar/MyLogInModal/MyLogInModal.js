@@ -33,11 +33,10 @@ class MyLogInModal extends React.Component {
     }
 
     logInUser() {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
                 if (result.data.message === "Login successful!") {
                     localStorage.setItem('token', result.data.myToken);
-                    console.log(result);
                     cookie.set('username', result.data.user.username);
                     cookie.set('data', result.data.user);
                     this.props.dispatch({
@@ -47,37 +46,22 @@ class MyLogInModal extends React.Component {
                     });
                     this.toggle()
                     resolve();
-                    // window.location.reload();
                 } else {
-                    alert(result.data.message);
-                    reject();
+                    return alert(result.data.message);
                 }
             }).then(() => {
-                this.loadSavedExercises();
-            })
-        })
-        // axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
-        //     if (result.data.message === "Login successful!") {
-        //         localStorage.setItem('token', result.data.myToken);
-        //         console.log(result);
-        //         cookie.set('username', result.data.user.username);
-        //         cookie.set('data', result.data.user);
-        //         this.props.dispatch({
-        //             type: "changeLogInStatus",
-        //             accountUsername: result.data.user.username,
-        //             logInGreeting: result.data.user.username
-        //         });
-        //         this.toggle()
-        //         // window.location.reload();
-        //     } else {
-        //         alert(result.data.message)
-        //     }
-        // })
-        // this.loadSavedExercises();
+                return new Promise((resolve) => {
+                    this.loadSavedExercises(resolve)
+                }).then(() => {
+                    window.location.reload();
+                });
+            });
+        });
     }
 
-    loadSavedExercises() {
+    loadSavedExercises(resolve) {
         let data = cookie.get('data')
+        if (!data) return;
         if (cookie.get('data').staticDots.length) {
             this.props.dispatch({
                 type: "savedExerciseStaticDots",
@@ -140,6 +124,7 @@ class MyLogInModal extends React.Component {
                 scrollSpeed: data.opk[2],
             });
         }
+        resolve();
     }
 
     onLogInPasswordChange(e) {

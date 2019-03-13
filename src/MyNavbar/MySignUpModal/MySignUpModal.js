@@ -87,7 +87,7 @@ class MySignUpModal extends React.Component {
 
     render() {
         var passwordMatchCheck = "Red";
-        if(this.props.createAccountReducer.createPassword1 === this.props.createAccountReducer.createPassword2) {
+        if (this.props.createAccountReducer.createPassword1 === this.props.createAccountReducer.createPassword2) {
             passwordMatchCheck = "Black";
         }
         return (
@@ -109,7 +109,7 @@ class MySignUpModal extends React.Component {
                             </small>
                             <span>Re-Type Password</span>
                             <Input style={{
-                                "color":`${passwordMatchCheck}`
+                                "color": `${passwordMatchCheck}`
                             }} type={this.props.createAccountReducer.showPassword} value={this.props.createAccountReducer.createPassword2} onChange={this.onCreatePassword2Change} />
                             <small><input type="checkbox" onChange={this.onShowPasswordChange} />Show Password</small>
                         </div>

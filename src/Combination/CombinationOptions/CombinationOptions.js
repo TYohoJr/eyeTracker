@@ -77,7 +77,6 @@ class CombinationOptions extends Component {
             }).then((result) => {
                 if (result.data.message === "Exercise saved successfully") {
                     cookie.set('staticDots', result.data.user.staticDots)
-                    console.log(result.data)
                 } else {
                     alert(result.data.message)
                 }

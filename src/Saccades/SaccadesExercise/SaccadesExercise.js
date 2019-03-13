@@ -66,8 +66,8 @@ class SaccadesExercise extends Component {
                     "backgroundColor": this.props.saccadesReducer.dotColor,
                     "top": `${topValue}%`,
                     "left": `${leftValue}%`,
-                    "animation":`${animationName} ${dotSpeed}s steps(${steps}) ${.25}s ${cycles}`,
-                    "animationFillMode":"forwards",
+                    "animation": `${animationName} ${dotSpeed}s steps(${steps}) ${.25}s ${cycles}`,
+                    "animationFillMode": "forwards",
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div >

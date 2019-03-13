@@ -64,9 +64,9 @@ class PursuitsExercise extends Component {
                     "backgroundColor": this.props.pursuitsReducer.dotColor,
                     "top": `${topValue}%`,
                     "left": `${leftValue}%`,
-                    "animationName":`${animationName}`,
-                    "animationDuration":`${animationDuration}s`,
-                    "animationIterationCount":`${this.props.pursuitsReducer.cycles}`
+                    "animationName": `${animationName}`,
+                    "animationDuration": `${animationDuration}s`,
+                    "animationIterationCount": `${this.props.pursuitsReducer.cycles}`
                 }} />
                 <button onClick={this.endExercise} className="done-button">Done</button>
             </div>

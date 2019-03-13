@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <Provider store={store} >
         <div className="App">
-        <MyNavbar />
+          <MyNavbar />
           <header className="App-header">
             <CurrentPage />
           </header>
