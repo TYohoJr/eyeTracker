@@ -130,6 +130,12 @@ const staticDotsReducer = (state, action) => {
                 ...state,
                 extraDotColor: action.extraDotColor
             }
+        case "savedExerciseStaticDots":
+            return state = {
+                ...state,
+                centerDotColor: action.centerDotColor,
+                extraDotColor: action.extraDotColor
+            }
         case "resetSD":
             return state = {
                 centerDotColor: "Black",
@@ -374,6 +380,16 @@ const antiSaccadesReducer = (state, action) => {
         case "changeAntiSaccadesGoNoGoDotColor":
             return state = {
                 ...state,
+                goNoGoDotColor: action.goNoGoDotColor
+            }
+        case "savedExerciseAntiSaccades":
+            return state = {
+                ...state,
+                centerDotColor: action.centerDotColor,
+                trueExtraDotColor: action.trueExtraDotColor,
+                extraDotColor: action.extraDotColor,
+                dotSpeed: action.dotSpeed,
+                cycles: action.cycles,
                 goNoGoDotColor: action.goNoGoDotColor
             }
         case "resetAntiSaccades":

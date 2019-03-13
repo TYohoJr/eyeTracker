@@ -3,7 +3,10 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './CombinationOptions.css';
 import { connect } from 'react-redux';
 import CombinationExercise from '../CombinationExercise/CombinationExercise';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 
+const cookie = new Cookies();
 var combinationHiddenCheck;
 
 class CombinationOptions extends Component {
@@ -13,6 +16,7 @@ class CombinationOptions extends Component {
         this.onDotColorChange = this.onDotColorChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
         this.onExerciseTypeChange = this.onExerciseTypeChange.bind(this);
+        this.saveExerciseOptions = this.saveExerciseOptions.bind(this);
     }
 
     onAddListItem(e) {
@@ -59,6 +63,25 @@ class CombinationOptions extends Component {
             currentPage: <CombinationExercise />,
             hidden: true
         })
+    }
+
+    saveExerciseOptions() {
+        if (cookie.get('username')) {
+            let exercise = this.props.staticDotsReducer;
+            axios.post("/saveStaticDotsExerciseOptions", {
+                token: localStorage.getItem('token'),
+                username: cookie.get('username'),
+                centerDotColor: exercise.centerDotColor,
+                extraDotColor: exercise.extraDotColor,
+            }).then((result) => {
+                if (result.data.message === "Exercise saved successfully") {
+                    cookie.set('staticDots', result.data.user.staticDots)
+                    console.log(result.data)
+                } else {
+                    alert(result.data.message)
+                }
+            })
+        }
     }
 
     render() {
@@ -123,6 +146,9 @@ class CombinationOptions extends Component {
                         </FormGroup>
                         <Button id="combination-add-step-btn" onClick={this.onAddListItem}>Add Step</Button>
                         <br />
+                        <div>
+                            <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                        </div>
                         <Button onClick={this.onRunButton}>Run</Button>
                     </Form>
                 </div>

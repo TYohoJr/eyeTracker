@@ -3,6 +3,10 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './StaticDotsOptions.css';
 import { connect } from 'react-redux';
 import StaticDotsExercise from '../StaticDotsExercise/StaticDotsExercise';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookie = new Cookies();
 
 class StaticDotsOptions extends Component {
   constructor() {
@@ -36,10 +40,37 @@ class StaticDotsOptions extends Component {
   }
 
   saveExerciseOptions() {
-    console.log("test")
+    if (cookie.get('username')) {
+      let exercise = this.props.staticDotsReducer;
+      axios.post("/saveStaticDotsExerciseOptions", {
+        token: localStorage.getItem('token'),
+        username: cookie.get('username'),
+        centerDotColor: exercise.centerDotColor,
+        extraDotColor: exercise.extraDotColor,
+      }).then((result) => {
+        if (result.data.message === "Exercise saved successfully") {
+          cookie.set('staticDots', result.data.user.staticDots)
+          console.log(result.data)
+        } else {
+          alert(result.data.message)
+        }
+      })
+    }
+  }
+
+  componentWillMount() {
+    if (cookie.get('staticDots')) {
+      this.props.dispatch({
+        type: "savedExerciseStaticDots",
+        centerDotColor: cookie.get('staticDots')[0],
+        extraDotColor: cookie.get('staticDots')[1],
+      })
+    }
   }
 
   render() {
+    // console.log(cookie.get('staticDots')[0])
+    console.log(this.props.staticDotsReducer)
     return (
       <div>
         <Form id="static-dots-options-form" className="options-form">

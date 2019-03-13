@@ -3,6 +3,10 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './OPKOptions.css';
 import { connect } from 'react-redux';
 import OPKExercise from "../OPKExercise/OPKExercise.js";
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookie = new Cookies();
 
 class OPKOptions extends Component {
     constructor() {
@@ -11,6 +15,7 @@ class OPKOptions extends Component {
         this.onBackgroundColorChange = this.onBackgroundColorChange.bind(this);
         this.onScrollSpeedhange = this.onScrollSpeedhange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
+        this.saveExerciseOptions = this.saveExerciseOptions.bind(this);
     }
 
     onStripeColorChange(e) {
@@ -40,6 +45,25 @@ class OPKOptions extends Component {
             currentPage: <OPKExercise />,
             hidden: true
         })
+    }
+
+    saveExerciseOptions() {
+        if (cookie.get('username')) {
+            let exercise = this.props.staticDotsReducer;
+            axios.post("/saveStaticDotsExerciseOptions", {
+                token: localStorage.getItem('token'),
+                username: cookie.get('username'),
+                centerDotColor: exercise.centerDotColor,
+                extraDotColor: exercise.extraDotColor,
+            }).then((result) => {
+                if (result.data.message === "Exercise saved successfully") {
+                    cookie.set('staticDots', result.data.user.staticDots)
+                    console.log(result.data)
+                } else {
+                    alert(result.data.message)
+                }
+            })
+        }
     }
 
     render() {
@@ -76,6 +100,9 @@ class OPKOptions extends Component {
                         <Label for="opk-scroll-speed">Scroll Speed </Label>
                         <Input type="number" name="opk-scroll-speed" min="1" max="10" step=".5" value={this.props.opkReducer.scrollSpeed} onChange={this.onScrollSpeedhange} />
                     </FormGroup>
+                    <div>
+                        <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                    </div>
                     <Button onClick={this.onRunButton}>Run</Button>
                 </Form>
             </div >

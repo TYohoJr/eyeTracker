@@ -3,6 +3,10 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './RandomSaccadesOptions.css';
 import { connect } from 'react-redux';
 import RandomSaccadesExercise from '../RandomSaccadesExercise/RandomSaccadesExercise.js';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookie = new Cookies();
 
 class RandomSaccadesOptions extends Component {
   constructor() {
@@ -12,6 +16,7 @@ class RandomSaccadesOptions extends Component {
     this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
     this.onRunButton = this.onRunButton.bind(this);
     this.onDotNumberChange = this.onDotNumberChange.bind(this);
+    this.saveExerciseOptions = this.saveExerciseOptions.bind(this);
   }
 
   onCenterDotColorChange(e) {
@@ -48,6 +53,25 @@ class RandomSaccadesOptions extends Component {
       currentPage: <RandomSaccadesExercise />,
       hidden: true
     })
+  }
+
+  saveExerciseOptions() {
+    if (cookie.get('username')) {
+      let exercise = this.props.staticDotsReducer;
+      axios.post("/saveStaticDotsExerciseOptions", {
+        token: localStorage.getItem('token'),
+        username: cookie.get('username'),
+        centerDotColor: exercise.centerDotColor,
+        extraDotColor: exercise.extraDotColor,
+      }).then((result) => {
+        if (result.data.message === "Exercise saved successfully") {
+          cookie.set('staticDots', result.data.user.staticDots)
+          console.log(result.data)
+        } else {
+          alert(result.data.message)
+        }
+      })
+    }
   }
 
   render() {
@@ -91,6 +115,9 @@ class RandomSaccadesOptions extends Component {
               <option>Infinite</option>
             </Input>
           </FormGroup>
+          <div>
+            <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+          </div>
           <Button onClick={this.onRunButton}>Run</Button>
         </Form>
       </div >

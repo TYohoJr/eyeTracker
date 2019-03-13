@@ -3,7 +3,10 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './AntiSaccadesOptions.css';
 import { connect } from 'react-redux';
 import AntiSaccadesExercise from '../AntiSaccadesExercise/AntiSaccadesExercise.js';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 
+const cookie = new Cookies();
 var goNoGoTest;
 
 class AntiSaccadesOptions extends Component {
@@ -16,6 +19,7 @@ class AntiSaccadesOptions extends Component {
         this.onRunButton = this.onRunButton.bind(this);
         this.onGoNoGoChange = this.onGoNoGoChange.bind(this);
         this.onGoNoGoDotColorChange = this.onGoNoGoDotColorChange.bind(this);
+        this.saveExerciseOptions = this.saveExerciseOptions.bind(this);
     }
 
     onCenterDotColorChange(e) {
@@ -66,6 +70,45 @@ class AntiSaccadesOptions extends Component {
             currentPage: <AntiSaccadesExercise />,
             hidden: true
         })
+    }
+
+    saveExerciseOptions() {
+        if (cookie.get('username')) {
+            let exercise = this.props.antiSaccadesReducer;
+            axios.post("/saveAntiSaccadesExerciseOptions", {
+                token: localStorage.getItem('token'),
+                username: cookie.get('username'),
+                centerDotColor: exercise.centerDotColor,
+                trueExtraDotColor: exercise.extraDotColor,
+                extraDotColor: exercise.extraDotColor,
+                dotSpeed: exercise.dotSpeed,
+                cycles: exercise.cycles,
+                goNoGo: exercise.goNoGo,
+                goNoGoDotColor: exercise.goNoGoDotColor,
+            }).then((result) => {
+                if (result.data.message === "Exercise saved successfully") {
+                    cookie.set('antiSaccades', result.data.user.antiSaccades)
+                    console.log(result.data)
+                } else {
+                    alert(result.data.message)
+                }
+            })
+        }
+    }
+
+    componentWillMount() {
+        if (cookie.get('antiSaccades')) {
+            this.props.dispatch({
+                type: "savedExerciseAntiSaccades",
+                centerDotColor: cookie.get('antiSaccades')[0],
+                trueExtraDotColor: cookie.get('antiSaccades')[1],
+                extraDotColor: cookie.get('antiSaccades')[2],
+                dotSpeed: cookie.get('antiSaccades')[3],
+                cycles: cookie.get('antiSaccades')[4],
+                goNoGo: cookie.get('antiSaccades')[5],
+                goNoGoDotColor: cookie.get('antiSaccades')[6]
+            })
+        }
     }
 
     render() {
@@ -130,6 +173,9 @@ class AntiSaccadesOptions extends Component {
                             <option>Purple</option>
                         </Input>
                     </FormGroup>
+                    <div>
+                        <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                    </div>
                     <Button onClick={this.onRunButton}>Run</Button>
                 </Form>
             </div >

@@ -3,6 +3,10 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './SaccadesOptions.css';
 import { connect } from 'react-redux';
 import SaccadesExercise from '../SaccadesExercise/SaccadesExercise.js';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookie = new Cookies();
 
 class SaccadesOptions extends Component {
     constructor() {
@@ -13,6 +17,7 @@ class SaccadesOptions extends Component {
         this.onCyclesChange = this.onCyclesChange.bind(this);
         this.onStepsChange = this.onStepsChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
+        this.saveExerciseOptions = this.saveExerciseOptions.bind(this);
     }
 
     onDotColorChange(e) {
@@ -56,6 +61,25 @@ class SaccadesOptions extends Component {
             currentPage: <SaccadesExercise />,
             hidden: true
         })
+    }
+
+    saveExerciseOptions() {
+        if (cookie.get('username')) {
+            let exercise = this.props.staticDotsReducer;
+            axios.post("/saveStaticDotsExerciseOptions", {
+                token: localStorage.getItem('token'),
+                username: cookie.get('username'),
+                centerDotColor: exercise.centerDotColor,
+                extraDotColor: exercise.extraDotColor,
+            }).then((result) => {
+                if (result.data.message === "Exercise saved successfully") {
+                    cookie.set('staticDots', result.data.user.staticDots)
+                    console.log(result.data)
+                } else {
+                    alert(result.data.message)
+                }
+            })
+        }
     }
 
     render() {
@@ -106,6 +130,9 @@ class SaccadesOptions extends Component {
                             <option>Infinite</option>
                         </Input>
                     </FormGroup>
+                    <div>
+                        <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                    </div>
                     <Button onClick={this.onRunButton}>Run</Button>
                 </Form>
             </div >
