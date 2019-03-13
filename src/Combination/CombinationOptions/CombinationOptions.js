@@ -82,7 +82,7 @@ class CombinationOptions extends Component {
                 }
             })
         }
-    }
+    } 
 
     componentWillMount() {
         if (cookie.get('username')) {
