@@ -440,6 +440,75 @@ const createAccountReducer = (state, action) => {
     }
 }
 
+const accountCredentialsReducer = (state, action) => {
+    if (!state) {
+        state = {
+            accountUsername: "",
+            accountSavedSettings: [],
+            logInGreeting: "Guest",
+        }
+    }
+    switch (action.type) {
+        case "changeLogInStatus":
+            return state = {
+                ...state,
+                accountUsername: action.accountUsername,
+                accountSavedSettings: action.accountSavedSettings,
+            }
+        case "resetLogInStatus":
+            return state = {
+                accountUsername: "",
+                accountSavedSettings: "",
+                logInGreeting: "Guest",
+            }
+        case "changeLogInGreeting":
+            return state = {
+                logInGreeting: action.logInGreeting,
+            }
+        default:
+            return state = {
+                ...state,
+            }
+    }
+}
+
+const logInReducer = (state, action) => {
+    if (!state) {
+        state = {
+            logInUsername: "",
+            logInPassword: "",
+            showPassword: "password",
+        }
+    }
+    switch (action.type) {
+        case "changeLogInUsername":
+            return state = {
+                ...state,
+                logInUsername: action.logInUsername
+            }
+        case "changeLogInPassword":
+            return state = {
+                ...state,
+                logInPassword: action.logInPassword
+            }
+        case "changeLogInShowPassword":
+            return state = {
+                ...state,
+                showPassword: action.showPassword
+            }
+        case "resetLogInData":
+            return state = {
+                logInUsername: "",
+                logInPassword: "",
+                showPassword: "password",
+            }
+        default:
+            return state = {
+                ...state,
+            }
+    }
+}
+
 export default combineReducers({
     navbarReducer: navbarReducer,
     staticDotsReducer: staticDotsReducer,
@@ -452,4 +521,6 @@ export default combineReducers({
     combinationReducer: combinationReducer,
     antiSaccadesReducer: antiSaccadesReducer,
     createAccountReducer: createAccountReducer,
+    accountCredentialsReducer: accountCredentialsReducer,
+    logInReducer: logInReducer,
 });

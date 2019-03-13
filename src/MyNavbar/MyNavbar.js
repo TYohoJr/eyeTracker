@@ -10,15 +10,21 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Button
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import MySignUpModal from './MySignUpModal/MySignUpModal';
+import MyLogInModal from './MyLogInModal/MyLogInModal.js';
+import Cookies from 'universal-cookie';
+
+const cookie = new Cookies();
 
 class MyNavbar extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
+    this.logOutUser = this.logOutUser.bind(this);
     this.state = {
       isOpen: false
     };
@@ -30,10 +36,28 @@ class MyNavbar extends Component {
     });
   }
 
+  logOutUser() {
+    localStorage.clear();
+    cookie.remove('exercises');
+    cookie.remove('username');
+    window.location.reload();
+  }
 
+  componentWillMount() {
+    if(cookie.get('username')) {
+      this.props.dispatch({
+        type: "changeLogInGreeting",
+        logInGreeting: cookie.get('username')
+      });
+    } else {
+      this.props.dispatch({
+        type: "changeLogInGreeting",
+        logInGreeting: 'Guest'
+      })
+    }
+  }
 
   render() {
-    var loggenInUsername = "Guest"
     return (
       <div hidden={this.props.currentPageReducer.hidden}>
         <Navbar color="light" light expand="md">
@@ -42,26 +66,23 @@ class MyNavbar extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink>User: {loggenInUsername}</NavLink>
+                <NavLink>User: {this.props.accountCredentialsReducer.logInGreeting}</NavLink>
               </NavItem>
-              {/* <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem> */}
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Account
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem href="/">
-                    Log In
+                  <DropdownItem>
+                    <MyLogInModal />
                   </DropdownItem>
                   <DropdownItem>
-                    Log Out
+                    <Button onClick={this.logOutUser}>Log Out</Button>
                   </DropdownItem>
                   <DropdownItem divider />
-                  <MySignUpModal>
-                    Create Account
-                  </MySignUpModal>
+                  <DropdownItem>
+                    <MySignUpModal />
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

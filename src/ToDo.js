@@ -11,3 +11,4 @@
 // Integrate exercise settings into database
 // Load saved exercises into reducer on log in
 // Conditionally pull saved exercises on options pages mounting
+// Implement cookies!!!
