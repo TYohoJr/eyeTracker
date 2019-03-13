@@ -90,54 +90,54 @@ class MyLogInModal extends React.Component {
                 type: "savedExercisePursuits",
                 direction: data.pursuits[0],
                 dotColor: data.pursuits[1],
-                dotSpeed: data.dotSpeed[2],
-                cycles: data.cycles[3],
+                dotSpeed: data.pursuits[2],
+                cycles: data.pursuits[3],
             });
         }
         if (cookie.get('data').saccades.length) {
             this.props.dispatch({
                 type: "savedExerciseSaccades",
-                direction: data.pursuits[0],
-                dotColor: data.pursuits[1],
-                dotSpeed: data.dotSpeed[2],
-                cycles: data.cycles[3],
-                steps: data.steps[4],
+                direction: data.saccades[0],
+                dotColor: data.saccades[1],
+                dotSpeed: data.saccades[2],
+                cycles: data.saccades[3],
+                steps: data.saccades[4],
             });
         }
         if (cookie.get('data').combination.length) {
             this.props.dispatch({
                 type: "savedExerciseCombination",
-                dotColor: data.dotColor[0],
-                masterArray: data.masterArray[1],
-                exerciseTypeCheck: data.exerciseTypeCheck[2],
+                dotColor: data.combination[0],
+                masterArray: data.combination[1],
+                exerciseTypeCheck: data.combination[2],
             });
         }
         if (cookie.get('data').randomSaccades.length) {
             this.props.dispatch({
                 type: "savedExerciseRandomSaccades",
-                centerDotColor: data.centerDotColor[0],
-                extraDotColor: data.extraDotColor[1],
-                dotSpeed: data.dotSpeed[2],
-                dotNumber: data.dotNumber[3],
+                centerDotColor: data.randomSaccades[0],
+                extraDotColor: data.randomSaccades[1],
+                dotSpeed: data.randomSaccades[2],
+                dotNumber: data.randomSaccades[3],
             });
         }
         if (cookie.get('data').antiSaccades.length) {
             this.props.dispatch({
                 type: "savedExerciseAntiSaccades",
-                centerDotColor: data.centerDotColor[0],
-                trueExtraDotColor: data.trueExtraDotColor[1],
-                dotSpeed: data.dotSpeed[2],
-                cycles: data.cycles[3],
-                goNoGo: data.goNoGo[4],
-                goNoGoDotColor: data.goNoGoDotColor[5],
+                centerDotColor: data.antiSaccades[0],
+                trueExtraDotColor: data.antiSaccades[1],
+                dotSpeed: data.antiSaccades[2],
+                cycles: data.antiSaccades[3],
+                goNoGo: data.antiSaccades[4],
+                goNoGoDotColor: data.antiSaccades[5],
             });
         }
         if (cookie.get('data').opk.length) {
             this.props.dispatch({
                 type: "savedExerciseOPK",
-                stripeColor: data.stripeColor[0],
-                backgroundColor: data.backgroundColor[1],
-                scrollSpeed: data.scrollSpeed[2],
+                stripeColor: data.opk[0],
+                backgroundColor: data.opk[1],
+                scrollSpeed: data.opk[2],
             });
         }
     }

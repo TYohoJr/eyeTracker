@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 
 const cookie = new Cookies();
 var combinationHiddenCheck;
+var saveButton;
 
 class CombinationOptions extends Component {
     constructor() {
@@ -84,6 +85,12 @@ class CombinationOptions extends Component {
         }
     }
 
+    componentWillMount() {
+        if (cookie.get('username')) {
+            saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+        }
+    }
+
     render() {
         if (this.props.combinationReducer.exerciseTypeCheck === "Saccades") {
             combinationHiddenCheck = false
@@ -147,7 +154,7 @@ class CombinationOptions extends Component {
                         <Button id="combination-add-step-btn" onClick={this.onAddListItem}>Add Step</Button>
                         <br />
                         <div>
-                            <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                            {saveButton}
                         </div>
                         <Button onClick={this.onRunButton}>Run</Button>
                     </Form>

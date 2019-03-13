@@ -7,6 +7,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 
 const cookie = new Cookies();
+var saveButton;
 
 class StaticDotsOptions extends Component {
   constructor() {
@@ -58,16 +59,11 @@ class StaticDotsOptions extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   if (cookie.get('data').staticDots.length) {
-  //     let data = cookie.get('data').staticDots
-  //     this.props.dispatch({
-  //       type: "savedExerciseStaticDots",
-  //       centerDotColor: data[0],
-  //       extraDotColor: data[1],
-  //     })
-  //   }
-  // }
+  componentWillMount() {
+    if (cookie.get('username')) {
+      saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+    }
+  }
 
   render() {
     return (
@@ -98,7 +94,8 @@ class StaticDotsOptions extends Component {
             </Input>
           </FormGroup>
           <div>
-            <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+            {saveButton}
+            {/* <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button> */}
           </div>
           <Button onClick={this.onRunButton}>Run</Button>
         </Form>

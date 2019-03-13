@@ -7,6 +7,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 
 const cookie = new Cookies();
+var saveButton;
 
 class PursuitsOptions extends Component {
     constructor() {
@@ -74,6 +75,12 @@ class PursuitsOptions extends Component {
         }
     }
 
+    componentWillMount() {
+        if (cookie.get('username')) {
+            saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+        }
+    }
+
     render() {
         return (
             <div>
@@ -119,7 +126,7 @@ class PursuitsOptions extends Component {
                         </Input>
                     </FormGroup>
                     <div>
-                        <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                        {saveButton}
                     </div>
                     <Button onClick={this.onRunButton}>Run</Button>
                 </Form>

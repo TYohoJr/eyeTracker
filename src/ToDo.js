@@ -12,3 +12,4 @@
 // Load saved exercises into reducer on log in
 // Conditionally pull saved exercises on options pages mounting
 // Implement cookies!!!
+// Bug: Anti saccades doesn't load goNoGo properly, dropdown doesn't change

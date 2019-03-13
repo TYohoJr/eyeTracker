@@ -7,6 +7,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 
 const cookie = new Cookies();
+var saveButton;
 
 class OPKOptions extends Component {
     constructor() {
@@ -66,6 +67,12 @@ class OPKOptions extends Component {
         }
     }
 
+    componentWillMount() {
+        if (cookie.get('username')) {
+            saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+        }
+    }
+
     render() {
         return (
             <div>
@@ -101,7 +108,7 @@ class OPKOptions extends Component {
                         <Input type="number" name="opk-scroll-speed" min="1" max="10" step=".5" value={this.props.opkReducer.scrollSpeed} onChange={this.onScrollSpeedhange} />
                     </FormGroup>
                     <div>
-                        <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                        {saveButton}
                     </div>
                     <Button onClick={this.onRunButton}>Run</Button>
                 </Form>

@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 
 const cookie = new Cookies();
 var goNoGoTest;
+var saveButton;
 
 class AntiSaccadesOptions extends Component {
     constructor() {
@@ -97,17 +98,8 @@ class AntiSaccadesOptions extends Component {
     }
 
     componentWillMount() {
-        if (cookie.get('antiSaccades')) {
-            this.props.dispatch({
-                type: "savedExerciseAntiSaccades",
-                centerDotColor: cookie.get('antiSaccades')[0],
-                trueExtraDotColor: cookie.get('antiSaccades')[1],
-                extraDotColor: cookie.get('antiSaccades')[2],
-                dotSpeed: cookie.get('antiSaccades')[3],
-                cycles: cookie.get('antiSaccades')[4],
-                goNoGo: cookie.get('antiSaccades')[5],
-                goNoGoDotColor: cookie.get('antiSaccades')[6]
-            })
+        if (cookie.get('username')) {
+            saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
         }
     }
 
@@ -174,7 +166,7 @@ class AntiSaccadesOptions extends Component {
                         </Input>
                     </FormGroup>
                     <div>
-                        <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+                        {saveButton}
                     </div>
                     <Button onClick={this.onRunButton}>Run</Button>
                 </Form>
