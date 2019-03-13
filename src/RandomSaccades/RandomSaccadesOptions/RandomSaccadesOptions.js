@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './RandomSaccadesOptions.css';
 import { connect } from 'react-redux';
-import HomePage from "../../HomePage/HomePage.js";
 import RandomSaccadesExercise from '../RandomSaccadesExercise/RandomSaccadesExercise.js';
 
 class RandomSaccadesOptions extends Component {
@@ -13,8 +12,6 @@ class RandomSaccadesOptions extends Component {
     this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
     this.onRunButton = this.onRunButton.bind(this);
     this.onDotNumberChange = this.onDotNumberChange.bind(this);
-    this.returnHome = this.returnHome.bind(this);
-    this.resetOptions = this.resetOptions.bind(this);
   }
 
   onCenterDotColorChange(e) {
@@ -50,19 +47,6 @@ class RandomSaccadesOptions extends Component {
       type: "changeCurrentPage",
       currentPage: <RandomSaccadesExercise />,
       hidden: true
-    })
-  }
-
-  returnHome() {
-    this.props.dispatch({
-      type: "changeCurrentPage",
-      currentPage: <HomePage />
-    })
-  }
-
-  resetOptions() {
-    this.props.dispatch({
-      type: "resetRS"
     })
   }
 
@@ -108,9 +92,7 @@ class RandomSaccadesOptions extends Component {
             </Input>
           </FormGroup>
           <Button onClick={this.onRunButton}>Run</Button>
-          <Button onClick={this.resetOptions}>Reset</Button>
         </Form>
-        <Button onClick={this.returnHome}>Home</Button>
       </div >
     );
   }

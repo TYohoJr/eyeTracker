@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './SaccadesOptions.css';
 import { connect } from 'react-redux';
-import HomePage from "../../HomePage/HomePage.js";
 import SaccadesExercise from '../SaccadesExercise/SaccadesExercise.js';
 
 class SaccadesOptions extends Component {
@@ -14,8 +13,6 @@ class SaccadesOptions extends Component {
         this.onCyclesChange = this.onCyclesChange.bind(this);
         this.onStepsChange = this.onStepsChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
-        this.returnHome = this.returnHome.bind(this);
-        this.resetOptions = this.resetOptions.bind(this);
     }
 
     onDotColorChange(e) {
@@ -58,19 +55,6 @@ class SaccadesOptions extends Component {
             type: "changeCurrentPage",
             currentPage: <SaccadesExercise />,
             hidden: true
-        })
-    }
-
-    returnHome() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <HomePage />
-        })
-    }
-
-    resetOptions() {
-        this.props.dispatch({
-            type: "resetSaccades"
         })
     }
 
@@ -123,9 +107,7 @@ class SaccadesOptions extends Component {
                         </Input>
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
-                    <Button onClick={this.resetOptions}>Reset</Button>
                 </Form>
-                <Button onClick={this.returnHome}>Home</Button>
             </div >
         );
     }

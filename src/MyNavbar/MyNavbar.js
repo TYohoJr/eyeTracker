@@ -3,7 +3,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -17,6 +16,8 @@ import { connect } from 'react-redux';
 import MySignUpModal from './MySignUpModal/MySignUpModal';
 import MyLogInModal from './MyLogInModal/MyLogInModal.js';
 import Cookies from 'universal-cookie';
+import HomePage from '../HomePage/HomePage.js';
+import './MyNavbar.css';
 
 const cookie = new Cookies();
 
@@ -25,6 +26,7 @@ class MyNavbar extends Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
+    this.returnHome = this.returnHome.bind(this);
     this.state = {
       isOpen: false
     };
@@ -57,11 +59,18 @@ class MyNavbar extends Component {
     }
   }
 
+  returnHome() {
+    this.props.dispatch({
+      type: "changeCurrentPage",
+      currentPage: <HomePage />
+    })
+  }
+
   render() {
     return (
-      <div hidden={this.props.currentPageReducer.hidden}>
+      <div id="navbar-div" hidden={this.props.currentPageReducer.hidden}>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Eye Tracker</NavbarBrand>
+          <Button color="muted" onClick={this.returnHome}>Home</Button>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

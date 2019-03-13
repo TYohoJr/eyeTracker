@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './PursuitsOptions.css';
 import { connect } from 'react-redux';
-import HomePage from "../../HomePage/HomePage.js";
 import PursuitsExercise from "../PursuitsExercise/PursuitsExercise.js";
 
 class PursuitsOptions extends Component {
@@ -12,8 +11,6 @@ class PursuitsOptions extends Component {
         this.onStartingLocationChange = this.onStartingLocationChange.bind(this);
         this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
-        this.returnHome = this.returnHome.bind(this);
-        this.resetOptions = this.resetOptions.bind(this);
         this.onCyclesChange = this.onCyclesChange.bind(this);
     }
 
@@ -50,19 +47,6 @@ class PursuitsOptions extends Component {
             type: "changeCurrentPage",
             currentPage: <PursuitsExercise />,
             hidden: true
-        })
-    }
-
-    returnHome() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <HomePage />
-        })
-    }
-
-    resetOptions() {
-        this.props.dispatch({
-            type: "resetOPK"
         })
     }
 
@@ -111,9 +95,7 @@ class PursuitsOptions extends Component {
                         </Input>
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
-                    <Button onClick={this.resetOptions}>Reset</Button>
                 </Form>
-                <Button onClick={this.returnHome}>Home</Button>
             </div >
         );
     }

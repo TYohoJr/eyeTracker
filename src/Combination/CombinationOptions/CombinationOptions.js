@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './CombinationOptions.css';
 import { connect } from 'react-redux';
-import HomePage from "../../HomePage/HomePage.js";
 import CombinationExercise from '../CombinationExercise/CombinationExercise';
 
 var combinationHiddenCheck;
@@ -13,8 +12,6 @@ class CombinationOptions extends Component {
         this.onAddListItem = this.onAddListItem.bind(this);
         this.onDotColorChange = this.onDotColorChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
-        this.returnHome = this.returnHome.bind(this);
-        this.resetOptions = this.resetOptions.bind(this);
         this.onExerciseTypeChange = this.onExerciseTypeChange.bind(this);
     }
 
@@ -61,19 +58,6 @@ class CombinationOptions extends Component {
             type: "changeCurrentPage",
             currentPage: <CombinationExercise />,
             hidden: true
-        })
-    }
-
-    returnHome() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <HomePage />
-        })
-    }
-
-    resetOptions() {
-        this.props.dispatch({
-            type: "resetCombination"
         })
     }
 
@@ -140,9 +124,7 @@ class CombinationOptions extends Component {
                         <Button id="combination-add-step-btn" onClick={this.onAddListItem}>Add Step</Button>
                         <br />
                         <Button onClick={this.onRunButton}>Run</Button>
-                        <Button onClick={this.resetOptions}>Reset</Button>
                     </Form>
-                    <Button onClick={this.returnHome}>Home</Button>
                 </div>
                 <div id="combination-div">
                     <table id="combination-table" border="1">

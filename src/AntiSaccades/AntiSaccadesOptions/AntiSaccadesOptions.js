@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './AntiSaccadesOptions.css';
 import { connect } from 'react-redux';
-import HomePage from "../../HomePage/HomePage.js";
 import AntiSaccadesExercise from '../AntiSaccadesExercise/AntiSaccadesExercise.js';
 
 var goNoGoTest;
@@ -15,8 +14,6 @@ class AntiSaccadesOptions extends Component {
         // this.onDotSpeedChange = this.onDotSpeedChange.bind(this);
         this.onCyclesChange = this.onCyclesChange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
-        this.returnHome = this.returnHome.bind(this);
-        this.resetOptions = this.resetOptions.bind(this);
         this.onGoNoGoChange = this.onGoNoGoChange.bind(this);
         this.onGoNoGoDotColorChange = this.onGoNoGoDotColorChange.bind(this);
     }
@@ -68,19 +65,6 @@ class AntiSaccadesOptions extends Component {
             type: "changeCurrentPage",
             currentPage: <AntiSaccadesExercise />,
             hidden: true
-        })
-    }
-
-    returnHome() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <HomePage />
-        })
-    }
-
-    resetOptions() {
-        this.props.dispatch({
-            type: "resetAntiSaccades"
         })
     }
 
@@ -147,9 +131,7 @@ class AntiSaccadesOptions extends Component {
                         </Input>
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
-                    <Button onClick={this.resetOptions}>Reset</Button>
                 </Form>
-                <Button onClick={this.returnHome}>Home</Button>
             </div >
         );
     }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './OPKOptions.css';
 import { connect } from 'react-redux';
-import HomePage from "../../HomePage/HomePage.js";
 import OPKExercise from "../OPKExercise/OPKExercise.js";
 
 class OPKOptions extends Component {
@@ -12,8 +11,6 @@ class OPKOptions extends Component {
         this.onBackgroundColorChange = this.onBackgroundColorChange.bind(this);
         this.onScrollSpeedhange = this.onScrollSpeedhange.bind(this);
         this.onRunButton = this.onRunButton.bind(this);
-        this.returnHome = this.returnHome.bind(this);
-        this.resetOptions = this.resetOptions.bind(this);
     }
 
     onStripeColorChange(e) {
@@ -42,19 +39,6 @@ class OPKOptions extends Component {
             type: "changeCurrentPage",
             currentPage: <OPKExercise />,
             hidden: true
-        })
-    }
-
-    returnHome() {
-        this.props.dispatch({
-            type: "changeCurrentPage",
-            currentPage: <HomePage />
-        })
-    }
-
-    resetOptions() {
-        this.props.dispatch({
-            type: "resetOPK"
         })
     }
 
@@ -93,9 +77,7 @@ class OPKOptions extends Component {
                         <Input type="number" name="opk-scroll-speed" min="1" max="10" step=".5" value={this.props.opkReducer.scrollSpeed} onChange={this.onScrollSpeedhange} />
                     </FormGroup>
                     <Button onClick={this.onRunButton}>Run</Button>
-                    <Button onClick={this.resetOptions}>Reset</Button>
                 </Form>
-                <Button onClick={this.returnHome}>Home</Button>
             </div >
         );
     }
