@@ -67,6 +67,7 @@ class RandomSaccadesOptions extends Component {
         dotSpeed: exercise.dotSpeed,
         dotNumber: exercise.dotNumber,
       }).then((result) => {
+        cookie.set('data', result.data.user)
         alert(result.data.message)
       }).catch((error) => {
         alert(error)

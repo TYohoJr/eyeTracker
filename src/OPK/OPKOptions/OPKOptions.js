@@ -58,6 +58,7 @@ class OPKOptions extends Component {
                 backgroundColor: exercise.backgroundColor,
                 scrollSpeed: exercise.scrollSpeed,
             }).then((result) => {
+                cookie.set('data', result.data.user)
                 alert(result.data.message)
             }).catch((error) => {
                 alert(error)

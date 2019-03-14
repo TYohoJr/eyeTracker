@@ -67,6 +67,7 @@ class PursuitsOptions extends Component {
                 dotSpeed: exercise.dotSpeed,
                 cycles: exercise.cycles,
             }).then((result) => {
+                cookie.set('data', result.data.user)
                 alert(result.data.message)
             }).catch((error) => {
                 alert(error)

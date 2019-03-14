@@ -49,6 +49,7 @@ class StaticDotsOptions extends Component {
         centerDotColor: exercise.centerDotColor,
         extraDotColor: exercise.extraDotColor,
       }).then((result) => {
+        cookie.set('data', result.data.user)
         alert(result.data.message)
       }).catch((error) => {
         alert(error)
@@ -71,7 +72,6 @@ class StaticDotsOptions extends Component {
   }
 
   render() {
-    console.log(this.props.staticDotsReducer)
     return (
       <div>
         <Form id="static-dots-options-form" className="options-form">
@@ -101,7 +101,6 @@ class StaticDotsOptions extends Component {
           </FormGroup>
           <div>
             {saveButton}
-            {/* <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button> */}
           </div>
           <Button color="success" onClick={this.onRunButton}>Run</Button>
         </Form>

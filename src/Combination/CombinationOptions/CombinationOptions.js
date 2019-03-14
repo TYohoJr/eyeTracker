@@ -86,6 +86,7 @@ class CombinationOptions extends Component {
                 masterArray: exercise.masterArray,
                 exerciseTypeCheck: exercise.exerciseTypeCheck,
             }).then((result) => {
+                cookie.set('data', result.data.user)
                 alert(result.data.message)
             }).catch((error) => {
                 alert(error)

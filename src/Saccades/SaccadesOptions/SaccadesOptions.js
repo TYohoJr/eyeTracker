@@ -76,6 +76,7 @@ class SaccadesOptions extends Component {
                 cycles: exercise.cycles,
                 steps: exercise.steps,
             }).then((result) => {
+                cookie.set('data', result.data.user)
                 alert(result.data.message)
             }).catch((error) => {
                 alert(error)

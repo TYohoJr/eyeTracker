@@ -79,6 +79,7 @@ class AntiSaccadesOptions extends Component {
                 goNoGo: exercise.goNoGo,
                 goNoGoDotColor: exercise.goNoGoDotColor,
             }).then((result) => {
+                cookie.set('data', result.data.user)
                 alert(result.data.message)
             }).catch((error) => {
                 alert(error)

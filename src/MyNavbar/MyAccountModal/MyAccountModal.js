@@ -1,6 +1,6 @@
 import React from 'react';
 import './MyAccountModal.css';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
 // import axios from 'axios';
 // import Cookies from 'universal-cookie';
