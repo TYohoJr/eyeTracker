@@ -166,7 +166,7 @@ class AntiSaccadesOptions extends Component {
                     <div>
                         {saveButton}
                     </div>
-                    <Button onClick={this.onRunButton}>Run</Button>
+                    <Button color="success" onClick={this.onRunButton}>Run</Button>
                 </Form>
             </div >
         );

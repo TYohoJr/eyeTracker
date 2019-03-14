@@ -103,7 +103,7 @@ class StaticDotsOptions extends Component {
             {saveButton}
             {/* <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button> */}
           </div>
-          <Button onClick={this.onRunButton}>Run</Button>
+          <Button color="success" onClick={this.onRunButton}>Run</Button>
         </Form>
       </div >
     );
