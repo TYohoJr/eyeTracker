@@ -84,7 +84,7 @@ class MyLogInModal extends React.Component {
     render() {
         return (
             <div>
-                <Button onClick={this.toggle}>Log In</Button>
+                <Button color="success" onClick={this.toggle}>Log In</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
                     <ModalBody>

@@ -67,6 +67,12 @@ class MyNavbar extends Component {
   }
 
   render() {
+    var logOutButton;
+    var logInButton = <MyLogInModal />;
+    if(cookie.get('username')) {
+      logOutButton = <Button color="danger" onClick={this.logOutUser}>Log Out</Button>
+      logInButton = <Button color="info">Account</Button>;
+    }
     return (
       <div id="navbar-div" hidden={this.props.currentPageReducer.hidden}>
         <Navbar color="light" light expand="md">
@@ -83,10 +89,12 @@ class MyNavbar extends Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <MyLogInModal />
+                    {logInButton}
+                    {/* <MyLogInModal /> */}
                   </DropdownItem>
                   <DropdownItem>
-                    <Button onClick={this.logOutUser}>Log Out</Button>
+                    {logOutButton}
+                    {/* <Button color="danger" onClick={this.logOutUser}>Log Out</Button> */}
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
