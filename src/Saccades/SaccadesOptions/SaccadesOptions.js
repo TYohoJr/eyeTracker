@@ -66,18 +66,19 @@ class SaccadesOptions extends Component {
 
     saveExerciseOptions() {
         if (cookie.get('username')) {
-            let exercise = this.props.staticDotsReducer;
-            axios.post("/saveStaticDotsExerciseOptions", {
+            let exercise = this.props.saccadesReducer;
+            axios.post("/saveSaccadesExerciseOptions", {
                 token: localStorage.getItem('token'),
                 username: cookie.get('username'),
-                centerDotColor: exercise.centerDotColor,
-                extraDotColor: exercise.extraDotColor,
+                direction: exercise.direction,
+                dotColor: exercise.dotColor,
+                dotSpeed: exercise.dotSpeed,
+                cycles: exercise.cycles,
+                steps: exercise.steps,
             }).then((result) => {
-                if (result.data.message === "Exercise saved successfully") {
-                    cookie.set('staticDots', result.data.user.staticDots)
-                } else {
-                    alert(result.data.message)
-                }
+                alert(result.data.message)
+            }).catch((error) => {
+                alert(error)
             })
         }
     }
@@ -85,6 +86,17 @@ class SaccadesOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+        }
+        if (cookie.get('data').saccades.length) {
+            let data = cookie.get('data')
+            this.props.dispatch({
+                type: "savedExerciseSaccades",
+                direction: data.saccades[0],
+                dotColor: data.saccades[1],
+                dotSpeed: data.saccades[2],
+                cycles: data.saccades[3],
+                steps: data.saccades[4],
+            });
         }
     }
 

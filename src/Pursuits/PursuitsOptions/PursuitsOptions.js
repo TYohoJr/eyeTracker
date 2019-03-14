@@ -58,18 +58,18 @@ class PursuitsOptions extends Component {
 
     saveExerciseOptions() {
         if (cookie.get('username')) {
-            let exercise = this.props.staticDotsReducer;
-            axios.post("/saveStaticDotsExerciseOptions", {
+            let exercise = this.props.pursuitsReducer;
+            axios.post("/savePursuitsExerciseOptions", {
                 token: localStorage.getItem('token'),
                 username: cookie.get('username'),
-                centerDotColor: exercise.centerDotColor,
-                extraDotColor: exercise.extraDotColor,
+                direction: exercise.direction,
+                dotColor: exercise.dotColor,
+                dotSpeed: exercise.dotSpeed,
+                cycles: exercise.cycles,
             }).then((result) => {
-                if (result.data.message === "Exercise saved successfully") {
-                    cookie.set('staticDots', result.data.user.staticDots)
-                } else {
-                    alert(result.data.message)
-                }
+                alert(result.data.message)
+            }).catch((error) => {
+                alert(error)
             })
         }
     }
@@ -77,6 +77,16 @@ class PursuitsOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+        }
+        if (cookie.get('data').pursuits.length) {
+            let data = cookie.get('data')
+            this.props.dispatch({
+                type: "savedExercisePursuits",
+                direction: data.pursuits[0],
+                dotColor: data.pursuits[1],
+                dotSpeed: data.pursuits[2],
+                cycles: data.pursuits[3],
+            });
         }
     }
 

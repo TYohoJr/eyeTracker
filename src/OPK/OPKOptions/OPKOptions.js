@@ -50,18 +50,17 @@ class OPKOptions extends Component {
 
     saveExerciseOptions() {
         if (cookie.get('username')) {
-            let exercise = this.props.staticDotsReducer;
-            axios.post("/saveStaticDotsExerciseOptions", {
+            let exercise = this.props.opkReducer;
+            axios.post("/saveOPKExerciseOptions", {
                 token: localStorage.getItem('token'),
                 username: cookie.get('username'),
-                centerDotColor: exercise.centerDotColor,
-                extraDotColor: exercise.extraDotColor,
+                stripeColor: exercise.stripeColor,
+                backgroundColor: exercise.backgroundColor,
+                scrollSpeed: exercise.scrollSpeed,
             }).then((result) => {
-                if (result.data.message === "Exercise saved successfully") {
-                    cookie.set('staticDots', result.data.user.staticDots)
-                } else {
-                    alert(result.data.message)
-                }
+                alert(result.data.message)
+            }).catch((error) => {
+                alert(error)
             })
         }
     }
@@ -69,6 +68,15 @@ class OPKOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+        }
+        if (cookie.get('data').opk.length) {
+            let data = cookie.get('data')
+            this.props.dispatch({
+                type: "savedExerciseOPK",
+                stripeColor: data.opk[0],
+                backgroundColor: data.opk[1],
+                scrollSpeed: data.opk[2],
+            });
         }
     }
 

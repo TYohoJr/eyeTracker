@@ -49,11 +49,9 @@ class StaticDotsOptions extends Component {
         centerDotColor: exercise.centerDotColor,
         extraDotColor: exercise.extraDotColor,
       }).then((result) => {
-        if (result.data.message === "Exercise saved successfully") {
-          cookie.set('staticDots', result.data.user.staticDots)
-        } else {
-          alert(result.data.message)
-        }
+        alert(result.data.message)
+      }).catch((error) => {
+        alert(error)
       })
     }
   }
@@ -62,9 +60,18 @@ class StaticDotsOptions extends Component {
     if (cookie.get('username')) {
       saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
     }
+    if (cookie.get('data').staticDots.length) {
+      let data = cookie.get('data')
+      this.props.dispatch({
+        type: "savedExerciseStaticDots",
+        centerDotColor: data.staticDots[0],
+        extraDotColor: data.staticDots[1],
+      });
+    }
   }
 
   render() {
+    console.log(this.props.staticDotsReducer)
     return (
       <div>
         <Form id="static-dots-options-form" className="options-form">

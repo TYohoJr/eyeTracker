@@ -58,18 +58,18 @@ class RandomSaccadesOptions extends Component {
 
   saveExerciseOptions() {
     if (cookie.get('username')) {
-      let exercise = this.props.staticDotsReducer;
-      axios.post("/saveStaticDotsExerciseOptions", {
+      let exercise = this.props.randomSaccadesReducer;
+      axios.post("/saveRandomSaccadesExerciseOptions", {
         token: localStorage.getItem('token'),
         username: cookie.get('username'),
         centerDotColor: exercise.centerDotColor,
         extraDotColor: exercise.extraDotColor,
+        dotSpeed: exercise.dotSpeed,
+        dotNumber: exercise.dotNumber,
       }).then((result) => {
-        if (result.data.message === "Exercise saved successfully") {
-          cookie.set('staticDots', result.data.user.staticDots)
-        } else {
-          alert(result.data.message)
-        }
+        alert(result.data.message)
+      }).catch((error) => {
+        alert(error)
       })
     }
   }
@@ -77,6 +77,16 @@ class RandomSaccadesOptions extends Component {
   componentWillMount() {
     if (cookie.get('username')) {
       saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
+    }
+    if (cookie.get('data').randomSaccades.length) {
+      let data = cookie.get('data')
+      this.props.dispatch({
+        type: "savedExerciseRandomSaccades",
+        centerDotColor: data.randomSaccades[0],
+        extraDotColor: data.randomSaccades[1],
+        dotSpeed: data.randomSaccades[2],
+        dotNumber: data.randomSaccades[3],
+      });
     }
   }
 

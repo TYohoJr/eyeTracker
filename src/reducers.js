@@ -429,6 +429,7 @@ const antiSaccadesReducer = (state, action) => {
                 extraDotColor: action.extraDotColor,
                 dotSpeed: action.dotSpeed,
                 cycles: action.cycles,
+                goNoGo: action.goNoGo,
                 goNoGoDotColor: action.goNoGoDotColor
             }
         case "resetAntiSaccades":
