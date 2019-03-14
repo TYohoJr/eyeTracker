@@ -344,6 +344,11 @@ const combinationReducer = (state, action) => {
                 ...state,
                 exerciseTypeCheck: action.exerciseType
             }
+        case "combinationRemoveArrayItem":
+            return state = {
+                ...state,
+                masterArray: action.newArray
+            }
         case "resetCombination":
             return state = {
                 dotColor: "Red",

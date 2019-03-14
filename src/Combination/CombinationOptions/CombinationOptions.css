@@ -2,12 +2,6 @@
     font-weight: bold;
 }
 
-#combination-add-step-btn {
-    height:30%;
-    font-weight: bold;
-    background-color: rgba(128, 128, 128, 0.274);
-}
-
 #combination-div {
     display: inline-block;
 }

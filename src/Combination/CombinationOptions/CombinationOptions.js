@@ -18,6 +18,7 @@ class CombinationOptions extends Component {
         this.onRunButton = this.onRunButton.bind(this);
         this.onExerciseTypeChange = this.onExerciseTypeChange.bind(this);
         this.saveExerciseOptions = this.saveExerciseOptions.bind(this);
+        this.removeFromArray = this.removeFromArray.bind(this);
     }
 
     onAddListItem(e) {
@@ -55,6 +56,15 @@ class CombinationOptions extends Component {
         this.props.dispatch({
             type: "changeCombinationExerciseType",
             exerciseType: e.target.value
+        })
+    }
+
+    removeFromArray(e) {
+        let newArray = this.props.combinationReducer.masterArray;
+        newArray.splice(e.target.id, 1);
+        this.props.dispatch({
+            type: "combinationRemoveArrayItem",
+            newArray: newArray
         })
     }
 
@@ -106,7 +116,8 @@ class CombinationOptions extends Component {
         }
         var masterList = this.props.combinationReducer.masterArray.map((item, i) => {
             return <tr key={i}>
-                <td key={`${i}list-number`}>{i + 1}</td>
+                <td key={`${i}remove`}><Button color="danger" className="combination-table-btn" id={i} onClick={this.removeFromArray}>Remove</Button></td>
+                <td key={`${i}step-number`}>{i + 1}</td>
                 <td key={`${i}exercise-type`}>{item["exerciseType"]}</td>
                 <td key={`${i}direction`}>{item["direction"]}</td>
                 <td key={`${i}dot-speed`}>{item["dotSpeed"]}</td>
@@ -163,14 +174,15 @@ class CombinationOptions extends Component {
                         <div>
                             {saveButton}
                         </div>
-                        <Button onClick={this.onRunButton}>Run</Button>
+                        <Button color="success" onClick={this.onRunButton}>Run</Button>
                     </Form>
                 </div>
                 <div id="combination-div">
                     <table id="combination-table" border="1">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th></th>
+                                <th>Step</th>
                                 <th>Exercise Type</th>
                                 <th>Direction</th>
                                 <th>Dot Speed</th>
