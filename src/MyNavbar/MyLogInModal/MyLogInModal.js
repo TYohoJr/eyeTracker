@@ -45,8 +45,6 @@ class MyLogInModal extends React.Component {
                     accountUsername: result.data.user.username,
                     logInGreeting: result.data.user.username
                 });
-                alert('Successfully logged in. Press OK to reload the page.')
-                window.location.reload();
             } else {
                 return alert(result.data.message);
             }

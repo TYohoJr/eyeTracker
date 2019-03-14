@@ -18,6 +18,7 @@ import MyLogInModal from './MyLogInModal/MyLogInModal.js';
 import Cookies from 'universal-cookie';
 import HomePage from '../HomePage/HomePage.js';
 import './MyNavbar.css';
+import MyAccountModal from './MyAccountModal/MyAccountModal.js';
 
 const cookie = new Cookies();
 
@@ -45,19 +46,19 @@ class MyNavbar extends Component {
     window.location.reload();
   }
 
-  componentWillMount() {
-    if (cookie.get('username')) {
-      this.props.dispatch({
-        type: "changeLogInGreeting",
-        logInGreeting: cookie.get('username')
-      });
-    } else {
-      this.props.dispatch({
-        type: "changeLogInGreeting",
-        logInGreeting: 'Guest'
-      })
-    }
-  }
+  // componentWillMount() {
+  //   if (cookie.get('username')) {
+  //     this.props.dispatch({
+  //       type: "changeLogInGreeting",
+  //       logInGreeting: cookie.get('username')
+  //     });
+  //   } else {
+  //     this.props.dispatch({
+  //       type: "changeLogInGreeting",
+  //       logInGreeting: 'Guest'
+  //     })
+  //   }
+  // }
 
   returnHome() {
     this.props.dispatch({
@@ -69,9 +70,13 @@ class MyNavbar extends Component {
   render() {
     var logOutButton;
     var logInButton = <MyLogInModal />;
+    var navbarDropdownName = 'Log In/Create Account';
+    var logInGreeting = 'Guest';
     if(cookie.get('username')) {
       logOutButton = <Button color="danger" onClick={this.logOutUser}>Log Out</Button>
-      logInButton = <Button color="info">Account</Button>;
+      logInButton = <MyAccountModal />;
+      navbarDropdownName = 'Account';
+      logInGreeting = cookie.get('username');
     }
     return (
       <div id="navbar-div" hidden={this.props.currentPageReducer.hidden}>
@@ -81,11 +86,11 @@ class MyNavbar extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink>User: {this.props.accountCredentialsReducer.logInGreeting}</NavLink>
+                <NavLink>User: {logInGreeting}</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Account
+                  {navbarDropdownName}
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
