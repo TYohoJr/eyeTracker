@@ -46,7 +46,7 @@ class MySignUpModal extends React.Component {
         } else if (!account.createUsername) {
             return alert("Username can't be blank");
         }
-        axios.post("/signUpData", { username: account.createUsername, password: account.createPassword1 }).then((result) => {
+        axios.post("/signUpData", { username: account.createUsername, password: account.createPassword1, dateCreated: new Date().toLocaleString(),}).then((result) => {
             if (result.data === "Sign Up Successful") {
                 alert(result.data);
                 this.toggle();

@@ -1,0 +1,13 @@
+#account-password-btn {
+    position: relative;
+    float: left;
+}
+
+#account-done-btn {
+    position: relative;
+    float: right;
+}
+
+#account-btns-div {
+    width: 100%;
+}

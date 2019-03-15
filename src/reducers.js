@@ -501,6 +501,50 @@ const createAccountReducer = (state, action) => {
     }
 }
 
+const changePasswordReducer = (state, action) => {
+    if (!state) {
+        state = {
+            oldPassword: "",
+            newPassword1: "",
+            newPassword2: "",
+            showPassword: "password"
+        }
+    }
+    switch (action.type) {
+        case "changeOldPassword":
+            return state = {
+                ...state,
+                oldPassword: action.oldPassword
+            }
+        case "changeNewPassword1":
+            return state = {
+                ...state,
+                newPassword1: action.newPassword1
+            }
+        case "changeNewPassword2":
+            return state = {
+                ...state,
+                newPassword2: action.newPassword2
+            }
+        case "changeShowPassword":
+            return state = {
+                ...state,
+                showPassword: action.showPassword
+            }
+        case "resetChangePassword":
+            return state = {
+                oldPassword: "",
+                newPassword1: "",
+                newPassword2: "",
+                showPassword: "password",
+            }
+        default:
+            return state = {
+                ...state,
+            }
+    }
+}
+
 const logInReducer = (state, action) => {
     if (!state) {
         state = {
@@ -551,4 +595,5 @@ export default combineReducers({
     antiSaccadesReducer: antiSaccadesReducer,
     createAccountReducer: createAccountReducer,
     logInReducer: logInReducer,
+    changePasswordReducer: changePasswordReducer,
 });
