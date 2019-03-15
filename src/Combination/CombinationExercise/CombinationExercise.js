@@ -3,6 +3,8 @@ import './CombinationExercise.css';
 import { connect } from 'react-redux';
 import CombinationOptions from '../CombinationOptions/CombinationOptions';
 
+var combinationTimeout;
+
 class CombinationExercise extends Component {
     constructor() {
         super();
@@ -14,6 +16,10 @@ class CombinationExercise extends Component {
             type: "changeCurrentPage",
             currentPage: <CombinationOptions />
         })
+    }
+
+    componentWillUnmount() {
+        clearInterval(combinationTimeout)
     }
 
     render() {
@@ -40,7 +46,7 @@ class CombinationExercise extends Component {
             dotSpeed = 10 - currentArray[0].dotSpeed;
             animationDuration = 10 - currentArray[0].dotSpeed;
         }
-        setTimeout(() => {
+        combinationTimeout = setTimeout(() => {
             this.props.dispatch({
                 type: "changeCurrentPage",
                 currentPage: <CombinationOptions />

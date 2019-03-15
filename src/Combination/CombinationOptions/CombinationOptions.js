@@ -97,7 +97,7 @@ class CombinationOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
-            if (cookie.get('data')) {
+            if (cookie.get('data').combination.length) {
                 let data = cookie.get('data')
                 this.props.dispatch({
                     type: "savedExerciseCombination",
@@ -115,16 +115,18 @@ class CombinationOptions extends Component {
         } else {
             combinationHiddenCheck = true
         }
-        var masterList = this.props.combinationReducer.masterArray.map((item, i) => {
-            return <tr key={i}>
-                <td key={`${i}remove`}><Button color="danger" className="combination-table-btn" id={i} onClick={this.removeFromArray}>Remove</Button></td>
-                <td key={`${i}step-number`}>{i + 1}</td>
-                <td key={`${i}exercise-type`}>{item["exerciseType"]}</td>
-                <td key={`${i}direction`}>{item["direction"]}</td>
-                <td key={`${i}dot-speed`}>{item["dotSpeed"]}</td>
-                <td key={`${i}dot-steps`}>{item["dotSteps"]}</td>
-            </tr>
-        })
+        if (this.props.combinationReducer.masterArray) {
+            var masterList = this.props.combinationReducer.masterArray.map((item, i) => {
+                return <tr key={i}>
+                    <td key={`${i}remove`}><Button color="danger" className="combination-table-btn" id={i} onClick={this.removeFromArray}>Remove</Button></td>
+                    <td key={`${i}step-number`}>{i + 1}</td>
+                    <td key={`${i}exercise-type`}>{item["exerciseType"]}</td>
+                    <td key={`${i}direction`}>{item["direction"]}</td>
+                    <td key={`${i}dot-speed`}>{item["dotSpeed"]}</td>
+                    <td key={`${i}dot-steps`}>{item["dotSteps"]}</td>
+                </tr>
+            })
+        }
         return (
             <div>
                 <div id="combination-div">

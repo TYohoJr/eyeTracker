@@ -90,7 +90,7 @@ class AntiSaccadesOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
-            if (cookie.get('data')) {
+            if (cookie.get('data').antiSaccades.length) {
                 let data = cookie.get('data')
                 this.props.dispatch({
                     type: "savedExerciseAntiSaccades",
