@@ -97,15 +97,15 @@ class CombinationOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
-        }
-        if (cookie.get('data').combination.length) {
-            let data = cookie.get('data')
-            this.props.dispatch({
-                type: "savedExerciseCombination",
-                dotColor: data.combination[0],
-                masterArray: data.combination[1],
-                exerciseTypeCheck: data.combination[2],
-            });
+            if (cookie.get('data')) {
+                let data = cookie.get('data')
+                this.props.dispatch({
+                    type: "savedExerciseCombination",
+                    dotColor: data.combination[0],
+                    masterArray: data.combination[1],
+                    exerciseTypeCheck: data.combination[2],
+                });
+            }
         }
     }
 

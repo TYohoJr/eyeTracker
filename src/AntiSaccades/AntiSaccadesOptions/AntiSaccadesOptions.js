@@ -90,19 +90,19 @@ class AntiSaccadesOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
-        }
-        if (cookie.get('data').antiSaccades.length) {
-            let data = cookie.get('data')
-            this.props.dispatch({
-                type: "savedExerciseAntiSaccades",
-                centerDotColor: data.antiSaccades[0],
-                trueExtraDotColor: data.antiSaccades[1],
-                extraDotColor: data.antiSaccades[2],
-                dotSpeed: data.antiSaccades[3],
-                cycles: data.antiSaccades[4],
-                goNoGo: data.antiSaccades[5],
-                goNoGoDotColor: data.antiSaccades[6],
-            });
+            if (cookie.get('data')) {
+                let data = cookie.get('data')
+                this.props.dispatch({
+                    type: "savedExerciseAntiSaccades",
+                    centerDotColor: data.antiSaccades[0],
+                    trueExtraDotColor: data.antiSaccades[1],
+                    extraDotColor: data.antiSaccades[2],
+                    dotSpeed: data.antiSaccades[3],
+                    cycles: data.antiSaccades[4],
+                    goNoGo: data.antiSaccades[5],
+                    goNoGoDotColor: data.antiSaccades[6],
+                });
+            }
         }
     }
 

@@ -69,15 +69,15 @@ class OPKOptions extends Component {
     componentWillMount() {
         if (cookie.get('username')) {
             saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
-        }
-        if (cookie.get('data').opk.length) {
-            let data = cookie.get('data')
-            this.props.dispatch({
-                type: "savedExerciseOPK",
-                stripeColor: data.opk[0],
-                backgroundColor: data.opk[1],
-                scrollSpeed: data.opk[2],
-            });
+            if (cookie.get('data')) {
+                let data = cookie.get('data')
+                this.props.dispatch({
+                    type: "savedExerciseOPK",
+                    stripeColor: data.opk[0],
+                    backgroundColor: data.opk[1],
+                    scrollSpeed: data.opk[2],
+                });
+            }
         }
     }
 

@@ -78,16 +78,16 @@ class RandomSaccadesOptions extends Component {
   componentWillMount() {
     if (cookie.get('username')) {
       saveButton = <Button color="muted" className="save-options-btn" onClick={this.saveExerciseOptions}>Save Options</Button>
-    }
-    if (cookie.get('data').randomSaccades.length) {
-      let data = cookie.get('data')
-      this.props.dispatch({
-        type: "savedExerciseRandomSaccades",
-        centerDotColor: data.randomSaccades[0],
-        extraDotColor: data.randomSaccades[1],
-        dotSpeed: data.randomSaccades[2],
-        dotNumber: data.randomSaccades[3],
-      });
+      if (cookie.get('data')) {
+        let data = cookie.get('data')
+        this.props.dispatch({
+          type: "savedExerciseRandomSaccades",
+          centerDotColor: data.randomSaccades[0],
+          extraDotColor: data.randomSaccades[1],
+          dotSpeed: data.randomSaccades[2],
+          dotNumber: data.randomSaccades[3],
+        });
+      }
     }
   }
 
