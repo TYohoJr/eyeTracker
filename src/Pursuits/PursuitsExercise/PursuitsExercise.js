@@ -59,6 +59,9 @@ class PursuitsExercise extends Component {
                 leftValue = 50;
         }
         setTimeout(() => {
+            if(this.props.pursuitsReducer.cycles === 'Infinite') {
+                return;
+            }
             this.props.dispatch({
                 type: "changeCurrentPage",
                 currentPage: <PursuitsOptions />
