@@ -29,10 +29,16 @@ class RandomSaccadesExercise extends Component {
                 })
                 clearInterval(this.timerID);
             } else {
+                let topPercentNumber = Math.floor(Math.random() * 89);
+                let leftPercentNumber = Math.floor(Math.random() * 89);
+                if ((topPercentNumber > 45 && topPercentNumber < 55) && (leftPercentNumber > 45 && leftPercentNumber < 55)) {
+                    topPercentNumber = Math.floor(Math.random() * 89);
+                    leftPercentNumber = Math.floor(Math.random() * 89);
+                }
                 this.props.dispatch({
                     type: "changeDotLocation",
-                    topPercent: Math.floor(Math.random() * 89),
-                    leftPercent: Math.floor(Math.random() * 89),
+                    topPercent: topPercentNumber,
+                    leftPercent: leftPercentNumber,
                 })
                 counter++;
             }
