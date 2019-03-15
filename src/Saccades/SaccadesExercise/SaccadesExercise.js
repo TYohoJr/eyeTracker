@@ -60,6 +60,15 @@ class SaccadesExercise extends Component {
                 topValue = 50;
                 leftValue = 50;
         }
+        setTimeout(() => {
+            if (cycles === 'Infinite') {
+                return;
+            }
+            this.props.dispatch({
+                type: "changeCurrentPage",
+                currentPage: <SaccadesOptions />
+            })
+        }, (dotSpeed * cycles) * 1000 + 500)
         return (
             <div>
                 <span id="saccades-dot" style={{
