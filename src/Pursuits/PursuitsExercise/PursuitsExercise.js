@@ -58,6 +58,12 @@ class PursuitsExercise extends Component {
                 topValue = 50;
                 leftValue = 50;
         }
+        setTimeout(() => {
+            this.props.dispatch({
+                type: "changeCurrentPage",
+                currentPage: <PursuitsOptions />
+            })
+        }, (animationDuration * this.props.pursuitsReducer.cycles) * 1000 + 500)
         return (
             <div>
                 <span id="pursuits-dot" style={{

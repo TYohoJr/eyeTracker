@@ -72,7 +72,7 @@ class MyNavbar extends Component {
     var logInButton = <MyLogInModal />;
     var navbarDropdownName = 'Log In/Create Account';
     var logInGreeting = 'Guest';
-    if(cookie.get('username')) {
+    if (cookie.get('username')) {
       logOutButton = <Button color="danger" onClick={this.logOutUser}>Log Out</Button>
       logInButton = <MyAccountModal />;
       navbarDropdownName = 'Account';
