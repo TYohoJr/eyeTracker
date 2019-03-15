@@ -40,6 +40,12 @@ class CombinationExercise extends Component {
             dotSpeed = 10 - currentArray[0].dotSpeed;
             animationDuration = 10 - currentArray[0].dotSpeed;
         }
+        setTimeout(() => {
+            this.props.dispatch({
+                type: "changeCurrentPage",
+                currentPage: <CombinationOptions />
+            })
+        }, ((animationDelayP + animationDelayS + animationDuration) * 1000));
         return (
             <div>
                 <div className="exercise-div">
