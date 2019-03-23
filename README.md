@@ -1,5 +1,5 @@
 # Eye Tracker
-Eye Tracker is a personal project to bring exercises that neurologists typically use with patients that have an abnormal vestibular system, to a web based application.
+Eye Tracker is a personal project to bring exercises that neurologists typically use with patients that have an abnormal vestibular system, to a web based application. This is the front-end code. The back-end can be found at [Eye Tracker Server](https://github.com/TYohoJr/eyeTracker-server).
 
 ## Features
 * Home page with multiple options of exercises to choose from
