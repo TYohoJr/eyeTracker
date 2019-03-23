@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Eye Tracker
+Eye Tracker is a personal project to bring exercises that neurologists typically use with patients that have an abnormal vestibular system, to a web based application.
 
-## Available Scripts
+## Features
+* Home page with multiple options of exercises to choose from
+* Options page to better suite each exercise to the users needs
+* Log in option to save settings for each exercise to improve user friendliness
 
-In the project directory, you can run:
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development purposes. See deployment for notes on how to deploy the project on a live system.
 
-### `npm start`
+### Installing
+To run the app locally first fork this respository and clone it onto your machine. Instructions on how to do that can be found [here](https://help.github.com/en/articles/fork-a-repo).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Once in the project install the necessary dependencies by running
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```
+npm install
+```
+You now have all the files needed to run the project locally.
 
-### `npm test`
+## Deployment
+To deploy the project locally after installing dependencies run
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm start
+```
 
-### `npm run build`
+A browser window will automatically open and the project will be running locally. The window will hot reload upon any file changes.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built With
+* [React](https://reactjs.org/) - Front-end Framework for JS/HTML/CSS
+* [Reactstrap](https://reactstrap.github.io/) - Bootstrap for React Components
+* [Redux](https://redux.js.org/) - State Mangement
+* [Axios](https://www.npmjs.com/package/axios) - Server calls
+* [universal-cookie](https://www.npmjs.com/package/universal-cookie) - Cookie storage/management
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Source Control
+GitHub was used for source control. To view commits visit [this repository](https://github.com/TYohoJr/eyeTracker).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Authors
+* Thomas Yoho
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/TYohoJr/eyeTracker/blob/master/LICENSE) file for details
