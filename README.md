@@ -36,7 +36,7 @@ A browser window will automatically open and the project will be running locally
 * [universal-cookie](https://www.npmjs.com/package/universal-cookie) - Cookie storage/management
 
 ## Source Control
-GitHub was used for source control. To view commits visit [this repository](https://github.com/TYohoJr/eyeTracker).
+GitHub was used for source control. You can view commits [here](https://github.com/TYohoJr/eyeTracker/commits/master).
 
 ## Authors
 * Thomas Yoho
